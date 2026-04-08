@@ -24,7 +24,7 @@
   body {
     font-family:'Noto Sans KR',sans-serif;
     background:var(--bg);
-    overflow-x:hidden;
+    overflow:hidden;
     font-size:calc(var(--base)*var(--s));
     transition:font-size .3s;
     color:var(--text);
@@ -38,7 +38,17 @@
   .fb.on{border-color:var(--accent);color:var(--accent);background:#F0F5ED;}
   .fb-s{font-size:11px!important;} .fb-m{font-size:15px!important;} .fb-l{font-size:19px!important;}
 
-  .wrap{max-width:420px;margin:0 auto;}
+  html,body{height:100%;overflow:hidden;}
+  .wrap{max-width:420px;margin:0 auto;position:relative;overflow:hidden;height:100vh;height:100dvh;}
+  .slides{display:flex;transition:transform .4s cubic-bezier(.4,0,.2,1);height:100%;}
+  .slide{width:100%;min-width:100%;height:100vh;height:100dvh;overflow-y:auto;-webkit-overflow-scrolling:touch;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:60px 28px 44px;flex-shrink:0;background:var(--bg);}
+  .page-nav{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:9998;display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:8px 14px;border-radius:20px;box-shadow:0 2px 16px rgba(0,0,0,.1);border:1px solid var(--border);}
+  .nav-btn{width:32px;height:32px;border:none;border-radius:50%;background:var(--border);color:var(--text-sub);font-size:16px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;font-family:sans-serif;}
+  .nav-btn:active{transform:scale(.9);} .nav-btn:disabled{opacity:.3;cursor:default;}
+  .nav-dots{display:flex;gap:4px;align-items:center;}
+  .nav-dot{width:6px;height:6px;border-radius:50%;background:var(--border);transition:all .3s;}
+  .nav-dot.on{width:18px;border-radius:3px;background:var(--accent);}
+  .nav-num{font-size:11px;color:var(--text-light);font-weight:600;min-width:32px;text-align:center;}
   .page{width:100%;min-height:100vh;min-height:100dvh;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:60px 28px 44px;}
   .sep{height:1px;background:var(--border);margin:0 28px;}
 
@@ -151,10 +161,10 @@
   <button class="fb fb-l on" onclick="sf(1.4)" data-s="1.4">가</button>
 </div>
 
-<div class="wrap">
+<div class="wrap"><div class="slides" id="slides">
 
   <!-- COVER -->
-  <div class="page cover">
+  <div class="slide"><div class="page cover">
     <div class="cover-brand">두레생협온라인</div>
     <h1 class="cover-title">건강한 <em>봄 식탁</em>,<br>최대 35% 할인</h1>
     <p class="cover-sub">봄바람 빅세일 &middot; 175가지</p>
@@ -185,29 +195,30 @@
     </div>
   </div>
 
-  <div class="sep"></div>
+</div>
 
-  <!-- 가족 건강 -->
+    <div class="slide">
+    <!-- 가족 건강 -->
   <div class="section">
     <div class="sec-label">가족 건강</div>
     <h2 class="sec-title">우리 가족 건강,<br>봄에 미리 챙기세요</h2>
 
-    <a href="https://ecoop.or.kr/DureShop/prod/goodsView.do?returnTypeGb=01&returnNo=41515&returnPlanNo=0" target="_blank" class="item">
+    <a href="https://ecoop.or.kr/DureShop/plan/planView.do?returnTypeGb=plan&returnNo=1655" target="_blank" class="item">
       <img class="item-img" src="https://dureimg.ecoop.or.kr:9091/Delsys/DLOG/Goods/GoodsMaster/GoodsImage/41515C.png" alt="프로바이오틱스" onerror="this.outerHTML='<div class=item-fb>&#x1F48A;</div>'">
       <div class="item-info"><div class="item-name">프로바이오틱스 <span class="tag">BEST</span></div><div class="item-meta">장 건강의 시작</div></div>
       <div class="item-rt"><span class="item-dc">35%</span><span class="item-link">상품보기 &rsaquo;</span></div>
     </a>
-    <a href="https://ecoop.or.kr/DureShop/prod/goodsView.do?returnTypeGb=01&returnNo=42857&returnPlanNo=0" target="_blank" class="item">
+    <a href="https://ecoop.or.kr/DureShop/plan/planView.do?returnTypeGb=plan&returnNo=1655" target="_blank" class="item">
       <img class="item-img" src="https://dureimg.ecoop.or.kr:9091/Delsys/DLOG/Goods/GoodsMaster/GoodsImage/42857C.jpg" alt="루테인오메가3" onerror="this.outerHTML='<div class=item-fb>&#x1F441;</div>'">
       <div class="item-info"><div class="item-name">루테인오메가3</div><div class="item-meta">눈 + 혈관 건강</div></div>
       <div class="item-rt"><span class="item-dc">35%</span><span class="item-link">상품보기 &rsaquo;</span></div>
     </a>
-    <a href="https://ecoop.or.kr/DureShop/prod/goodsView.do?returnTypeGb=01&returnNo=44787&returnPlanNo=0" target="_blank" class="item">
+    <a href="https://ecoop.or.kr/DureShop/plan/planView.do?returnTypeGb=plan&returnNo=1655" target="_blank" class="item">
       <img class="item-img" src="https://dureimg.ecoop.or.kr:9091/Delsys/DLOG/Goods/GoodsMaster/GoodsImage/44787C.jpg" alt="비타민D" onerror="this.outerHTML='<div class=item-fb>&#x2600;</div>'">
       <div class="item-info"><div class="item-name">비타민D 2200IU</div><div class="item-meta">면역력 + 뼈 건강</div></div>
       <div class="item-rt"><span class="item-dc">35%</span><span class="item-link">상품보기 &rsaquo;</span></div>
     </a>
-    <a href="https://ecoop.or.kr/DureShop/prod/goodsView.do?returnTypeGb=01&returnNo=58090&returnPlanNo=0" target="_blank" class="item">
+    <a href="https://ecoop.or.kr/DureShop/plan/planView.do?returnTypeGb=plan&returnNo=1655" target="_blank" class="item">
       <img class="item-img" src="https://dureimg.ecoop.or.kr:9091/Delsys/DLOG/Goods/GoodsMaster/GoodsImage/58090C.jpg" alt="콘드로이친" onerror="this.outerHTML='<div class=item-fb>&#x1F9B4;</div>'">
       <div class="item-info"><div class="item-name">뮤코다당단백 콘드로이친</div><div class="item-meta">관절 건강</div></div>
       <div class="item-rt"><span class="item-dc">20%</span><span class="item-link">상품보기 &rsaquo;</span></div>
@@ -215,125 +226,130 @@
     <p class="more-text">외 건강식품 22종 할인</p>
   </div>
 
-  <div class="sep"></div>
+</div>
 
-  <!-- 부모님 선물 -->
+    <div class="slide">
+    <!-- 부모님 선물 -->
   <div class="section">
     <div class="sec-label">가정의 달 준비</div>
     <h2 class="sec-title">부모님 선물,<br>5월 전에 미리미리</h2>
 
-    <a href="https://ecoop.or.kr/DureShop/prod/goodsView.do?returnTypeGb=01&returnNo=6116&returnPlanNo=0" target="_blank" class="item">
+    <a href="https://ecoop.or.kr/DureShop/plan/planView.do?returnTypeGb=plan&returnNo=1655" target="_blank" class="item">
       <img class="item-img" src="https://dureimg.ecoop.or.kr:9091/Delsys/DLOG/Goods/GoodsMaster/GoodsImage/6116C.jpg" alt="홍삼엑기스" onerror="this.outerHTML='<div class=item-fb>&#x1F9E7;</div>'">
       <div class="item-info"><div class="item-name">6년근홍삼엑기스(60팩)</div><div class="item-meta">기력 회복</div></div>
       <div class="item-rt"><span class="item-dc">18%</span><span class="item-link">상품보기 &rsaquo;</span></div>
     </a>
-    <a href="https://ecoop.or.kr/DureShop/prod/goodsView.do?returnTypeGb=01&returnNo=3069&returnPlanNo=0" target="_blank" class="item">
+    <a href="https://ecoop.or.kr/DureShop/plan/planView.do?returnTypeGb=plan&returnNo=1655" target="_blank" class="item">
       <img class="item-img" src="https://dureimg.ecoop.or.kr:9091/Delsys/DLOG/Goods/GoodsMaster/GoodsImage/3069C.jpg" alt="녹용엑기스" onerror="this.outerHTML='<div class=item-fb>&#x1F98C;</div>'">
       <div class="item-info"><div class="item-name">녹용엑기스(여성/60팩)</div><div class="item-meta">어머니 건강</div></div>
       <div class="item-rt"><span class="item-dc">12%</span><span class="item-link">상품보기 &rsaquo;</span></div>
     </a>
-    <a href="https://ecoop.or.kr/DureShop/prod/goodsView.do?returnTypeGb=01&returnNo=32556&returnPlanNo=0" target="_blank" class="item">
+    <a href="https://ecoop.or.kr/DureShop/plan/planView.do?returnTypeGb=plan&returnNo=1655" target="_blank" class="item">
       <img class="item-img" src="https://dureimg.ecoop.or.kr:9091/Delsys/DLOG/Goods/GoodsMaster/GoodsImage/32556C.jpg" alt="돌배도라지즙" onerror="this.outerHTML='<div class=item-fb>&#x1F350;</div>'">
       <div class="item-info"><div class="item-name">돌배도라지즙</div><div class="item-meta">환절기 선물 1순위</div></div>
       <div class="item-rt"><span class="item-dc">25%</span><span class="item-link">상품보기 &rsaquo;</span></div>
     </a>
-    <a href="https://ecoop.or.kr/DureShop/prod/goodsView.do?returnTypeGb=01&returnNo=31422&returnPlanNo=0" target="_blank" class="item">
+    <a href="https://ecoop.or.kr/DureShop/plan/planView.do?returnTypeGb=plan&returnNo=1655" target="_blank" class="item">
       <img class="item-img" src="https://dureimg.ecoop.or.kr:9091/Delsys/DLOG/Goods/GoodsMaster/GoodsImage/31422C.jpg" alt="어린이홍삼" onerror="this.outerHTML='<div class=item-fb>&#x1F9D2;</div>'">
       <div class="item-info"><div class="item-name">어린이튼튼홍삼(60팩)</div><div class="item-meta">성장기 아이 건강</div></div>
       <div class="item-rt"><span class="item-dc">15%</span><span class="item-link">상품보기 &rsaquo;</span></div>
     </a>
   </div>
 
-  <div class="sep"></div>
+</div>
 
-  <!-- 봄 제철 -->
+    <div class="slide">
+    <!-- 봄 제철 -->
   <div class="section">
     <div class="sec-label">봄 제철</div>
     <h2 class="sec-title">딱 지금만,<br>향긋한 봄 제철 식탁</h2>
 
-    <a href="https://ecoop.or.kr/DureShop/prod/goodsView.do?returnTypeGb=01&returnNo=56698&returnPlanNo=0" target="_blank" class="item">
+    <a href="https://ecoop.or.kr/DureShop/plan/planView.do?returnTypeGb=plan&returnNo=1655" target="_blank" class="item">
       <img class="item-img" src="https://dureimg.ecoop.or.kr:9091/Delsys/DLOG/Goods/GoodsMaster/GoodsImage/56698C.jpg" alt="달래장" onerror="this.outerHTML='<div class=item-fb>&#x1F33F;</div>'">
       <div class="item-info"><div class="item-name">달래장</div><div class="item-meta">밥도둑 봄 양념장</div></div>
       <div class="item-rt"><span class="item-dc">9%</span><span class="item-link">상품보기 &rsaquo;</span></div>
     </a>
-    <a href="https://ecoop.or.kr/DureShop/prod/goodsView.do?returnTypeGb=01&returnNo=59420&returnPlanNo=0" target="_blank" class="item">
+    <a href="https://ecoop.or.kr/DureShop/plan/planView.do?returnTypeGb=plan&returnNo=1655" target="_blank" class="item">
       <img class="item-img" src="https://dureimg.ecoop.or.kr:9091/Delsys/DLOG/Goods/GoodsMaster/GoodsImage/59420C.jpg" alt="풋마늘대김치" onerror="this.outerHTML='<div class=item-fb>&#x1F9C4;</div>'">
       <div class="item-info"><div class="item-name">풋마늘대김치 500g</div><div class="item-meta">봄에만 맛볼 수 있는</div></div>
       <div class="item-rt"><span class="item-dc">9%</span><span class="item-link">상품보기 &rsaquo;</span></div>
     </a>
-    <a href="https://ecoop.or.kr/DureShop/prod/goodsView.do?returnTypeGb=01&returnNo=59429&returnPlanNo=0" target="_blank" class="item">
+    <a href="https://ecoop.or.kr/DureShop/plan/planView.do?returnTypeGb=plan&returnNo=1655" target="_blank" class="item">
       <img class="item-img" src="https://dureimg.ecoop.or.kr:9091/Delsys/DLOG/Goods/GoodsMaster/GoodsImage/59429C.jpg" alt="돌산갓김치" onerror="this.outerHTML='<div class=item-fb>&#x1F96C;</div>'">
       <div class="item-info"><div class="item-name">돌산갓김치 1kg</div><div class="item-meta">알싸한 봄 향기</div></div>
       <div class="item-rt"><span class="item-dc">10%</span><span class="item-link">상품보기 &rsaquo;</span></div>
     </a>
-    <a href="https://ecoop.or.kr/DureShop/prod/goodsView.do?returnTypeGb=01&returnNo=39707&returnPlanNo=0" target="_blank" class="item">
+    <a href="https://ecoop.or.kr/DureShop/plan/planView.do?returnTypeGb=plan&returnNo=1655" target="_blank" class="item">
       <img class="item-img" src="https://dureimg.ecoop.or.kr:9091/Delsys/DLOG/Goods/GoodsMaster/GoodsImage/39707C.jpg" alt="장아찌혼합장" onerror="this.outerHTML='<div class=item-fb>&#x1FAD9;</div>'">
       <div class="item-info"><div class="item-name">장아찌 혼합장 1000ml</div><div class="item-meta">봄 장아찌 담그기</div></div>
       <div class="item-rt"><span class="item-dc">9%</span><span class="item-link">상품보기 &rsaquo;</span></div>
     </a>
   </div>
 
-  <div class="sep"></div>
+</div>
 
-  <!-- 건강한 밥상 -->
+    <div class="slide">
+    <!-- 건강한 밥상 -->
   <div class="section">
     <div class="sec-label">건강한 밥상</div>
     <h2 class="sec-title">매일 쓰는 식재료가<br>건강의 시작</h2>
 
-    <a href="https://ecoop.or.kr/DureShop/prod/goodsView.do?returnTypeGb=01&returnNo=58287&returnPlanNo=0" target="_blank" class="item">
+    <a href="https://ecoop.or.kr/DureShop/plan/planView.do?returnTypeGb=plan&returnNo=1655" target="_blank" class="item">
       <img class="item-img" src="https://dureimg.ecoop.or.kr:9091/Delsys/DLOG/Goods/GoodsMaster/GoodsImage/58287C.jpg" alt="야채가루" onerror="this.outerHTML='<div class=item-fb>&#x1F33F;</div>'">
       <div class="item-info"><div class="item-name">야채가루 30스틱 <span class="tag">BEST</span></div><div class="item-meta">천연 감칠맛</div></div>
       <div class="item-rt"><span class="item-dc">34%</span><span class="item-link">상품보기 &rsaquo;</span></div>
     </a>
-    <a href="https://ecoop.or.kr/DureShop/prod/goodsView.do?returnTypeGb=01&returnNo=32424&returnPlanNo=0" target="_blank" class="item">
+    <a href="https://ecoop.or.kr/DureShop/plan/planView.do?returnTypeGb=plan&returnNo=1655" target="_blank" class="item">
       <img class="item-img" src="https://dureimg.ecoop.or.kr:9091/Delsys/DLOG/Goods/GoodsMaster/GoodsImage/32424C.jpg" alt="포기김치" onerror="this.outerHTML='<div class=item-fb>&#x1F962;</div>'">
       <div class="item-info"><div class="item-name">포기김치 2kg</div><div class="item-meta">국산 정성 김치</div></div>
       <div class="item-rt"><span class="item-dc">24%</span><span class="item-link">상품보기 &rsaquo;</span></div>
     </a>
-    <a href="https://ecoop.or.kr/DureShop/prod/goodsView.do?returnTypeGb=01&returnNo=20708&returnPlanNo=0" target="_blank" class="item">
+    <a href="https://ecoop.or.kr/DureShop/plan/planView.do?returnTypeGb=plan&returnNo=1655" target="_blank" class="item">
       <img class="item-img" src="https://dureimg.ecoop.or.kr:9091/Delsys/DLOG/Goods/GoodsMaster/GoodsImage/20708C.jpg" alt="발아참기름" onerror="this.outerHTML='<div class=item-fb>&#x1FAD9;</div>'">
       <div class="item-info"><div class="item-name">발아참기름 300ml</div><div class="item-meta">향이 깊은 참기름</div></div>
       <div class="item-rt"><span class="item-dc">14%</span><span class="item-link">상품보기 &rsaquo;</span></div>
     </a>
-    <a href="https://ecoop.or.kr/DureShop/prod/goodsView.do?returnTypeGb=01&returnNo=28485&returnPlanNo=0" target="_blank" class="item">
+    <a href="https://ecoop.or.kr/DureShop/plan/planView.do?returnTypeGb=plan&returnNo=1655" target="_blank" class="item">
       <img class="item-img" src="https://dureimg.ecoop.or.kr:9091/Delsys/DLOG/Goods/GoodsMaster/GoodsImage/28485C.jpg" alt="순우유" onerror="this.outerHTML='<div class=item-fb>&#x1F95B;</div>'">
       <div class="item-info"><div class="item-name">순우유 900ml</div><div class="item-meta">무항생제 안심 우유</div></div>
       <div class="item-rt"><span class="item-dc">9%</span><span class="item-link">상품보기 &rsaquo;</span></div>
     </a>
   </div>
 
-  <div class="sep"></div>
+</div>
 
-  <!-- 바다 + 여름 -->
+    <div class="slide">
+    <!-- 바다 + 여름 -->
   <div class="section">
     <div class="sec-label">바다 별미 &middot; 여름 준비</div>
     <h2 class="sec-title">수산물 영양 보충,<br>여름도 미리 준비</h2>
 
-    <a href="https://ecoop.or.kr/DureShop/prod/goodsView.do?returnTypeGb=01&returnNo=58200&returnPlanNo=0" target="_blank" class="item">
+    <a href="https://ecoop.or.kr/DureShop/plan/planView.do?returnTypeGb=plan&returnNo=1655" target="_blank" class="item">
       <img class="item-img" src="https://dureimg.ecoop.or.kr:9091/Delsys/DLOG/Goods/GoodsMaster/GoodsImage/58200C.jpg" alt="데친문어" onerror="this.outerHTML='<div class=item-fb>&#x1F419;</div>'">
       <div class="item-info"><div class="item-name">데친문어 700g</div><div class="item-meta">타우린 풍부</div></div>
       <div class="item-rt"><span class="item-dc">30%</span><span class="item-link">상품보기 &rsaquo;</span></div>
     </a>
-    <a href="https://ecoop.or.kr/DureShop/prod/goodsView.do?returnTypeGb=01&returnNo=50955&returnPlanNo=0" target="_blank" class="item">
+    <a href="https://ecoop.or.kr/DureShop/plan/planView.do?returnTypeGb=plan&returnNo=1655" target="_blank" class="item">
       <img class="item-img" src="https://dureimg.ecoop.or.kr:9091/Delsys/DLOG/Goods/GoodsMaster/GoodsImage/50955C.jpg" alt="훈제연어" onerror="this.outerHTML='<div class=item-fb>&#x1F363;</div>'">
       <div class="item-info"><div class="item-name">항공직송 훈제연어</div><div class="item-meta">오메가3 풍부</div></div>
       <div class="item-rt"><span class="item-dc">20%</span><span class="item-link">상품보기 &rsaquo;</span></div>
     </a>
-    <a href="https://ecoop.or.kr/DureShop/prod/goodsView.do?returnTypeGb=01&returnNo=43396&returnPlanNo=0" target="_blank" class="item">
+    <a href="https://ecoop.or.kr/DureShop/plan/planView.do?returnTypeGb=plan&returnNo=1655" target="_blank" class="item">
       <img class="item-img" src="https://dureimg.ecoop.or.kr:9091/Delsys/DLOG/Goods/GoodsMaster/GoodsImage/43396C.jpg" alt="콩국물" onerror="this.outerHTML='<div class=item-fb>&#x1F963;</div>'">
       <div class="item-info"><div class="item-name">콩국물 1L</div><div class="item-meta">단백질 풍부한 여름 별미</div></div>
       <div class="item-rt"><span class="item-dc">15%</span><span class="item-link">상품보기 &rsaquo;</span></div>
     </a>
-    <a href="https://ecoop.or.kr/DureShop/prod/goodsView.do?returnTypeGb=01&returnNo=30779&returnPlanNo=0" target="_blank" class="item">
+    <a href="https://ecoop.or.kr/DureShop/plan/planView.do?returnTypeGb=plan&returnNo=1655" target="_blank" class="item">
       <img class="item-img" src="https://dureimg.ecoop.or.kr:9091/Delsys/DLOG/Goods/GoodsMaster/GoodsImage/30779C.jpg" alt="보리물냉면" onerror="this.outerHTML='<div class=item-fb>&#x1F35C;</div>'">
       <div class="item-info"><div class="item-name">보리물냉면</div><div class="item-meta">시원하게 여름 대비</div></div>
       <div class="item-rt"><span class="item-dc">9%</span><span class="item-link">상품보기 &rsaquo;</span></div>
     </a>
   </div>
 
-  <div class="sep"></div>
+</div>
 
-  <!-- 두레맛찬 -->
+    <div class="slide">
+    <!-- 두레맛찬 -->
   <div class="coupon-section">
     <div class="coupon-label">두레맛찬</div>
     <h3 class="coupon-title">3개 이상 구매하면<br>20% 할인 쿠폰</h3>
@@ -353,48 +369,100 @@
     </div>
   </div>
 
-  <div class="sep"></div>
+</div>
 
-  <!-- 스페셜 -->
+    <div class="slide">
+    <!-- 스페셜 -->
   <div class="section">
     <div class="sec-label">신규 출시</div>
     <h2 class="sec-title">새로 나온 상품</h2>
 
-    <a href="https://ecoop.or.kr/DureShop/prod/goodsView.do?returnTypeGb=01&returnNo=58629&returnPlanNo=0" target="_blank" class="item">
+    <a href="https://ecoop.or.kr/DureShop/plan/planView.do?returnTypeGb=plan&returnNo=1655" target="_blank" class="item">
       <img class="item-img" src="https://dureimg.ecoop.or.kr:9091/Delsys/DLOG/Goods/GoodsMaster/GoodsImage/58629C.jpg" alt="양숄더랙" onerror="this.outerHTML='<div class=item-fb>&#x1F969;</div>'">
       <div class="item-info"><div class="item-name">풀만먹인 양 숄더랙</div><div class="item-meta">프리미엄 양고기</div></div>
       <div class="item-rt"><span class="item-dc">15%</span><span class="item-link">상품보기 &rsaquo;</span></div>
     </a>
-    <a href="https://ecoop.or.kr/DureShop/prod/goodsView.do?returnTypeGb=01&returnNo=59362&returnPlanNo=0" target="_blank" class="item">
+    <a href="https://ecoop.or.kr/DureShop/plan/planView.do?returnTypeGb=plan&returnNo=1655" target="_blank" class="item">
       <img class="item-img" src="https://dureimg.ecoop.or.kr:9091/Delsys/DLOG/Goods/GoodsMaster/GoodsImage/59362C.jpg" alt="베이스선크림" onerror="this.outerHTML='<div class=item-fb>&#x2600;</div>'">
       <div class="item-info"><div class="item-name">베이스 선크림 <span class="tag">NEW</span></div><div class="item-meta">파머스그레인 신규</div></div>
       <div class="item-rt"><span class="item-dc">10%</span><span class="item-link">상품보기 &rsaquo;</span></div>
     </a>
-    <a href="https://ecoop.or.kr/DureShop/prod/goodsView.do?returnTypeGb=01&returnNo=59378&returnPlanNo=0" target="_blank" class="item">
+    <a href="https://ecoop.or.kr/DureShop/plan/planView.do?returnTypeGb=plan&returnNo=1655" target="_blank" class="item">
       <img class="item-img" src="https://dureimg.ecoop.or.kr:9091/Delsys/DLOG/Goods/GoodsMaster/GoodsImage/59378C.jpg" alt="노스테아토" onerror="this.outerHTML='<div class=item-fb>&#x1F9F4;</div>'">
       <div class="item-info"><div class="item-name">노스테 아토 3종 세트</div><div class="item-meta">워시 + 로션 + 크림</div></div>
       <div class="item-rt"><span class="item-dc">20%</span><span class="item-link">상품보기 &rsaquo;</span></div>
     </a>
   </div>
 
-  <!-- CTA -->
+  </div>
+
+    <div class="slide">
+    <!-- CTA -->
   <div class="page cta-page">
     <h2 class="cta-title">건강한 봄 식탁,<br>지금 시작하세요</h2>
     <p class="cta-period">~ 4/16(목) 오전 11:30까지<br><span style="font-size:calc(11px*var(--s));opacity:.7;">농식품부 할인지원: 4/9(목) ~ 4/15(수)</span></p>
-    <a href="https://ecoop.or.kr/" target="_blank" class="cta-btn">장보러 가기</a>
+    <a href="https://ecoop.or.kr/DureShop/plan/planView.do?returnTypeGb=plan&returnNo=1655" target="_blank" class="cta-btn">장보러 가기</a>
     <p class="cta-note">두레생협온라인</p>
   </div>
+
+  </div>
+  </div><!-- /slides -->
 
   <div class="footer">
     <strong>두레생협온라인</strong> &middot; 봄바람 빅세일<br>
     최대 35% &middot; 175가지 &middot; ~ 4/16(목) 11:30<br>
     <a href="https://ecoop.or.kr/" target="_blank">ecoop.or.kr</a>
   </div>
+
+<div class="page-nav">
+  <button class="nav-btn" id="prevBtn" onclick="goSlide(cur-1)">&lsaquo;</button>
+  <div class="nav-dots" id="dots"></div>
+  <span class="nav-num" id="navNum">1/9</span>
+  <button class="nav-btn" id="nextBtn" onclick="goSlide(cur+1)">&rsaquo;</button>
+</div>
 </div>
 
 <script>
 function sf(s){document.documentElement.style.setProperty('--s',s);document.querySelectorAll('.fb').forEach(b=>b.classList.toggle('on',parseFloat(b.dataset.s)===s));localStorage.setItem('fs_b',s);}
 sf(parseFloat(localStorage.getItem('fs_b'))||1.4);
+
+// === SLIDER ===
+const slides = document.getElementById('slides');
+const allSlides = slides.querySelectorAll('.slide');
+const total = allSlides.length;
+let cur = 0;
+const dotsEl = document.getElementById('dots');
+for (let i = 0; i < total; i++) {
+  const d = document.createElement('div');
+  d.className = 'nav-dot' + (i === 0 ? ' on' : '');
+  d.onclick = () => goSlide(i);
+  dotsEl.appendChild(d);
+}
+function goSlide(n) {
+  if (n < 0 || n >= total) return;
+  cur = n;
+  slides.style.transform = 'translateX(-' + (cur * 100) + '%)';
+  dotsEl.querySelectorAll('.nav-dot').forEach((d, i) => d.classList.toggle('on', i === cur));
+  document.getElementById('navNum').textContent = (cur + 1) + '/' + total;
+  document.getElementById('prevBtn').disabled = cur === 0;
+  document.getElementById('nextBtn').disabled = cur === total - 1;
+  allSlides[cur].scrollTop = 0;
+}
+let tx = 0, sx = false;
+document.addEventListener('touchstart', e => { tx = e.touches[0].clientX; sx = false; });
+document.addEventListener('touchmove', e => {
+  if (!sx && Math.abs(e.touches[0].clientX - tx) > 20) sx = true;
+  if (sx) e.preventDefault();
+}, { passive: false });
+document.addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - tx;
+  if (Math.abs(dx) > 50) { dx < 0 ? goSlide(cur + 1) : goSlide(cur - 1); }
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') goSlide(cur + 1);
+  if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') goSlide(cur - 1);
+});
+goSlide(0);
 
 const v=document.getElementById('heroVid');
 if(v){
