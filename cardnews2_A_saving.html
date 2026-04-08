@@ -11,14 +11,14 @@
   html,body{height:100%;overflow:hidden;}
   body{font-family:'Noto Sans KR',sans-serif;background:var(--warm);font-size:calc(16px*var(--s));color:var(--text);-webkit-font-smoothing:antialiased;}
 
-  .fc{position:fixed;top:14px;right:14px;z-index:9999;display:flex;gap:4px;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:6px 8px;border-radius:10px;box-shadow:0 2px 12px rgba(0,0,0,.06);border:1px solid var(--border);}
+  .fc{position:fixed;top:34px;right:14px;z-index:9999;display:flex;gap:4px;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:6px 8px;border-radius:10px;box-shadow:0 2px 12px rgba(0,0,0,.06);border:1px solid var(--border);}
   .fb{width:36px;height:36px;border:1.5px solid var(--border);border-radius:8px;background:white;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--text-sub);transition:all .2s;font-family:'Noto Sans KR',sans-serif;}
   .fb:active{transform:scale(.9);}.fb.on{border-color:var(--dure);color:var(--dure);background:var(--dure-light);}
   .fb-s{font-size:11px!important;}.fb-m{font-size:15px!important;}.fb-l{font-size:19px!important;}
 
   .wrap{max-width:420px;margin:0 auto;height:100vh;height:100dvh;overflow:hidden;position:relative;}
   .slides{transition:transform .45s cubic-bezier(.4,0,.2,1);height:100%;}
-  .slide{width:100%;height:100vh;height:100dvh;overflow-y:auto;-webkit-overflow-scrolling:touch;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:50px 28px 70px;background:var(--warm);}
+  .slide{width:100%;height:100vh;height:100dvh;overflow-y:auto;-webkit-overflow-scrolling:touch;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:56px 28px 70px;background:var(--warm);}
 
   .pn{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:9998;display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:8px 14px;border-radius:20px;box-shadow:0 2px 16px rgba(0,0,0,.08);border:1px solid var(--border);}
   .pn-btn{width:32px;height:32px;border:none;border-radius:50%;background:var(--border);color:var(--text-sub);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;font-family:sans-serif;}
@@ -28,6 +28,9 @@
   .pn-dot.on{width:6px;height:16px;border-radius:3px;background:var(--dure);}
   .pn-num{font-size:11px;color:var(--text-light);font-weight:600;min-width:30px;text-align:center;}
 
+  
+  .week-badge{display:inline-block;background:var(--dure-dark);color:white;padding:4px 14px;border-radius:20px;font-size:calc(11px*var(--s));font-weight:700;letter-spacing:.5px;margin-bottom:12px;}
+  .week-bar{background:var(--dure-dark);color:rgba(255,255,255,.85);text-align:center;padding:6px;font-size:calc(11px*var(--s));font-weight:600;letter-spacing:.5px;position:fixed;top:0;left:50%;transform:translateX(-50%);max-width:420px;width:100%;z-index:9990;}
   .cover{text-align:center;}
   .cv-brand{font-size:calc(11px*var(--s));font-weight:500;color:var(--dure);letter-spacing:3px;margin-bottom:24px;}
   .cv-title{font-size:calc(26px*var(--s));font-weight:900;color:var(--text);line-height:1.4;margin-bottom:6px;}
@@ -89,6 +92,7 @@
 </style>
 </head>
 <body>
+<div class="week-bar">2주간 봄바람 빅세일 &middot; 최대 35%</div>
 <div class="fc">
   <button class="fb fb-s" onclick="sf(1)" data-s="1">가</button>
   <button class="fb fb-m" onclick="sf(1.2)" data-s="1.2">가</button>
@@ -99,13 +103,14 @@
 
   <div class="slide cover">
     <div class="cv-brand">두레생협온라인</div>
+    <span class="week-badge">2주간 진행</span>
     <h1 class="cv-title">조합원님의 장바구니,<br><em>봄바람 빅세일</em>로<br>가볍게</h1>
-    <p class="cv-sub">믿을 수 있는 175가지 생활재<br>최대 35% 할인</p>
+    <p class="cv-sub">2주간, 175가지 안심 생활재 최대 35% 할인</p>
     <div class="vs">
       <div class="vr"><video id="heroVid" autoplay muted loop playsinline><source src="KakaoTalk_20260408_131720009.mp4" type="video/mp4"></video></div>
       <div class="pf"></div>
       <div class="br"><div class="bl"></div><div class="bl"></div><div class="bl"></div><div class="bl"></div><div class="bl"></div><div class="bl"></div><div class="bl"></div><div class="bl"></div></div>
-      <div class="sp"><span class="sp-n">35</span><span class="sp-p">%</span><div class="sp-l">봄맞이 빅세일</div></div>
+      <div class="sp"><span class="sp-n">35</span><span class="sp-p">%</span><div class="sp-l">2주간 봄바람 빅세일</div></div>
       <div class="st">SLOW</div>
       <div class="jb jb1">35%<span>건강</span></div><div class="jb jb2">24%<span>간편식</span></div><div class="jb jb3">20%<span>대용량</span></div><div class="jb jb4">30%<span>수산물</span></div>
     </div>
@@ -184,10 +189,10 @@
   </div></div>
 
   <div class="slide cta-slide">
-    <h2 class="cta-title">생산자의 정성,<br>조합원님의 식탁으로<br>이번 주가 가장 좋은 기회입니다</h2>
+    <h2 class="cta-title">2주간만 진행되는<br>봄바람 빅세일<br>지금이 가장 좋은 기회입니다</h2>
     <p class="cta-period">~ 4/16(목) 오전 11:30까지<br><span style="font-size:calc(11px*var(--s));opacity:.7;">농식품부 할인지원: 4/9(목) ~ 4/15(수)</span></p>
     <a href="https://ecoop.or.kr/DureShop/plan/planView.do?returnTypeGb=plan&returnNo=1655" target="_blank" class="cta-btn">두레생협온라인 장보러 가기</a>
-    <p class="cta-note">두레생협온라인 &middot; 16~17주 봄바람 빅세일</p>
+    <p class="cta-note">두레생협온라인 &middot; 16~17주 &middot; 2주간 봄바람 빅세일</p>
   </div>
 
 </div></div>
