@@ -4,484 +4,69 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>3분 만에 완성! 쉬운 온라인 주문 가이드 | 바른생협</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --primary: #1565c0;
-    --primary-light: #e3f2fd;
-    --primary-dark: #0d47a1;
-    --primary-bright: #1976d2;
-    --bg: #fafafa;
-    --card-shadow: 0 4px 20px rgba(0,0,0,0.10);
-  }
-
+  :root { --green: #2d7d46; --green-light: #e8f5e9; --green-dark: #1b5e20; --orange: #e65100; --orange-light: #fff3e0; --bg: #fafafa; --card-shadow: 0 4px 20px rgba(0,0,0,0.10); }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    font-family: 'Noto Sans KR', sans-serif;
-    background: var(--bg);
-    color: #333;
-    max-width: 480px;
-    margin: 0 auto;
-    padding-bottom: 60px;
-    overflow-x: hidden;
-  }
-
-  body::before {
-    content: '';
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    pointer-events: none;
-    z-index: 0;
-    background-image:
-      radial-gradient(circle 3px, #1565c0 100%, transparent 100%),
-      radial-gradient(circle 2px, #42a5f5 100%, transparent 100%),
-      radial-gradient(circle 2.5px, #0d47a1 100%, transparent 100%),
-      radial-gradient(circle 2px, #1976d2 100%, transparent 100%);
-    background-size: 180px 200px, 220px 180px, 160px 240px, 200px 160px;
-    background-position: 10px 20px, 80px 60px, 40px 100px, 120px 30px;
-    opacity: 0.06;
-  }
-
-  /* ===== Page Header ===== */
-  .page-header {
-    position: relative;
-    z-index: 1;
-    background: linear-gradient(135deg, #0d47a1 0%, #1565c0 40%, #1976d2 100%);
-    padding: 32px 20px 24px;
-    text-align: center;
-    color: #fff;
-    overflow: hidden;
-  }
-  .page-header::before {
-    content: '';
-    position: absolute;
-    top: -40px; right: -40px;
-    width: 160px; height: 160px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.08);
-  }
-  .page-header::after {
-    content: '';
-    position: absolute;
-    bottom: -60px; left: -30px;
-    width: 200px; height: 200px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.05);
-  }
-  .header-icon { font-size: 48px; margin-bottom: 8px; animation: bounce 2s infinite; }
-  @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-  }
-  .header-title {
-    font-size: 26px;
-    font-weight: 900;
-    letter-spacing: -0.5px;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    margin-bottom: 6px;
-    line-height: 1.35;
-  }
-  .header-title .accent { color: #fdd835; }
-  .header-subtitle {
-    font-size: 14px;
-    font-weight: 400;
-    opacity: 0.92;
-    margin-bottom: 14px;
-    line-height: 1.5;
-  }
-  .header-period {
-    display: inline-block;
-    background: rgba(255,255,255,0.2);
-    border: 1px solid rgba(255,255,255,0.3);
-    border-radius: 20px;
-    padding: 6px 18px;
-    font-size: 13px;
-    font-weight: 500;
-    backdrop-filter: blur(4px);
-  }
-
-  /* ===== Card Scroll Container ===== */
-  .card-scroll {
-    display: flex;
-    gap: 16px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding: 16px 20px 20px;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-  .card-scroll::-webkit-scrollbar { display: none; }
-
-  /* ===== Card ===== */
-  .card {
-    flex: 0 0 360px;
-    width: 360px;
-    height: 360px;
-    border-radius: 20px;
-    overflow: hidden;
-    position: relative;
-    scroll-snap-align: center;
-    box-shadow: var(--card-shadow);
-    display: flex;
-    flex-direction: column;
-    background: #fff;
-  }
-  .card-badge {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    background: rgba(0,0,0,0.55);
-    color: #fff;
-    font-size: 11px;
-    font-weight: 700;
-    border-radius: 10px;
-    padding: 3px 10px;
-    z-index: 5;
-    backdrop-filter: blur(4px);
-  }
-
-  /* ===== Cover Card ===== */
-  .card-cover {
-    background: linear-gradient(135deg, #0d47a1, #1565c0, #1e88e5);
-    color: #fff;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 30px 28px;
-    position: relative;
-  }
-  .card-cover .confetti-dots {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background-image:
-      radial-gradient(circle 4px, rgba(255,255,255,0.25) 100%, transparent 100%),
-      radial-gradient(circle 3px, rgba(253,216,53,0.35) 100%, transparent 100%),
-      radial-gradient(circle 5px, rgba(255,255,255,0.15) 100%, transparent 100%);
-    background-size: 60px 80px, 90px 70px, 120px 100px;
-    background-position: 10px 10px, 40px 50px, 70px 20px;
-  }
-  .card-cover .cover-emoji { font-size: 52px; margin-bottom: 12px; position: relative; z-index: 2; }
-  .card-cover .cover-title {
-    font-size: 22px;
-    font-weight: 900;
-    line-height: 1.35;
-    margin-bottom: 8px;
-    position: relative;
-    z-index: 2;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  }
-  .card-cover .cover-sub {
-    font-size: 14px;
-    font-weight: 400;
-    opacity: 0.92;
-    line-height: 1.5;
-    position: relative;
-    z-index: 2;
-  }
-  .card-cover .cover-url {
-    display: inline-block;
-    margin-top: 14px;
-    background: rgba(255,255,255,0.2);
-    border: 1px solid rgba(255,255,255,0.35);
-    border-radius: 20px;
-    padding: 6px 18px;
-    font-size: 13px;
-    font-weight: 700;
-    position: relative;
-    z-index: 2;
-  }
-
-  /* ===== Content Card ===== */
-  .card-content {
-    padding: 28px 24px;
-    display: flex;
-    flex-direction: column;
-  }
-  .card-content .card-label {
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-    color: var(--primary);
-  }
-  .card-content .card-title {
-    font-size: 20px;
-    font-weight: 900;
-    line-height: 1.35;
-    margin-bottom: 12px;
-    color: #222;
-  }
-  .card-content .card-desc {
-    font-size: 13px;
-    font-weight: 400;
-    line-height: 1.65;
-    color: #555;
-    flex: 1;
-  }
-
-  /* Step circles */
-  .steps {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    margin-top: 10px;
-    flex: 1;
-    justify-content: center;
-  }
-  .step {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-  .step-num {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    font-weight: 900;
-    color: #fff;
-    flex-shrink: 0;
-    background: var(--primary);
-  }
-  .step-text {
-    font-size: 13px;
-    font-weight: 500;
-    color: #333;
-    line-height: 1.45;
-  }
-
-  /* Browser mockup */
-  .browser-mock {
-    background: #f5f5f5;
-    border-radius: 12px;
-    overflow: hidden;
-    margin-top: 12px;
-    border: 1px solid #e0e0e0;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-  .browser-bar {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 8px 12px;
-    background: #e8e8e8;
-  }
+  body { font-family: 'Noto Sans KR', sans-serif; background: var(--bg); color: #333; max-width: 480px; margin: 0 auto; padding-bottom: 40px; }
+  .page-header { background: linear-gradient(135deg, #1b5e20 0%, #2d7d46 40%, #43a047 100%); padding: 28px 20px 20px; text-align: center; color: #fff; }
+  .page-header h1 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+  .page-header .sub { font-size: 13px; opacity: 0.85; }
+  .card { margin: 16px; border-radius: 16px; overflow: hidden; box-shadow: var(--card-shadow); background: #fff; }
+  .card-num { display: inline-block; background: var(--green); color: #fff; padding: 4px 14px; border-radius: 0 0 12px 0; font-size: 12px; font-weight: 700; }
+  .card-body { padding: 24px 20px; }
+  .card-body h2 { font-size: 20px; font-weight: 900; color: var(--green-dark); margin-bottom: 12px; line-height: 1.4; }
+  .card-body p { font-size: 14px; line-height: 1.7; margin-bottom: 8px; color: #555; }
+  .highlight { background: var(--green-light); border-radius: 12px; padding: 16px; margin: 12px 0; }
+  .highlight.orange { background: var(--orange-light); }
+  .benefit-item { display: flex; align-items: center; gap: 12px; padding: 14px; margin: 8px 0; border-radius: 12px; background: #f9f9f9; border: 1px solid #eee; }
+  .benefit-icon { font-size: 28px; flex-shrink: 0; }
+  .benefit-info .name { font-size: 14px; font-weight: 700; color: #333; }
+  .benefit-info .desc { font-size: 12px; color: #888; margin-top: 2px; }
+  .phone-box { background: linear-gradient(135deg, #fff3e0, #ffe0b2); border: 2px solid var(--orange); border-radius: 16px; padding: 20px; text-align: center; margin: 16px 0; }
+  .phone-box .icon { font-size: 32px; margin-bottom: 8px; }
+  .phone-box .title { font-size: 15px; font-weight: 700; color: var(--orange); margin-bottom: 4px; }
+  .phone-box .desc { font-size: 13px; color: #666; margin-bottom: 8px; }
+  .phone-box .number { font-size: 22px; font-weight: 900; color: var(--orange); }
+  .cta-btn { display: block; text-decoration: none; background: linear-gradient(135deg, #1b5e20, #2d7d46); border-radius: 14px; padding: 16px; text-align: center; color: #fff; font-size: 15px; font-weight: 700; margin-top: 16px; box-shadow: 0 4px 12px rgba(45,125,70,0.3); }
+  .cta-btn span { font-size: 12px; font-weight: 400; opacity: 0.85; display: block; margin-top: 4px; }
+  .browser-mock { background: #f5f5f5; border-radius: 12px; overflow: hidden; margin: 12px 0; border: 1px solid #e0e0e0; }
+  .browser-bar { display: flex; align-items: center; gap: 6px; padding: 8px 12px; background: #e8e8e8; }
   .browser-dot { width: 8px; height: 8px; border-radius: 50%; }
   .browser-dot.r { background: #ef5350; }
   .browser-dot.y { background: #fdd835; }
   .browser-dot.g { background: #66bb6a; }
-  .browser-url {
-    flex: 1;
-    background: #fff;
-    border-radius: 8px;
-    padding: 4px 10px;
-    font-size: 11px;
-    color: #1565c0;
-    font-weight: 600;
-    margin-left: 6px;
-  }
-  .browser-body {
-    padding: 14px;
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 13px;
-    color: #666;
-    text-align: center;
-    line-height: 1.5;
-  }
-
-  /* Delivery timeline */
-  .timeline { display: flex; align-items: center; justify-content: center; gap: 4px; margin-top: 14px; flex-wrap: wrap; }
-  .tl-step {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-  }
-  .tl-icon { font-size: 28px; }
-  .tl-label { font-size: 10px; font-weight: 600; color: #555; }
-  .tl-arrow { font-size: 18px; color: #bbb; }
-
-  /* ===== Gift Card ===== */
-  .card-gift {
-    text-align: center;
-    padding: 20px 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .card-gift::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-    background: var(--primary);
-  }
-  .gift-ribbon {
-    display: inline-block;
-    background: var(--primary);
-    padding: 5px 18px;
-    border-radius: 16px;
-    font-size: 12px;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 10px;
-  }
-  .gift-emoji { font-size: 56px; margin-bottom: 10px; }
-  .gift-title {
-    font-size: 20px;
-    font-weight: 900;
-    color: #222;
-    margin-bottom: 4px;
-  }
-  .gift-desc {
-    font-size: 13px;
-    color: #666;
-    margin-bottom: 12px;
-    line-height: 1.5;
-  }
-  .gift-price {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 6px;
-  }
-  .gift-price .original {
-    font-size: 16px;
-    color: #999;
-    text-decoration: line-through;
-    font-weight: 500;
-  }
-  .gift-price .arrow { font-size: 16px; color: #999; }
-  .gift-price .free {
-    font-size: 22px;
-    font-weight: 900;
-    color: #e53935;
-  }
-  .gift-condition {
-    font-size: 11px;
-    color: #888;
-    margin-top: 2px;
-  }
-
-  /* CTA Card */
-  .card-cta {
-    text-align: center;
-    padding: 30px 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  .card-cta .cta-emoji { font-size: 44px; margin-bottom: 14px; }
-  .card-cta .cta-title {
-    font-size: 20px;
-    font-weight: 900;
-    color: #222;
-    margin-bottom: 8px;
-    line-height: 1.35;
-  }
-  .card-cta .cta-desc {
-    font-size: 13px;
-    color: #666;
-    margin-bottom: 16px;
-    line-height: 1.55;
-  }
-  .cta-btn {
-    display: inline-block;
-    padding: 14px 36px;
-    border-radius: 28px;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 700;
-    text-decoration: none;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-    transition: transform 0.2s;
-    background: var(--primary);
-  }
-  .cta-btn:hover { transform: translateY(-2px); }
-
-  .phone-info {
-    margin-top: 12px;
-    font-size: 12px;
-    color: #888;
-    line-height: 1.5;
-  }
-  .phone-info .phone-num {
-    font-weight: 700;
-    color: var(--primary);
-    font-size: 14px;
-  }
-
-  /* Scroll hint */
-  .scroll-hint {
-    text-align: center;
-    font-size: 11px;
-    color: #aaa;
-    padding: 4px 0 0;
-  }
-
-  /* Footer */
-  .page-footer {
-    position: relative;
-    z-index: 1;
-    margin: 32px 20px 0;
-    background: #fff;
-    border-radius: 16px;
-    padding: 20px 24px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-    font-size: 12px;
-    color: #888;
-    line-height: 1.7;
-  }
-  .page-footer strong { color: #555; }
+  .browser-url { flex: 1; background: #fff; border-radius: 8px; padding: 4px 10px; font-size: 11px; color: var(--green-dark); font-weight: 600; margin-left: 6px; }
+  .browser-body { padding: 16px; text-align: center; font-size: 13px; color: #666; line-height: 1.5; }
 </style>
 </head>
 <body>
 
-<!-- ===================== PAGE HEADER ===================== -->
-<header class="page-header">
-  <div class="header-icon">📱</div>
-  <h1 class="header-title">동탄 지역 조합원<br><span class="accent">특별 혜택</span></h1>
-  <p class="header-subtitle">쉬운 온라인 주문 가이드</p>
-  <div class="header-period">3분 만에 완성! 온라인 주문</div>
-</header>
+<div class="page-header">
+  <h1>동탄 조합원님을 위한 온라인 주문 가이드</h1>
+  <div class="sub">바른생협 온라인몰 ecoop.or.kr</div>
+</div>
 
-<!-- ===================== CARDS ===================== -->
-<div class="scroll-hint">&larr; 좌우로 스크롤하세요 &rarr;</div>
-<div class="card-scroll">
-
-  <!-- Card 1: Cover -->
-  <div class="card card-cover">
-    <span class="card-badge">1/5</span>
-    <div class="confetti-dots"></div>
-    <div class="cover-emoji">📱</div>
-    <div class="cover-title">온라인 주문,<br>이렇게 쉬워요!</div>
-    <div class="cover-sub">3분이면 충분합니다<br>동탄 지역 조합원님을 위한 특별 혜택</div>
-    <div class="cover-url">⏱ 3 MIN GUIDE</div>
+<!-- 카드 1: 표지 -->
+<div class="card">
+  <div class="card-num">1 / 5</div>
+  <div class="card-body" style="text-align:center; padding:32px 20px;">
+    <p style="font-size:40px; margin-bottom:12px;">📱</p>
+    <h2 style="font-size:22px;">온라인 주문,<br>3분이면 충분해요!</h2>
+    <p style="font-size:16px; font-weight:700; color:var(--green); margin-top:12px;">
+      동탄 지역 조합원님을 위한<br>쉬운 온라인 주문 가이드
+    </p>
+    <div style="display:inline-block; margin-top:16px; background:var(--green-light); border-radius:20px; padding:8px 20px; font-size:14px; font-weight:700; color:var(--green-dark);">⏱ 3분 만에 완성!</div>
+    <a href="https://ecoop.or.kr" target="_blank" class="cta-btn">온라인몰 바로가기<span>ecoop.or.kr</span></a>
   </div>
+</div>
 
-  <!-- Card 2: STEP 1 - 접속 & 로그인 -->
-  <div class="card card-content">
-    <span class="card-badge">2/5</span>
-    <div class="card-label">STEP 1</div>
-    <div class="card-title">온라인몰 접속 & 로그인</div>
+<!-- 카드 2: STEP 1 접속 & 로그인 -->
+<div class="card">
+  <div class="card-num">2 / 5</div>
+  <div class="card-body">
+    <h2>STEP 1. 온라인몰 접속 & 로그인</h2>
+    <p>인터넷 주소창에 ecoop.or.kr을 입력하세요!</p>
     <div class="browser-mock">
       <div class="browser-bar">
         <span class="browser-dot r"></span>
@@ -497,89 +82,87 @@
         </div>
       </div>
     </div>
+    <div class="highlight">
+      <p style="margin:0;"><strong>이렇게 하시면 돼요!</strong></p>
+      <ol style="padding-left:18px; margin-top:8px;">
+        <li style="font-size:14px; margin-bottom:8px;"><strong>인터넷 주소창</strong>에 <strong style="color:var(--green-dark);">ecoop.or.kr</strong> 입력<br><span style="font-size:12px; color:#888;">네이버·다음에서 "두레생협 온라인몰" 검색도 OK!</span></li>
+        <li style="font-size:14px; margin-bottom:8px;">화면 오른쪽 위 <strong>"로그인"</strong> 클릭<br><span style="font-size:12px; color:#888;">처음이시면 "회원가입" → 조합원 번호로 가입해주세요</span></li>
+      </ol>
+    </div>
+    <a href="https://ecoop.or.kr" target="_blank" class="cta-btn">온라인몰 바로가기<span>ecoop.or.kr</span></a>
   </div>
-
-  <!-- Card 3: STEP 2 - 생활재 담기 & 결제 -->
-  <div class="card card-content">
-    <span class="card-badge">3/5</span>
-    <div class="card-label">STEP 2</div>
-    <div class="card-title">생활재 담기 & 결제</div>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num" style="font-size:18px;">🔍</div>
-        <div class="step-text">원하는 생활재를 <strong>검색</strong>하거나<br>카테고리에서 찾기</div>
-      </div>
-      <div class="step">
-        <div class="step-num" style="font-size:18px;">🛒</div>
-        <div class="step-text"><strong>장바구니</strong>에 담고<br>수량 조절하기</div>
-      </div>
-      <div class="step">
-        <div class="step-num" style="font-size:18px;">💳</div>
-        <div class="step-text">배송지 확인 후<br><strong>결제</strong> 완료!</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Card 4: STEP 3 - 배송 확인 & 수령 -->
-  <div class="card card-content">
-    <span class="card-badge">4/5</span>
-    <div class="card-label">STEP 3</div>
-    <div class="card-title">배송 확인 & 수령</div>
-    <div class="card-desc">주문하시면 빠르게 배송됩니다!<br>배송 현황을 실시간으로 확인하세요.</div>
-    <div class="timeline">
-      <div class="tl-step">
-        <div class="tl-icon">✅</div>
-        <div class="tl-label">주문완료</div>
-      </div>
-      <div class="tl-arrow">&rarr;</div>
-      <div class="tl-step">
-        <div class="tl-icon">📦</div>
-        <div class="tl-label">준비중</div>
-      </div>
-      <div class="tl-arrow">&rarr;</div>
-      <div class="tl-step">
-        <div class="tl-icon">🚚</div>
-        <div class="tl-label">배송중</div>
-      </div>
-      <div class="tl-arrow">&rarr;</div>
-      <div class="tl-step">
-        <div class="tl-icon">🏠</div>
-        <div class="tl-label">배송완료</div>
-      </div>
-    </div>
-    <div class="phone-info" style="margin-top:auto; text-align:center; background:var(--primary-light); border-radius:12px; padding:10px;">
-      배송 관련 문의<br>
-      <span class="phone-num">📞 1661-5110</span>
-    </div>
-  </div>
-
-  <!-- Card 5: Gift + CTA -->
-  <div class="card card-gift">
-    <span class="card-badge">5/5</span>
-    <div class="gift-ribbon">🎁 지금 주문하시면 드리는 선물!</div>
-    <div class="gift-emoji">🍳</div>
-    <div class="gift-title">동그랑땡 (300g)</div>
-    <div class="gift-desc">지금 주문하시면 선물을 드려요!<br>온라인 주문 조합원님께 무료 증정</div>
-    <div class="gift-price">
-      <span class="original">4,447원</span>
-      <span class="arrow">&rarr;</span>
-      <span class="free">무료!</span>
-    </div>
-    <div class="gift-condition">* 온라인 주문 시 자동 증정</div>
-    <div style="margin-top:12px; font-size:13px; font-weight:700; color:#1565c0;">어렵지 않아요! 지금 시작하세요</div>
-    <div class="phone-info">
-      전화 주문 <span class="phone-num">📞 1661-5110</span>
-    </div>
-  </div>
-
 </div>
 
-<!-- ===================== FOOTER ===================== -->
-<div class="page-footer">
-  <strong>동탄 지역 조합원 특별 혜택</strong><br>
-  쉬운 온라인 주문 가이드<br>
-  온라인몰: <strong>ecoop.or.kr</strong><br>
-  전화 주문: <strong>1661-5110</strong>
+<!-- 카드 3: STEP 2 생활재 담기 & 결제 -->
+<div class="card">
+  <div class="card-num">3 / 5</div>
+  <div class="card-body">
+    <h2>STEP 2. 생활재 담기 & 결제</h2>
+    <p>원하는 생활재를 골라 장바구니에 담고 결제하세요!</p>
+    <div class="highlight">
+      <p style="margin:0;"><strong>주문 순서</strong></p>
+      <ol style="padding-left:18px; margin-top:8px;">
+        <li style="font-size:14px; margin-bottom:8px;">원하는 생활재를 <strong>검색</strong>하거나 카테고리에서 찾기<br><span style="font-size:12px; color:#888;">🔍 검색창에 이름을 입력하면 빠르게!</span></li>
+        <li style="font-size:14px; margin-bottom:8px;"><strong>장바구니</strong>에 담고 수량 조절하기<br><span style="font-size:12px; color:#888;">🛒 여러 가지 한꺼번에 담을 수 있어요</span></li>
+        <li style="font-size:14px; margin-bottom:8px;">배송지 확인 후 <strong>결제</strong> 완료!<br><span style="font-size:12px; color:#888;">💳 카드, 계좌이체 등 다양한 결제 수단</span></li>
+      </ol>
+    </div>
+    <a href="https://ecoop.or.kr" target="_blank" class="cta-btn">온라인몰 바로가기<span>ecoop.or.kr</span></a>
+  </div>
+</div>
+
+<!-- 카드 4: STEP 3 배송 확인 & 수령 -->
+<div class="card">
+  <div class="card-num">4 / 5</div>
+  <div class="card-body">
+    <h2>STEP 3. 배송 확인 & 수령</h2>
+    <p>주문하시면 빠르게 배송됩니다! 배송 현황을 실시간으로 확인하세요.</p>
+    <div class="benefit-item"><div class="benefit-icon">✅</div><div class="benefit-info"><div class="name">주문 완료</div><div class="desc">주문이 접수되었습니다</div></div></div>
+    <div class="benefit-item"><div class="benefit-icon">📦</div><div class="benefit-info"><div class="name">준비중</div><div class="desc">생활재를 정성껏 포장합니다</div></div></div>
+    <div class="benefit-item"><div class="benefit-icon">🚚</div><div class="benefit-info"><div class="name">배송중</div><div class="desc">집 앞까지 안전하게 배송합니다</div></div></div>
+    <div class="benefit-item"><div class="benefit-icon">🏠</div><div class="benefit-info"><div class="name">배송 완료</div><div class="desc">건강한 생활재를 받아보세요!</div></div></div>
+    <div class="phone-box">
+      <div class="icon">📞</div>
+      <div class="title">배송 관련 문의</div>
+      <div class="desc">배송이 궁금하시면 전화주세요!</div>
+      <div class="number">☎ 1661-5110</div>
+    </div>
+    <a href="https://ecoop.or.kr" target="_blank" class="cta-btn">온라인몰 바로가기<span>ecoop.or.kr</span></a>
+  </div>
+</div>
+
+<!-- 카드 5: 선물 + 마무리 -->
+<div class="card">
+  <div class="card-num">5 / 5</div>
+  <div class="card-body" style="text-align:center; padding:32px 20px;">
+    <p style="font-size:48px; margin-bottom:12px;">🍳</p>
+    <h2 style="font-size:22px; color:var(--green-dark);">지금 주문하시면<br>선물을 드려요!</h2>
+
+    <div style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border-radius: 16px; padding: 24px; margin: 16px 0;">
+      <p style="font-size:16px; font-weight:900; color:#333; margin-bottom:4px;">동그랑땡 (300g)</p>
+      <div style="display:flex; align-items:center; justify-content:center; gap:10px; margin:8px 0;">
+        <span style="font-size:16px; color:#999; text-decoration:line-through;">4,447원</span>
+        <span style="font-size:16px; color:#999;">→</span>
+        <span style="font-size:22px; font-weight:900; color:#c62828;">무료!</span>
+      </div>
+      <p style="font-size:12px; color:#666; margin:0;">* 온라인 주문 시 자동 증정</p>
+    </div>
+
+    <div style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border-radius: 16px; padding: 24px; margin: 16px 0;">
+      <p style="font-size:14px; color:#555; margin-bottom:8px;">바른생협 온라인몰</p>
+      <p style="font-size:28px; font-weight:900; color:var(--green-dark); margin:0;">ecoop.or.kr</p>
+      <p style="font-size:13px; color:#666; margin-top:8px;">어렵지 않아요! 지금 시작하세요</p>
+    </div>
+
+    <div class="phone-box" style="margin-top:16px;">
+      <div class="title">온라인 이용이 어려우시면</div>
+      <div class="number">☎ 1661-5110</div>
+      <div class="desc">주문부터 배송까지 상세히 안내드립니다</div>
+    </div>
+
+    <a href="https://ecoop.or.kr" target="_blank" class="cta-btn" style="margin-top:20px;">온라인몰 바로가기<span>ecoop.or.kr</span></a>
+    <p style="font-size:13px; color:#999; margin-top:12px;">바른생협 | ecoop.or.kr</p>
+  </div>
 </div>
 
 </body>
