@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>인기 생활재 모음전 + 선물 — 평택두레생협</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root { --amber: #ff8f00; --amber-light: #fff8e1; --amber-dark: #e65100; --green: #2d7d46; --green-light: #e8f5e9; --orange: #e65100; --orange-light: #fff3e0; --bg: #fafafa; --card-shadow: 0 4px 20px rgba(0,0,0,0.10); }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Noto Sans KR', sans-serif; background: var(--bg); color: #333; max-width: 480px; margin: 0 auto; padding-bottom: 40px; }
+  .page-header { background: linear-gradient(135deg, #e65100 0%, #ff8f00 50%, #ffa726 100%); padding: 28px 20px 20px; text-align: center; color: #fff; }
+  .page-header h1 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+  .page-header .sub { font-size: 13px; opacity: 0.85; }
+  .card { margin: 16px; border-radius: 16px; overflow: hidden; box-shadow: var(--card-shadow); background: #fff; }
+  .card-num { display: inline-block; background: var(--amber); color: #fff; padding: 4px 14px; border-radius: 0 0 12px 0; font-size: 12px; font-weight: 700; }
+  .card-body { padding: 24px 20px; }
+  .card-body h2 { font-size: 20px; font-weight: 900; color: var(--amber-dark); margin-bottom: 12px; line-height: 1.4; }
+  .card-body p { font-size: 14px; line-height: 1.7; margin-bottom: 8px; color: #555; }
+  .highlight { background: var(--amber-light); border-radius: 12px; padding: 16px; margin: 12px 0; }
+  .highlight.green { background: var(--green-light); }
+  .highlight.orange { background: var(--orange-light); }
+  .product-item { display: flex; align-items: center; gap: 12px; padding: 14px; margin: 8px 0; border-radius: 12px; background: #f9f9f9; border: 1px solid #eee; }
+  .product-icon { font-size: 32px; flex-shrink: 0; }
+  .product-info { flex: 1; }
+  .product-info .name { font-size: 15px; font-weight: 700; color: #333; }
+  .product-info .desc { font-size: 12px; color: #888; margin-top: 2px; }
+  .rank-badge { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--amber); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 900; }
+  .gift-box { background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border: 2px solid var(--green); border-radius: 16px; padding: 20px; text-align: center; margin: 16px 0; }
+  .gift-box .icon { font-size: 40px; margin-bottom: 8px; }
+  .gift-box .name { font-size: 18px; font-weight: 900; color: var(--green); }
+  .gift-box .detail { font-size: 13px; color: #666; margin-top: 4px; }
+  .phone-box { background: linear-gradient(135deg, #fff3e0, #ffe0b2); border: 2px solid var(--orange); border-radius: 16px; padding: 20px; text-align: center; margin: 16px 0; }
+  .phone-box .title { font-size: 15px; font-weight: 700; color: var(--orange); margin-bottom: 4px; }
+  .phone-box .desc { font-size: 13px; color: #666; margin-bottom: 8px; }
+  .phone-box .number { font-size: 22px; font-weight: 900; color: var(--orange); }
+  .cta-box { background: linear-gradient(135deg, #e65100, #ff8f00); border-radius: 16px; padding: 24px; text-align: center; margin: 16px 0; color: #fff; }
+  .cta-box .url { font-size: 24px; font-weight: 900; color: #fff; margin: 8px 0; }
+  .cta-box .qr-placeholder { display: inline-block; width: 120px; height: 120px; background: #fff; border-radius: 12px; margin: 12px 0; line-height: 120px; color: #333; font-size: 13px; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>조합원님이 가장 많이 찾는 인기 생활재!</h1>
+  <div class="sub">온라인에서도 동일하게 만나보세요 | ecoop.or.kr</div>
+</div>
+
+<!-- 카드 1 -->
+<div class="card">
+  <div class="card-num">1 / 5</div>
+  <div class="card-body" style="text-align:center; padding:32px 20px;">
+    <p style="font-size:48px; margin-bottom:12px;">🛒</p>
+    <h2 style="font-size:22px;">조합원님이<br>가장 많이 찾는<br>인기 생활재!</h2>
+    <p style="font-size:15px; color:var(--amber-dark); font-weight:700; margin-top:8px;">온라인에서도 동일하게 구매 가능!</p>
+    <div class="highlight green" style="margin-top:16px;">
+      <p style="font-size:15px; margin:0; font-weight:700; color:var(--green);">이번 주 ecoop.or.kr 주문 시<br><span style="font-size:18px;">알육수 멸치(20알) 선물!</span></p>
+    </div>
+  </div>
+</div>
+
+<!-- 카드 2: 인기 식품 -->
+<div class="card">
+  <div class="card-num">2 / 5</div>
+  <div class="card-body">
+    <h2>인기 식품 생활재 TOP 5</h2>
+    <p>조합원님이 가장 많이 구매하는 먹거리!</p>
+    <div class="product-item"><div class="rank-badge">1</div><div class="product-icon">🥚</div><div class="product-info"><div class="name">유정란 (10구)</div><div class="desc">방사 사육 / 항생제 무첨가</div></div></div>
+    <div class="product-item"><div class="rank-badge">2</div><div class="product-icon">🥛</div><div class="product-info"><div class="name">유기농 우유 (900ml)</div><div class="desc">국내산 유기농 원유 100%</div></div></div>
+    <div class="product-item"><div class="rank-badge">3</div><div class="product-icon">🍞</div><div class="product-info"><div class="name">우리밀 식빵</div><div class="desc">국산 우리밀 / 무방부제</div></div></div>
+    <div class="product-item"><div class="rank-badge">4</div><div class="product-icon">🍖</div><div class="product-info"><div class="name">한우 불고기 (300g)</div><div class="desc">국내산 한우 / 양념 숙성</div></div></div>
+    <div class="product-item"><div class="rank-badge">5</div><div class="product-icon">🥬</div><div class="product-info"><div class="name">유기농 채소 꾸러미</div><div class="desc">제철 유기농 채소 모음</div></div></div>
+    <p style="text-align:center; font-size:14px; font-weight:700; color:var(--amber-dark); margin-top:12px;">이 생활재들, 온라인에서도 그대로!</p>
+  </div>
+</div>
+
+<!-- 카드 3: 인기 생활용품 -->
+<div class="card">
+  <div class="card-num">3 / 5</div>
+  <div class="card-body">
+    <h2>인기 생활용품 TOP 5</h2>
+    <p>매일 쓰는 생활용품도 두레생협에서!</p>
+    <div class="product-item"><div class="rank-badge">1</div><div class="product-icon">🧴</div><div class="product-info"><div class="name">EM 주방세제</div><div class="desc">친환경 세제 / 피부 자극 최소화</div></div></div>
+    <div class="product-item"><div class="rank-badge">2</div><div class="product-icon">🧻</div><div class="product-info"><div class="name">재생 화장지 (30롤)</div><div class="desc">무형광 / 재생펄프 100%</div></div></div>
+    <div class="product-item"><div class="rank-badge">3</div><div class="product-icon">🧹</div><div class="product-info"><div class="name">EM 세탁세제</div><div class="desc">아이 옷도 안심 / 친환경</div></div></div>
+    <div class="product-item"><div class="rank-badge">4</div><div class="product-icon">🪥</div><div class="product-info"><div class="name">대나무 칫솔 세트</div><div class="desc">친환경 소재 / 부드러운 모</div></div></div>
+    <div class="product-item"><div class="rank-badge">5</div><div class="product-icon">🧼</div><div class="product-info"><div class="name">EM 핸드워시</div><div class="desc">자연유래 성분 / 보습 효과</div></div></div>
+    <div class="highlight green"><p style="margin:0; font-size:14px; text-align:center;"><strong style="color:var(--green);">무거운 세제, 화장지도 집 앞까지 배송!</strong></p></div>
+  </div>
+</div>
+
+<!-- 카드 4: 전화 -->
+<div class="card">
+  <div class="card-num">4 / 5</div>
+  <div class="card-body" style="text-align:center;">
+    <h2>원하는 생활재를<br>못 찾으시겠다면?</h2>
+    <p style="margin:12px 0;">전화 주시면 생활재 검색부터<br>주문까지 도와드립니다!</p>
+    <div class="phone-box">
+      <p style="font-size:32px; margin-bottom:8px;">📞</p>
+      <div class="title">두레생협 고객센터</div>
+      <div class="desc">"이 생활재 온라인에 있나요?"<br>"주문 좀 도와주세요!"<br>어떤 질문이든 환영합니다!</div>
+      <div class="number">☎ 1661-5110</div>
+    </div>
+    <div class="highlight orange" style="text-align:left;">
+      <p style="margin:0; font-size:14px;"><strong style="color:var(--orange);">이런 것도 도와드려요!</strong></p>
+      <ul style="padding-left:18px; margin-top:8px;">
+        <li style="font-size:13px;">매장에서 사던 생활재 온라인 검색</li>
+        <li style="font-size:13px;">비슷한 대체 생활재 추천</li>
+        <li style="font-size:13px;">주문 방법 안내</li>
+        <li style="font-size:13px;">배송 일정 확인</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 카드 5: 증정+QR -->
+<div class="card">
+  <div class="card-num">5 / 5</div>
+  <div class="card-body" style="text-align:center;">
+    <h2>이번 주 특별 선물!</h2>
+    <div class="gift-box">
+      <div class="icon">🐟</div>
+      <div class="name">알육수 멸치 (20알)</div>
+      <div class="detail">ecoop.or.kr 주문 시 선물로 드립니다!<br>요리 필수품, 주방 상비 품목</div>
+    </div>
+    <div class="cta-box">
+      <p style="font-size:14px; margin-bottom:4px;">두레생협 온라인몰</p>
+      <div class="url">ecoop.or.kr</div>
+      <div class="qr-placeholder">QR코드<br>삽입 위치</div>
+      <p style="font-size:13px; opacity:0.9;">스마트폰 카메라로 QR코드를 스캔하세요!</p>
+    </div>
+    <div class="phone-box" style="margin-top:16px;">
+      <div class="title">온라인 이용이 어려우시면</div>
+      <div class="number">☎ 1661-5110</div>
+      <div class="desc">주문 방법을 상세히 안내드립니다</div>
+    </div>
+    <p style="font-size:13px; color:#999; margin-top:16px;">평택두레생협 | ecoop.or.kr</p>
+  </div>
+</div>
+
+</body>
+</html>

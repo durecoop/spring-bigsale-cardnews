@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>평택두레생협 — 온라인몰 이용 혜택 기획안 (수정)</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Noto Sans KR', sans-serif; background: #f5f5f5; color: #333; line-height: 1.7; }
+  .container { max-width: 900px; margin: 0 auto; padding: 24px; }
+  .doc-header { background: linear-gradient(135deg, #1b5e20, #2d7d46); color: #fff; padding: 40px 32px; border-radius: 16px; margin-bottom: 32px; text-align: center; }
+  .doc-header h1 { font-size: 26px; font-weight: 900; margin-bottom: 8px; }
+  .doc-header .sub { font-size: 15px; opacity: 0.9; }
+  .meta-table { width: 100%; border-collapse: collapse; margin-bottom: 32px; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .meta-table th { background: #e8f5e9; color: #1b5e20; padding: 12px 16px; text-align: left; width: 140px; font-size: 14px; border-bottom: 1px solid #c8e6c9; }
+  .meta-table td { padding: 12px 16px; font-size: 14px; border-bottom: 1px solid #eee; }
+  .section { background: #fff; border-radius: 12px; padding: 28px; margin-bottom: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .section h2 { font-size: 20px; font-weight: 700; color: #1b5e20; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #e8f5e9; }
+  .section h3 { font-size: 16px; font-weight: 700; color: #333; margin: 20px 0 10px; }
+  .section p { font-size: 14px; margin-bottom: 8px; }
+  .section ul { padding-left: 20px; margin-bottom: 12px; }
+  .section li { font-size: 14px; margin-bottom: 4px; }
+  table.data { width: 100%; border-collapse: collapse; margin: 12px 0 16px; font-size: 13px; }
+  table.data th { background: #2d7d46; color: #fff; padding: 10px 12px; text-align: center; font-weight: 500; }
+  table.data td { padding: 10px 12px; border-bottom: 1px solid #eee; text-align: center; }
+  table.data tr:nth-child(even) { background: #f9f9f9; }
+  table.data td:first-child { text-align: left; }
+  .highlight-box { background: #e8f5e9; border-left: 4px solid #2d7d46; padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 16px 0; }
+  .highlight-box.orange { background: #fff3e0; border-left-color: #e65100; }
+  .highlight-box.blue { background: #e3f2fd; border-left-color: #1565c0; }
+  .highlight-box.pink { background: #fce4ec; border-left-color: #c62828; }
+  .badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 12px; font-weight: 700; }
+  .badge-green { background: #e8f5e9; color: #1b5e20; }
+  .badge-orange { background: #fff3e0; color: #e65100; }
+  .badge-blue { background: #e3f2fd; color: #1565c0; }
+  .badge-red { background: #fce4ec; color: #c62828; }
+  .week-card { border: 2px solid #e8f5e9; border-radius: 12px; padding: 20px; margin: 16px 0; }
+  .week-card .week-title { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .msg-box { background: #f5f5f5; border-radius: 12px; padding: 20px; margin: 12px 0; font-size: 13px; line-height: 1.8; white-space: pre-line; border: 1px solid #e0e0e0; }
+  .phone-info { background: linear-gradient(135deg, #fff3e0, #ffe0b2); border: 2px solid #e65100; border-radius: 12px; padding: 20px; text-align: center; margin: 16px 0; }
+  .phone-info .phone-num { font-size: 24px; font-weight: 900; color: #e65100; }
+  @media print { body { background: #fff; } .section { box-shadow: none; border: 1px solid #ddd; page-break-inside: avoid; } }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- HEADER -->
+<div class="doc-header">
+  <h1>평택두레생협 조합원님께 드리는<br>특별한 온라인 혜택 기획안</h1>
+  <div class="sub">평택지역 조합원님을 위한 온라인몰 이용 혜택 프로그램 | ecoop.or.kr</div>
+</div>
+
+<!-- META -->
+<table class="meta-table">
+  <tr><th>작성일</th><td>2026년 4월 15일 (수정)</td></tr>
+  <tr><th>단협</th><td>303-평택두레생협</td></tr>
+  <tr><th>대상</th><td>평택두레생협 용죽점 조합원 630명</td></tr>
+  <tr><th>운영 기간</th><td>5주간 (2026년 4월 20일 ~ 5월 24일) / 17주~21주</td></tr>
+  <tr><th>목적</th><td>평택지역 조합원 대상 온라인몰(ecoop.or.kr) 이용 혜택 제공 및 활성화</td></tr>
+  <tr><th>핵심 전략</th><td>매주 독립적인 혜택 안내 (주차별 시리즈 비노출) — 매주 새로운 혜택 기대감 유도</td></tr>
+  <tr><th>커뮤니케이션</th><td><strong>RCS 문자</strong> + 카드뉴스 (랜딩페이지)</td></tr>
+  <tr><th>쇼핑몰 주소</th><td><strong>ecoop.or.kr</strong></td></tr>
+  <tr><th>전화 안내</th><td><strong>☎ 1661-5110</strong> — 온라인 이용 어려운 조합원 전화 상담</td></tr>
+</table>
+
+<!-- 1. 기획 배경 -->
+<div class="section">
+  <h2>1. 기획 배경 및 목적</h2>
+  <div class="highlight-box">
+    <strong>핵심:</strong> 평택지역 조합원님께 온라인몰(ecoop.or.kr)의 편리함과 혜택을 알려,<br>
+    시간과 장소에 구애 없이 두레생협 생활재를 이용하실 수 있도록 돕는 프로그램입니다.
+  </div>
+  <ul>
+    <li>평택지역 조합원 630명을 위한 <strong>온라인몰 이용 혜택 프로그램</strong></li>
+    <li>온라인몰 미이용자 약 595명(94.4%)에게 첫 이용 경험 제공</li>
+    <li>매주 <strong>독립적인 혜택</strong>을 RCS 문자와 카드뉴스로 안내 (주차별 시리즈 비노출)</li>
+    <li>온라인몰의 순수한 장점(편리함, 배송, 다양한 품목)을 자연스럽게 전달</li>
+    <li><strong>쉬운 주문 방법</strong>을 단계별로 안내하여 진입 장벽 해소</li>
+    <li>온라인 이용이 어려운 조합원을 위한 <strong>전화 안내 서비스 ☎ 1661-5110</strong> 홍보</li>
+  </ul>
+
+  <h3>1-1. 왜 "매주 독립 홍보"인가?</h3>
+  <div class="highlight-box blue">
+    <strong>전략적 이유:</strong> "5주간 혜택이 있다"고 미리 알리면, 조합원이 "다음 주에 해도 되지" 하며<br>
+    이번 주 주문을 미루게 됩니다. <strong>매주 "이번 주만의 특별 혜택!"</strong>으로 안내하여<br>
+    즉각적인 행동(주문)을 유도합니다.
+  </div>
+</div>
+
+<!-- 2. 대상자 분석 -->
+<div class="section">
+  <h2>2. 대상자 분석</h2>
+
+  <h3>2-1. 기본 현황</h3>
+  <table class="data">
+    <tr><th>항목</th><th>내용</th><th>비고</th></tr>
+    <tr><td>총 대상자</td><td>630명</td><td>용죽점 조합원</td></tr>
+    <tr><td>휴대폰 번호 보유</td><td>630명 (100%)</td><td>RCS 발송 가능</td></tr>
+    <tr><td>지역</td><td>평택시 중심 (93.1%)</td><td>안성시 등 인접지역 포함</td></tr>
+    <tr><td>온라인 배송 이용 경험</td><td>약 35명 (5.6%)</td><td>재이용 강화 대상</td></tr>
+    <tr><td>온라인 미이용</td><td>약 595명 (94.4%)</td><td><span class="badge badge-red">핵심 대상</span></td></tr>
+  </table>
+
+  <h3>2-2. 매장 이용 활동성 (2026.04.15 기준)</h3>
+  <div class="highlight-box">
+    <strong>핵심 인사이트:</strong> 2026년 구매자 약 330명(52.4%)이 온라인 전환 최우선 대상입니다.
+  </div>
+  <table class="data">
+    <tr><th>구분</th><th>인원</th><th>비율</th><th>분류</th></tr>
+    <tr><td>2026년 3~4월 구매 (최근 1개월)</td><td>약 200명</td><td>31.7%</td><td><span class="badge badge-green">활성 고객</span></td></tr>
+    <tr><td>2026년 1~2월 (1~3개월)</td><td>약 130명</td><td>20.6%</td><td><span class="badge badge-blue">준활성 고객</span></td></tr>
+    <tr><td>2025년 하반기 (3~9개월)</td><td>약 160명</td><td>25.4%</td><td><span class="badge badge-orange">간헐 이용</span></td></tr>
+    <tr><td>2025년 상반기 (9개월~1년)</td><td>약 65명</td><td>10.3%</td><td>저활동</td></tr>
+    <tr><td>2024년 이전 (1년 초과)</td><td>약 74명</td><td>11.7%</td><td><span class="badge badge-red">장기 미이용</span></td></tr>
+    <tr><td>구매이력 없음</td><td>1명</td><td>0.2%</td><td>미이용</td></tr>
+    <tr style="font-weight:700; background:#e8f5e9;"><td>합계</td><td>630명</td><td>100%</td><td></td></tr>
+  </table>
+
+  <h3>2-3. 온라인 배송 이용 현황</h3>
+  <table class="data">
+    <tr><th>구분</th><th>인원</th><th>비율</th><th>비고</th></tr>
+    <tr><td>온라인 배송 이용 경험 있음</td><td>약 35명</td><td>5.6%</td><td>재이용 강화 대상</td></tr>
+    <tr><td>온라인 미이용 (매장 전용)</td><td>약 595명</td><td>94.4%</td><td><strong>온라인 전환 핵심 대상</strong></td></tr>
+  </table>
+
+  <h3>2-4. 지역별 분포</h3>
+  <table class="data">
+    <tr><th>지역</th><th>인원</th><th>비율</th></tr>
+    <tr><td>경기 평택시</td><td>약 589명</td><td>93.1%</td></tr>
+    <tr><td>경기 안성시</td><td>약 15명</td><td>2.4%</td></tr>
+    <tr><td>기타</td><td>약 26명</td><td>4.5%</td></tr>
+  </table>
+
+  <h3>2-5. 세그먼트별 홍보 전략</h3>
+  <table class="data">
+    <tr><th>세그먼트</th><th>인원</th><th>전략</th><th>메시지 톤</th></tr>
+    <tr>
+      <td><span class="badge badge-green">A. 활성 고객</span><br>(2026년 구매)</td>
+      <td>약 330명</td>
+      <td>온라인 첫 주문 유도 (최우선)</td>
+      <td>"집에서 편하게 주문하세요!"</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-blue">B. 온라인 경험자</span></td>
+      <td>약 35명</td>
+      <td>재이용 강화, 정기배송 유도</td>
+      <td>"다시 한번 이용해 보세요!"</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-orange">C. 준활성~저활동</span><br>(2025년)</td>
+      <td>약 225명</td>
+      <td>혜택 통한 재활성화</td>
+      <td>"특별한 혜택이 기다려요!"</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-red">D. 장기 미이용</span><br>(2024년 이전)</td>
+      <td>약 74명</td>
+      <td>온라인몰 인지 목적</td>
+      <td>"온라인에서도 만나보세요!"</td>
+    </tr>
+  </table>
+</div>
+
+<!-- 3. 홍보 전략 -->
+<div class="section">
+  <h2>3. 홍보 전략</h2>
+
+  <h3>3-1. 핵심 메시지</h3>
+  <div class="highlight-box">
+    <strong>"두레생협 온라인몰, 생각보다 쉽고 편리합니다"</strong><br>
+    ecoop.or.kr에서 언제든 편리하게 주문하세요!<br>
+    온라인 이용이 어려우시면 <strong>☎ 1661-5110</strong>으로 전화주세요.
+  </div>
+
+  <h3>3-2. 온라인몰 핵심 장점 (홍보 포인트)</h3>
+  <table class="data">
+    <tr><th>장점</th><th>설명</th><th>홍보 메시지</th></tr>
+    <tr><td>24시간 주문</td><td>시간 제약 없이 편리하게</td><td>"밤 10시에도 주문 OK!"</td></tr>
+    <tr><td>집 앞 배송</td><td>무거운 짐 걱정 없이 배송</td><td>"쌀, 세제도 집 앞까지!"</td></tr>
+    <tr><td>더 다양한 품목</td><td>매장보다 많은 생활재</td><td>"매장에 없던 것도 온라인에!"</td></tr>
+    <tr><td>간편 재주문</td><td>지난 주문 클릭 한 번 재주문</td><td>"한 번 주문하면 다음은 더 쉬워요!"</td></tr>
+    <tr><td>전화 안내</td><td>주문 어려우면 전화로 해결</td><td>"☎ 1661-5110 전화 한 통이면 다 도와드려요!"</td></tr>
+  </table>
+
+  <h3>3-3. 커뮤니케이션 채널</h3>
+  <table class="data">
+    <tr><th>채널</th><th>내용</th><th>발송 시점</th><th>비고</th></tr>
+    <tr>
+      <td><strong>RCS 문자</strong></td>
+      <td>주차별 혜택 안내 + 카드뉴스 버튼 링크<br>+ 전화 안내 ☎ 1661-5110 포함</td>
+      <td>매주 월요일 10시</td>
+      <td>630명 전체 발송</td>
+    </tr>
+    <tr>
+      <td><strong>카드뉴스</strong><br>(랜딩페이지)</td>
+      <td>주차별 독립 테마 카드뉴스 5장<br>RCS 버튼 클릭 시 이동</td>
+      <td>매주 제작</td>
+      <td>5세트 제작</td>
+    </tr>
+    <tr>
+      <td><strong>전화 안내</strong></td>
+      <td>온라인 이용 어려운 조합원 전화 지원</td>
+      <td>상시</td>
+      <td>☎ 1661-5110</td>
+    </tr>
+  </table>
+
+  <h3>3-4. 전화 안내 서비스</h3>
+  <div class="phone-info">
+    <p style="font-size:14px; margin-bottom:8px; color:#e65100; font-weight:700;">온라인 쇼핑이 어려우신 조합원님!</p>
+    <p style="font-size:15px; margin-bottom:12px;">전화 한 통이면 주문부터 배송까지 상세하게 안내해 드립니다</p>
+    <p class="phone-num">두레생협 고객센터<br>☎ 1661-5110</p>
+  </div>
+</div>
+
+<!-- 4. 주차별 운영 계획 -->
+<div class="section">
+  <h2>4. 주차별 운영 계획</h2>
+
+  <div class="highlight-box pink">
+    <strong>핵심 원칙:</strong> 조합원에게 "5주간 시리즈"임을 노출하지 않습니다.<br>
+    매주 <strong>"이번 주 특별 혜택!"</strong>으로 독립 안내하여 즉각적인 주문을 유도합니다.<br>
+    매주 새로운 혜택 → 매주 주문 동기 → 온라인 이용 습관 형성
+  </div>
+
+  <table class="data">
+    <tr><th>회차<br>(내부)</th><th>기간</th><th>조합원 노출 주제</th><th>조건</th><th>혜택</th></tr>
+    <tr style="background:#f1f8e9;">
+      <td>17주</td>
+      <td>04.20~04.26</td>
+      <td><strong>"온라인 첫 주문 특별 혜택!"</strong></td>
+      <td>5만원 이상 구매</td>
+      <td>5,000원 쿠폰</td>
+    </tr>
+    <tr style="background:#e3f2fd;">
+      <td>18주</td>
+      <td>04.27~05.03</td>
+      <td><strong>"3분 완성! 쉬운 온라인 주문"</strong></td>
+      <td>ecoop.or.kr 주문 시</td>
+      <td>동그랑땡 (300g)</td>
+    </tr>
+    <tr style="background:#fff8e1;">
+      <td>19주</td>
+      <td>05.04~05.10</td>
+      <td><strong>"인기 생활재 모음전 + 선물!"</strong></td>
+      <td>ecoop.or.kr 주문 시</td>
+      <td>알육수 멸치 (20알)</td>
+    </tr>
+    <tr style="background:#fce4ec;">
+      <td>20주</td>
+      <td>05.11~05.17</td>
+      <td><strong>"가정의 달, 건강한 선물 추천"</strong></td>
+      <td>ecoop.or.kr 주문 시</td>
+      <td>우리쌀 붕어빵 (10개)</td>
+    </tr>
+    <tr style="background:#f3e5f5;">
+      <td>21주</td>
+      <td>05.18~05.24</td>
+      <td><strong>"감사합니다! 조합원님 특별 선물"</strong></td>
+      <td>ecoop.or.kr 주문 시</td>
+      <td>전통수정과 (1000ml)</td>
+    </tr>
+  </table>
+
+  <h3>4-1. 주차별 상세</h3>
+
+  <!-- 17주 -->
+  <div class="week-card" style="border-color:#c8e6c9; background:#f1f8e9;">
+    <div class="week-title" style="color:#1b5e20;">17주 (04.20~04.26) — 온라인 첫 주문 특별 혜택</div>
+    <p><strong>조합원 노출:</strong> "평택 조합원님께만 드리는 온라인 첫 주문 특별 혜택!"</p>
+    <p><strong>조건:</strong> ecoop.or.kr 5만원 이상 구매 시 / <strong>혜택:</strong> 5,000원 할인쿠폰</p>
+    <p><strong>카드뉴스 핵심:</strong> 온라인몰 소개 + 장점 + 쿠폰 혜택 + 전화 안내(1661-5110)</p>
+    <div class="msg-box"><strong>[RCS 문자 (안)]</strong>
+
+[평택두레생협] 조합원님께 드리는 특별 혜택!
+
+안녕하세요, 평택두레생협입니다.
+평택지역 조합원님을 위한
+온라인 특별 혜택을 안내드립니다.
+
+지금 ecoop.or.kr에서
+5만원 이상 주문하시면
+5,000원 할인쿠폰을 드립니다!
+
+집에서 편하게 주문하고
+집 앞까지 배송받으세요.
+
+온라인 이용이 어려우시면
+☎ 1661-5110으로 전화주세요.
+주문 방법을 상세히 안내드립니다.
+
+▶ 주문하기: ecoop.or.kr
+[자세히 보기] → (카드뉴스 링크)</div>
+  </div>
+
+  <!-- 18주 -->
+  <div class="week-card" style="border-color:#bbdefb; background:#e3f2fd;">
+    <div class="week-title" style="color:#0d47a1;">18주 (04.27~05.03) — 3분 완성! 쉬운 온라인 주문</div>
+    <p><strong>조합원 노출:</strong> "생각보다 쉬워요! 3분이면 주문 완료"</p>
+    <p><strong>조건:</strong> ecoop.or.kr 주문 시 / <strong>혜택:</strong> 동그랑땡 (300g) 증정</p>
+    <div class="msg-box"><strong>[RCS 문자 (안)]</strong>
+
+[평택두레생협] 온라인 주문, 3분이면 끝!
+
+조합원님, 온라인몰 ecoop.or.kr
+이용해 보셨나요?
+
+이번 주 ecoop.or.kr에서 주문하시면
+동그랑땡(300g)을 선물로 드립니다!
+
+3분이면 주문 완료!
+생각보다 정말 쉬워요.
+
+온라인 이용이 어려우시면
+☎ 1661-5110으로 전화주세요.
+처음부터 끝까지 안내드립니다.
+
+▶ 주문하기: ecoop.or.kr
+[쉬운 주문 가이드 보기] → (링크)</div>
+  </div>
+
+  <!-- 19주 -->
+  <div class="week-card" style="border-color:#ffe0b2; background:#fff8e1;">
+    <div class="week-title" style="color:#e65100;">19주 (05.04~05.10) — 인기 생활재 모음전 + 선물</div>
+    <p><strong>조합원 노출:</strong> "조합원이 가장 많이 찾는 인기 생활재, 온라인에서 만나세요!"</p>
+    <p><strong>조건:</strong> ecoop.or.kr 주문 시 / <strong>혜택:</strong> 알육수 멸치 (20알) 증정</p>
+    <div class="msg-box"><strong>[RCS 문자 (안)]</strong>
+
+[평택두레생협] 조합원님이 가장 많이 찾는 인기 생활재!
+
+두레생협에서 가장 인기 있는
+생활재를 온라인에서 만나보세요!
+
+이번 주 ecoop.or.kr 주문 시
+알육수 멸치(20알)를 선물로 드립니다!
+
+온라인 이용이 어려우시면
+☎ 1661-5110으로 전화주세요.
+
+▶ 주문하기: ecoop.or.kr
+[인기 생활재 보기] → (링크)</div>
+  </div>
+
+  <!-- 20주 -->
+  <div class="week-card" style="border-color:#f8bbd0; background:#fce4ec;">
+    <div class="week-title" style="color:#c62828;">20주 (05.11~05.17) — 가정의 달 건강한 선물 추천</div>
+    <p><strong>조합원 노출:</strong> "5월 가정의 달, 건강한 선물을 온라인에서!"</p>
+    <p><strong>조건:</strong> ecoop.or.kr 주문 시 / <strong>혜택:</strong> 우리쌀 붕어빵 (10개) 증정</p>
+    <div class="msg-box"><strong>[RCS 문자 (안)]</strong>
+
+[평택두레생협] 가정의 달, 건강한 선물 추천!
+
+5월 가정의 달을 맞아
+소중한 분께 건강한 선물은 어떠세요?
+
+ecoop.or.kr에서 주문하시면
+우리쌀 붕어빵(10개)을 선물로 드립니다!
+
+선물세트도 전국 배송 가능!
+
+온라인 이용이 어려우시면
+☎ 1661-5110으로 전화주세요.
+
+▶ 주문하기: ecoop.or.kr
+[선물 추천 보기] → (링크)</div>
+  </div>
+
+  <!-- 21주 -->
+  <div class="week-card" style="border-color:#d1c4e9; background:#f3e5f5;">
+    <div class="week-title" style="color:#6a1b9a;">21주 (05.18~05.24) — 감사합니다! 조합원님 특별 선물</div>
+    <p><strong>조합원 노출:</strong> "조합원님께 감사 드리며 특별 선물을 준비했습니다!"</p>
+    <p><strong>조건:</strong> ecoop.or.kr 주문 시 / <strong>혜택:</strong> 전통수정과 (1000ml) 증정</p>
+    <div class="msg-box"><strong>[RCS 문자 (안)]</strong>
+
+[평택두레생협] 조합원님께 감사의 선물!
+
+평택두레생협 조합원님께
+감사의 마음을 담아 특별한 선물을 준비했습니다.
+
+ecoop.or.kr에서 주문하시면
+전통수정과(1000ml)를 드립니다!
+
+앞으로도 ecoop.or.kr에서
+편리하게 생활재를 만나세요!
+
+온라인 이용이 어려우시면
+☎ 1661-5110으로 전화주세요.
+
+▶ 주문하기: ecoop.or.kr
+[자세히 보기] → (링크)</div>
+  </div>
+</div>
+
+<!-- 5. 카드뉴스 구성 -->
+<div class="section">
+  <h2>5. 카드뉴스 구성 (5세트 / 총 25장)</h2>
+  <div class="highlight-box pink">
+    <strong>핵심 원칙:</strong> 카드뉴스에도 "X주차", "5주간" 등의 시리즈 표현을 사용하지 않습니다.<br>
+    각 카드뉴스는 독립적인 혜택 안내로 구성합니다.
+  </div>
+  <table class="data">
+    <tr><th>회차(내부)</th><th>카드뉴스 제목</th><th>장수</th><th>주요 내용</th></tr>
+    <tr><td>17주</td><td>온라인 첫 주문 특별 혜택</td><td>5장</td><td>온라인몰 소개 / 장점 / 5만원 쿠폰 / 전화 안내 / QR+링크</td></tr>
+    <tr><td>18주</td><td>3분 완성! 쉬운 주문 가이드</td><td>5장</td><td>표지 / 회원가입 / 주문 방법 / 전화 안내 / 증정품+QR</td></tr>
+    <tr><td>19주</td><td>인기 생활재 모음전</td><td>5장</td><td>표지 / 인기 식품 / 인기 생활용품 / 전화 안내 / 증정품+QR</td></tr>
+    <tr><td>20주</td><td>가정의 달 선물 추천</td><td>5장</td><td>표지 / 선물 추천 / 전국 배송 / 전화 안내 / 증정품+QR</td></tr>
+    <tr><td>21주</td><td>감사합니다, 조합원님!</td><td>5장</td><td>표지 / 온라인 장점 / 정기배송 안내 / 전화 안내 / 감사+QR</td></tr>
+  </table>
+  <div class="highlight-box blue">
+    <strong>모든 카드뉴스 공통 포함:</strong>
+    <ul style="margin-top:8px;">
+      <li>쇼핑몰 주소: <strong>ecoop.or.kr</strong></li>
+      <li>전화 안내: <strong>"온라인 이용이 어려우시면 ☎ 1661-5110으로 전화주세요"</strong></li>
+      <li>QR코드 (온라인몰 바로가기)</li>
+      <li>"X주차" 등 시리즈 표현 <strong>미사용</strong></li>
+    </ul>
+  </div>
+</div>
+
+<!-- 6. 예산 -->
+<div class="section">
+  <h2>6. 소요 예산 (추정)</h2>
+  <table class="data">
+    <tr><th>항목</th><th>단가</th><th>수량</th><th>금액</th></tr>
+    <tr><td>17주 5,000원 할인쿠폰</td><td>5,000원</td><td>630명</td><td>3,150,000원 (최대)</td></tr>
+    <tr><td>18주 동그랑땡 (300g)</td><td>4,447원</td><td>630명</td><td>2,801,610원 (최대)</td></tr>
+    <tr><td>19주 알육수 멸치 (20알)</td><td>3,763원</td><td>630명</td><td>2,370,690원 (최대)</td></tr>
+    <tr><td>20주 우리쌀 붕어빵 (10개)</td><td>4,818원</td><td>630명</td><td>3,035,340원 (최대)</td></tr>
+    <tr><td>21주 전통수정과 (1000ml)</td><td>3,299원</td><td>630명</td><td>2,078,370원 (최대)</td></tr>
+    <tr style="background:#e8f5e9;"><td><strong>증정 소계</strong></td><td></td><td></td><td><strong>13,436,010원 (최대)</strong></td></tr>
+    <tr><td>RCS 문자 발송</td><td>30원/건</td><td>630명 x 5회</td><td>94,500원</td></tr>
+    <tr><td>카드뉴스 디자인</td><td>150,000원/세트</td><td>5세트</td><td>750,000원</td></tr>
+    <tr style="background:#fff3e0; font-weight:700;"><td><strong>총 예산 (최대)</strong></td><td></td><td></td><td><strong>14,280,510원</strong></td></tr>
+  </table>
+  <p style="font-size:13px; color:#666;">※ 실제 수령률(예상 25~35%)에 따라 증정 비용은 크게 감소합니다.<br>
+  ※ 실제 예상 비용: 약 420만~560만원 (수령률 25~35% 기준)</p>
+</div>
+
+<!-- 7. 성과 지표 -->
+<div class="section">
+  <h2>7. 성과 지표 (KPI)</h2>
+  <table class="data">
+    <tr><th>지표</th><th>목표</th><th>측정 방법</th></tr>
+    <tr><td>온라인몰 첫 주문 전환율</td><td>미이용자 595명 중 30% 이상</td><td>ecoop.or.kr 신규 주문 데이터</td></tr>
+    <tr><td>RCS 오픈율</td><td>55% 이상</td><td>RCS 발송 통계</td></tr>
+    <tr><td>카드뉴스 클릭율</td><td>12% 이상</td><td>랜딩페이지 유입 데이터</td></tr>
+    <tr><td>전화 안내(1661-5110) 이용 건수</td><td>주당 20건 이상</td><td>고객센터 통계</td></tr>
+    <tr><td>증정품 수령률</td><td>30% 이상</td><td>증정 처리 데이터</td></tr>
+  </table>
+</div>
+
+<!-- 8. 추진 일정 -->
+<div class="section">
+  <h2>8. 추진 일정</h2>
+  <table class="data">
+    <tr><th>시기</th><th>주요 내용</th></tr>
+    <tr><td>~04.18</td><td>대상 데이터 정비, 증정품 확보, RCS 템플릿 등록, 카드뉴스 1~2회차 제작, 전화 안내 체계 구축</td></tr>
+    <tr style="background:#f1f8e9;"><td>04.20</td><td>17주: "온라인 첫 주문 특별 혜택" RCS + 카드뉴스 발송</td></tr>
+    <tr style="background:#e3f2fd;"><td>04.27</td><td>18주: "3분 완성! 쉬운 주문 가이드" RCS + 카드뉴스 발송</td></tr>
+    <tr style="background:#fff8e1;"><td>05.04</td><td>19주: "인기 생활재 모음전" RCS + 카드뉴스 발송</td></tr>
+    <tr style="background:#fce4ec;"><td>05.11</td><td>20주: "가정의 달 선물 추천" RCS + 카드뉴스 발송</td></tr>
+    <tr style="background:#f3e5f5;"><td>05.18</td><td>21주: "감사합니다, 조합원님!" RCS + 카드뉴스 발송</td></tr>
+    <tr><td>05.25~</td><td>성과 분석, 후속 운영 방안 검토</td></tr>
+  </table>
+</div>
+
+<!-- 9. 리스크 -->
+<div class="section">
+  <h2>9. 리스크 및 대응 방안</h2>
+  <table class="data">
+    <tr><th>리스크</th><th>위험도</th><th>대응 방안</th></tr>
+    <tr><td>온라인 미이용자 94.4%로 전환 어려움</td><td><span class="badge badge-red">높음</span></td><td>쉬운 주문 가이드(18주) + 전화 안내 ☎ 1661-5110 적극 홍보</td></tr>
+    <tr><td>고령 조합원 온라인 주문 어려움</td><td><span class="badge badge-red">높음</span></td><td><strong>☎ 1661-5110 전화 안내 서비스</strong> — 주문 방법 안내, 대리 주문 지원</td></tr>
+    <tr><td>장기 미이용 74명 반응률 저조</td><td><span class="badge badge-orange">중간</span></td><td>활성 고객 330명에 리소스 집중</td></tr>
+    <tr><td>RCS 미지원 단말</td><td><span class="badge badge-orange">중간</span></td><td>LMS 대체 발송</td></tr>
+  </table>
+</div>
+
+<!-- 10. 기대 효과 -->
+<div class="section">
+  <h2>10. 기대 효과</h2>
+  <table class="data">
+    <tr><th>지표</th><th>목표</th></tr>
+    <tr><td>온라인몰 신규 이용자</td><td>+178명 이상 (미이용 595명의 30%)</td></tr>
+    <tr><td>활성 고객 전환</td><td>330명 중 165명+ 온라인 전환</td></tr>
+    <tr><td>RCS 오픈율</td><td>55% 이상</td></tr>
+    <tr><td>전화 안내(1661-5110) 이용</td><td>주당 20건+ / 총 100건+</td></tr>
+  </table>
+  <ul>
+    <li><strong>조합원 편의 증진:</strong> 시간·장소 제약 없이 온라인으로 편리하게 이용</li>
+    <li><strong>접근성 보장:</strong> ☎ 1661-5110 전화 안내로 디지털 취약 조합원도 이용 가능</li>
+    <li><strong>온라인 채널 활성화:</strong> 온라인몰 이용자 기반 확대 및 매출 성장</li>
+    <li><strong>조합원 관계 강화:</strong> 매주 혜택 제공으로 지속적 소통</li>
+  </ul>
+</div>
+
+<div style="text-align:center; padding:32px; color:#999; font-size:13px;">
+  작성일: 2026년 4월 15일 | 평택두레생협
+</div>
+</div>
+</body>
+</html>

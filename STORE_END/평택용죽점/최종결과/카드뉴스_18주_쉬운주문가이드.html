@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3분 완성! 쉬운 온라인 주문 — 평택두레생협</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root { --blue: #1565c0; --blue-light: #e3f2fd; --blue-dark: #0d47a1; --green: #2d7d46; --green-light: #e8f5e9; --orange: #e65100; --orange-light: #fff3e0; --bg: #fafafa; --card-shadow: 0 4px 20px rgba(0,0,0,0.10); }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Noto Sans KR', sans-serif; background: var(--bg); color: #333; max-width: 480px; margin: 0 auto; padding-bottom: 40px; }
+  .page-header { background: linear-gradient(135deg, #0d47a1 0%, #1565c0 40%, #1976d2 100%); padding: 28px 20px 20px; text-align: center; color: #fff; }
+  .page-header h1 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+  .page-header .sub { font-size: 13px; opacity: 0.85; }
+  .card { margin: 16px; border-radius: 16px; overflow: hidden; box-shadow: var(--card-shadow); background: #fff; }
+  .card-num { display: inline-block; background: var(--blue); color: #fff; padding: 4px 14px; border-radius: 0 0 12px 0; font-size: 12px; font-weight: 700; }
+  .card-body { padding: 24px 20px; }
+  .card-body h2 { font-size: 20px; font-weight: 900; color: var(--blue-dark); margin-bottom: 12px; line-height: 1.4; }
+  .card-body p { font-size: 14px; line-height: 1.7; margin-bottom: 8px; color: #555; }
+  .highlight { background: var(--blue-light); border-radius: 12px; padding: 16px; margin: 12px 0; }
+  .highlight.green { background: var(--green-light); }
+  .highlight.orange { background: var(--orange-light); }
+  .step-box { display: flex; align-items: flex-start; gap: 12px; padding: 16px; margin: 10px 0; border-radius: 12px; background: #f5f5f5; border-left: 4px solid var(--blue); }
+  .step-num { flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%; background: var(--blue); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 900; }
+  .step-content { flex: 1; }
+  .step-content .title { font-size: 15px; font-weight: 700; color: #333; margin-bottom: 2px; }
+  .step-content .desc { font-size: 13px; color: #666; }
+  .gift-box { background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border: 2px solid var(--green); border-radius: 16px; padding: 20px; text-align: center; margin: 16px 0; }
+  .gift-box .icon { font-size: 40px; margin-bottom: 8px; }
+  .gift-box .name { font-size: 18px; font-weight: 900; color: var(--green); }
+  .gift-box .detail { font-size: 13px; color: #666; margin-top: 4px; }
+  .phone-box { background: linear-gradient(135deg, #fff3e0, #ffe0b2); border: 2px solid var(--orange); border-radius: 16px; padding: 20px; text-align: center; margin: 16px 0; }
+  .phone-box .title { font-size: 15px; font-weight: 700; color: var(--orange); margin-bottom: 4px; }
+  .phone-box .desc { font-size: 13px; color: #666; margin-bottom: 8px; }
+  .phone-box .number { font-size: 22px; font-weight: 900; color: var(--orange); }
+  .cta-box { background: linear-gradient(135deg, #0d47a1, #1565c0); border-radius: 16px; padding: 24px; text-align: center; margin: 16px 0; color: #fff; }
+  .cta-box .url { font-size: 24px; font-weight: 900; color: #fdd835; margin: 8px 0; }
+  .cta-box .qr-placeholder { display: inline-block; width: 120px; height: 120px; background: #fff; border-radius: 12px; margin: 12px 0; line-height: 120px; color: #333; font-size: 13px; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>온라인 주문, 3분이면 끝!</h1>
+  <div class="sub">생각보다 쉬운 ecoop.or.kr 주문 가이드</div>
+</div>
+
+<!-- 카드 1 -->
+<div class="card">
+  <div class="card-num">1 / 5</div>
+  <div class="card-body" style="text-align:center; padding:32px 20px;">
+    <p style="font-size:48px; margin-bottom:12px;">📱</p>
+    <h2 style="font-size:22px;">온라인 주문,<br>생각보다 쉬워요!</h2>
+    <p style="font-size:16px; font-weight:700; color:var(--blue); margin-top:8px;">3분이면 주문 완료!</p>
+    <div class="highlight green" style="margin-top:16px;">
+      <p style="font-size:15px; margin:0; font-weight:700; color:var(--green);">이번 주 ecoop.or.kr 주문 시<br><span style="font-size:18px;">동그랑땡(300g) 선물!</span></p>
+    </div>
+    <p style="font-size:13px; color:#999; margin-top:12px;">지금부터 하나씩 따라해 보세요!</p>
+  </div>
+</div>
+
+<!-- 카드 2: 회원가입 -->
+<div class="card">
+  <div class="card-num">2 / 5</div>
+  <div class="card-body">
+    <h2>STEP 1. 회원가입</h2>
+    <p>조합원이시면 더 쉽게 가입할 수 있어요!</p>
+    <div class="step-box"><div class="step-num">1</div><div class="step-content"><div class="title">ecoop.or.kr 접속</div><div class="desc">스마트폰 또는 PC 주소창에 ecoop.or.kr 입력</div></div></div>
+    <div class="step-box"><div class="step-num">2</div><div class="step-content"><div class="title">"회원가입" 클릭</div><div class="desc">화면 상단에서 회원가입 선택</div></div></div>
+    <div class="step-box"><div class="step-num">3</div><div class="step-content"><div class="title">조합원 정보 입력</div><div class="desc">이름, 휴대폰 번호, 조합원 번호 입력</div></div></div>
+    <div class="step-box"><div class="step-num">4</div><div class="step-content"><div class="title">가입 완료!</div><div class="desc">본인인증 후 바로 이용 가능</div></div></div>
+    <div class="highlight green">
+      <p style="margin:0; font-size:13px;"><strong style="color:var(--green);">TIP:</strong> 조합원 번호를 모르시면 ☎ 1661-5110으로 전화주세요!</p>
+    </div>
+  </div>
+</div>
+
+<!-- 카드 3: 주문 -->
+<div class="card">
+  <div class="card-num">3 / 5</div>
+  <div class="card-body">
+    <h2>STEP 2. 주문하기</h2>
+    <p>로그인 후 3단계로 간편하게!</p>
+    <div class="step-box"><div class="step-num">1</div><div class="step-content"><div class="title">생활재 검색 & 선택</div><div class="desc">검색창에서 원하는 생활재를 찾거나 카테고리별로 둘러보세요</div></div></div>
+    <div class="step-box"><div class="step-num">2</div><div class="step-content"><div class="title">장바구니에 담기</div><div class="desc">"장바구니 담기" 버튼을 눌러 원하는 생활재를 담으세요</div></div></div>
+    <div class="step-box"><div class="step-num">3</div><div class="step-content"><div class="title">결제하기</div><div class="desc">배송지 확인 후 결제! 카드, 계좌이체, 간편결제 가능</div></div></div>
+    <div class="highlight">
+      <p style="margin:0; font-size:14px; text-align:center; font-weight:700; color:var(--blue-dark);">주문 후 집 앞까지 배송!<br>무거운 짐 걱정 끝!</p>
+    </div>
+  </div>
+</div>
+
+<!-- 카드 4: 전화 -->
+<div class="card">
+  <div class="card-num">4 / 5</div>
+  <div class="card-body" style="text-align:center;">
+    <h2>온라인 주문이<br>어려우신가요?</h2>
+    <p style="margin:12px 0;">전화 한 통이면<br>처음부터 끝까지 안내해 드립니다!</p>
+    <div class="phone-box">
+      <p style="font-size:32px; margin-bottom:8px;">📞</p>
+      <div class="title">두레생협 고객센터</div>
+      <div class="desc">회원가입 / 생활재 검색 / 주문 / 결제 / 배송<br>모든 과정을 전화로 안내드려요!</div>
+      <div class="number">☎ 1661-5110</div>
+    </div>
+    <div class="highlight orange" style="text-align:left;">
+      <p style="margin:0; font-size:14px;"><strong style="color:var(--orange);">전화 한 통이면!</strong></p>
+      <ol style="padding-left:18px; margin-top:8px;">
+        <li style="font-size:13px;">☎ 1661-5110으로 전화</li>
+        <li style="font-size:13px;">"온라인 주문 도와주세요" 말씀</li>
+        <li style="font-size:13px;">상담원이 차근차근 안내!</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- 카드 5: 증정+QR -->
+<div class="card">
+  <div class="card-num">5 / 5</div>
+  <div class="card-body" style="text-align:center;">
+    <h2>이번 주 특별 선물!</h2>
+    <div class="gift-box">
+      <div class="icon">🥟</div>
+      <div class="name">동그랑땡 (300g)</div>
+      <div class="detail">ecoop.or.kr 주문 시 선물로 드립니다!</div>
+    </div>
+    <div class="cta-box">
+      <p style="font-size:14px; margin-bottom:4px;">두레생협 온라인몰</p>
+      <div class="url">ecoop.or.kr</div>
+      <div class="qr-placeholder">QR코드<br>삽입 위치</div>
+      <p style="font-size:13px; opacity:0.9;">스마트폰 카메라로 QR코드를 스캔하세요!</p>
+    </div>
+    <div class="phone-box" style="margin-top:16px;">
+      <div class="title">온라인 이용이 어려우시면</div>
+      <div class="number">☎ 1661-5110</div>
+      <div class="desc">주문 방법을 상세히 안내드립니다</div>
+    </div>
+    <p style="font-size:13px; color:#999; margin-top:16px;">평택두레생협 | ecoop.or.kr</p>
+  </div>
+</div>
+
+</body>
+</html>
