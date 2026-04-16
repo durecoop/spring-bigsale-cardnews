@@ -3,170 +3,729 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>가정의 달 특별 선물 | 바른생협</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<title>4주차 알림톡 + 카드뉴스 미리보기</title>
 <style>
-  :root { --green: #2d7d46; --green-light: #e8f5e9; --green-dark: #1b5e20; --orange: #e65100; --orange-light: #fff3e0; --gold: #f9a825; --bg: #fafafa; --card-shadow: 0 4px 20px rgba(0,0,0,0.10); }
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap');
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Noto Sans KR', sans-serif; background: var(--bg); color: #333; max-width: 480px; margin: 0 auto; padding-bottom: 40px; }
-  .page-header { background: linear-gradient(135deg, #1b5e20 0%, #2d7d46 40%, #43a047 100%); padding: 28px 20px 20px; text-align: center; color: #fff; }
-  .page-header h1 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
-  .page-header .sub { font-size: 13px; opacity: 0.85; }
-  .card { margin: 16px; border-radius: 16px; overflow: hidden; box-shadow: var(--card-shadow); background: #fff; }
-  .card-num { display: inline-block; background: var(--green); color: #fff; padding: 4px 14px; border-radius: 0 0 12px 0; font-size: 12px; font-weight: 700; }
-  .card-body { padding: 24px 20px; }
-  .card-body h2 { font-size: 20px; font-weight: 900; color: var(--green-dark); margin-bottom: 12px; line-height: 1.4; }
-  .card-body p { font-size: 14px; line-height: 1.7; margin-bottom: 8px; color: #555; }
-  .highlight { background: var(--green-light); border-radius: 12px; padding: 16px; margin: 12px 0; }
-  .highlight.orange { background: var(--orange-light); }
-  .benefit-item { display: flex; align-items: center; gap: 12px; padding: 14px; margin: 8px 0; border-radius: 12px; background: #f9f9f9; border: 1px solid #eee; }
-  .benefit-icon { font-size: 28px; flex-shrink: 0; }
-  .benefit-info .name { font-size: 14px; font-weight: 700; color: #333; }
-  .benefit-info .desc { font-size: 12px; color: #888; margin-top: 2px; }
-  .phone-box { background: linear-gradient(135deg, #fff3e0, #ffe0b2); border: 2px solid var(--orange); border-radius: 16px; padding: 20px; text-align: center; margin: 16px 0; }
-  .phone-box .icon { font-size: 32px; margin-bottom: 8px; }
-  .phone-box .title { font-size: 15px; font-weight: 700; color: var(--orange); margin-bottom: 4px; }
-  .phone-box .desc { font-size: 13px; color: #666; margin-bottom: 8px; }
-  .phone-box .number { font-size: 22px; font-weight: 900; color: var(--orange); }
-  .gift-boxes { display: flex; gap: 10px; margin: 16px 0; }
-  .gift-box-item { flex: 1; background: var(--green-light); border: 1px solid #c8e6c9; border-radius: 14px; padding: 14px 8px; text-align: center; }
-  .gift-box-item .gbi-icon { font-size: 30px; margin-bottom: 6px; }
-  .gift-box-item .gbi-title { font-size: 12px; font-weight: 700; color: var(--green-dark); margin-bottom: 2px; }
-  .gift-box-item .gbi-desc { font-size: 10px; color: #888; line-height: 1.4; }
-  .coupon-box { background: linear-gradient(135deg, #f9a825, #ff8f00); border-radius: 16px; padding: 24px; text-align: center; margin: 16px 0; color: #fff; position: relative; overflow: hidden; }
-  .coupon-box::before, .coupon-box::after { content: ''; position: absolute; width: 24px; height: 24px; background: #fff; border-radius: 50%; }
-  .coupon-box::before { left: -12px; top: 50%; transform: translateY(-50%); }
-  .coupon-box::after { right: -12px; top: 50%; transform: translateY(-50%); }
-  .coupon-amount { font-size: 36px; font-weight: 900; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
-  .coupon-condition { font-size: 14px; margin-top: 4px; opacity: 0.95; }
-  .cta-btn { display: block; text-decoration: none; background: linear-gradient(135deg, #1b5e20, #2d7d46); border-radius: 14px; padding: 16px; text-align: center; color: #fff; font-size: 15px; font-weight: 700; margin-top: 16px; box-shadow: 0 4px 12px rgba(45,125,70,0.3); }
-  .cta-btn span { font-size: 12px; font-weight: 400; opacity: 0.85; display: block; margin-top: 4px; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: #f0f0f0;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+  }
+
+  h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #1a1a1a;
+    text-align: center;
+    margin-bottom: -20px;
+  }
+
+  h1 span {
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    color: #888;
+    margin-top: 6px;
+  }
+
+  .section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px 30px;
+    background: #fff;
+    border-radius: 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+
+  .section-title em {
+    font-style: normal;
+    color: #d84315;
+  }
+
+  /* ── Phone Mockup ── */
+  .phone-frame {
+    width: 375px;
+    background: #fff;
+    border-radius: 40px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    overflow: hidden;
+    border: 8px solid #1a1a1a;
+    position: relative;
+  }
+
+  .phone-notch {
+    width: 150px;
+    height: 28px;
+    background: #1a1a1a;
+    border-radius: 0 0 20px 20px;
+    margin: 0 auto;
+  }
+
+  .phone-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 24px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #1a1a1a;
+  }
+
+  .kakao-header {
+    background: #f7e600;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .kakao-header .back { font-size: 20px; color: #3c1e1e; }
+  .kakao-header .title { font-weight: 700; font-size: 16px; color: #3c1e1e; }
+
+  .chat-area {
+    background: #b2c7d9;
+    padding: 20px 16px;
+    min-height: 520px;
+  }
+
+  .message-bubble {
+    background: #fff;
+    border-radius: 16px;
+    padding: 18px;
+    max-width: 300px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    position: relative;
+  }
+
+  .msg-sender {
+    font-size: 12px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 6px;
+  }
+
+  .msg-badge {
+    display: inline-block;
+    background: #f7e600;
+    color: #3c1e1e;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 4px;
+  }
+
+  .msg-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+
+  .msg-body {
+    font-size: 13px;
+    color: #444;
+    line-height: 1.8;
+    white-space: pre-line;
+  }
+
+  .msg-body .highlight {
+    color: #d84315;
+    font-weight: 600;
+  }
+
+  .msg-body .green {
+    color: #2d7d46;
+    font-weight: 600;
+  }
+
+  .msg-body .warn {
+    color: #e65100;
+    font-weight: 700;
+  }
+
+  .msg-body .info {
+    color: #1565c0;
+    font-weight: 600;
+  }
+
+  .msg-divider {
+    border: none;
+    border-top: 1px solid #e8e8e8;
+    margin: 14px 0;
+  }
+
+  .msg-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: #f7e600;
+    color: #3c1e1e;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 6px;
+    transition: background 0.2s;
+  }
+
+  .msg-button:hover { background: #e6d500; }
+
+  .msg-button.outline {
+    background: #fff;
+    border: 1.5px solid #f7e600;
+    color: #3c1e1e;
+  }
+
+  .msg-time {
+    font-size: 10px;
+    color: #7b8d9e;
+    margin-top: 6px;
+    text-align: right;
+  }
+
+  /* ── Card News Section ── */
+  .cardnews-container {
+    width: 100%;
+    max-width: 1200px;
+  }
+
+  .cardnews-grid {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    padding: 10px 0 30px;
+    scroll-snap-type: x mandatory;
+  }
+
+  .card {
+    min-width: 360px;
+    max-width: 360px;
+    height: 360px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+    scroll-snap-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .card-number {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: rgba(255,255,255,0.95);
+    color: #333;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    z-index: 2;
+  }
+
+  /* ── Card 1: Cover ── */
+  .card-1 {
+    background: linear-gradient(135deg, #bf360c 0%, #e65100 40%, #ff8a65 100%);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+  }
+
+  .card-1 .gift-icon {
+    font-size: 72px;
+    margin-bottom: 16px;
+    animation: bounce 2s ease infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .card-1 .card-headline {
+    font-size: 24px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.4;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+
+  .card-1 .card-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    margin-top: 12px;
+    font-weight: 400;
+  }
+
+  .card-1 .dure-logo {
+    margin-top: 20px;
+    background: rgba(255,255,255,0.2);
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  /* ── Card 2: Product Info ── */
+  .card-2 {
+    background: #fff;
+    padding: 0;
+  }
+
+  .card-2-top {
+    background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+    height: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 20px;
+  }
+
+  .egg-feature {
+    width: 90px;
+    background: #fff;
+    border-radius: 14px;
+    padding: 14px 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    text-align: center;
+  }
+
+  .egg-feature .ico { font-size: 28px; }
+  .egg-feature .lbl { font-size: 10px; font-weight: 600; color: #555; margin-top: 6px; display: block; }
+
+  .card-2-bottom {
+    padding: 22px 24px;
+  }
+
+  .card-2-bottom h3 {
+    font-size: 18px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+  }
+
+  .card-2-bottom p {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.7;
+  }
+
+  .card-2-bottom .tag {
+    display: inline-block;
+    background: #fff3e0;
+    color: #e65100;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+    margin-right: 4px;
+  }
+
+  /* ── Card 3: Gift Event ── */
+  .card-3 {
+    background: linear-gradient(180deg, #fff9c4 0%, #fff 50%);
+    padding: 28px;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+  }
+
+  .card-3 .ribbon {
+    background: #e65100;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 20px;
+    border-radius: 30px;
+    margin-bottom: 16px;
+  }
+
+  .card-3 h3 {
+    font-size: 20px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .event-box {
+    width: 100%;
+    background: #fff;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    margin-bottom: 16px;
+  }
+
+  .event-box .ev-icon { font-size: 40px; margin-bottom: 8px; }
+
+  .event-box .ev-name {
+    font-size: 16px;
+    font-weight: 800;
+    color: #d84315;
+    margin-bottom: 4px;
+  }
+
+  .event-box .ev-desc {
+    font-size: 12px;
+    color: #888;
+  }
+
+  .event-conditions {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-align: left;
+  }
+
+  .ev-cond {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #555;
+    font-weight: 500;
+  }
+
+  .ev-cond .c-icon {
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    background: #fff3e0;
+    color: #e65100;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  /* ── Card 4: Recipe Ideas ── */
+  .card-4 {
+    background: #fff;
+    padding: 28px;
+    justify-content: flex-start;
+  }
+
+  .card-4 h3 {
+    font-size: 18px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .recipe-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .recipe-item {
+    background: #fafafa;
+    border-radius: 12px;
+    padding: 16px 12px;
+    text-align: center;
+    border: 1px solid #f0f0f0;
+  }
+
+  .recipe-item .r-icon { font-size: 32px; margin-bottom: 6px; }
+
+  .recipe-item .r-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 2px;
+  }
+
+  .recipe-item .r-desc {
+    font-size: 10px;
+    color: #999;
+  }
+
+  .card-4 .tip {
+    margin-top: 16px;
+    background: #fff3e0;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 12px;
+    color: #bf360c;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  /* ── Card 5: Urgency + CTA ── */
+  .card-5 {
+    background: linear-gradient(135deg, #bf360c, #e65100, #ff6e40);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 36px;
+  }
+
+  .card-5 .urgency-badge {
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 6px 18px;
+    border-radius: 30px;
+    margin-bottom: 16px;
+    display: inline-block;
+  }
+
+  .card-5 h3 {
+    font-size: 24px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+
+  .card-5 p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: #f7e600;
+    color: #1a1a1a;
+    font-size: 16px;
+    font-weight: 800;
+    padding: 14px 40px;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+  }
+
+  .cta-btn:hover { transform: scale(1.05); }
+
+  .card-5 .sub-links {
+    margin-top: 16px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* Flow Arrow */
+  .flow-arrow {
+    font-size: 40px;
+    color: #d84315;
+    text-align: center;
+    margin: -20px 0;
+  }
+
+  /* Scroll hint */
+  .scroll-hint {
+    text-align: center;
+    font-size: 13px;
+    color: #999;
+    margin-top: -10px;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .card { min-width: 300px; max-width: 300px; height: 300px; }
+    .phone-frame { width: 340px; }
+  }
 </style>
 </head>
 <body>
 
-<div class="page-header">
-  <h1>가정의 달 특별 선물</h1>
-  <div class="sub">바른생협 온라인몰 ecoop.or.kr</div>
-</div>
+<!-- Title -->
+<h1>
+  4주차 알림톡 + 카드뉴스 미리보기
+  <span>춘천두레생협 온라인 홍보 | 2026.04.20(월) 발송</span>
+</h1>
 
-<!-- 카드 1 -->
-<div class="card">
-  <div class="card-num">1 / 5</div>
-  <div class="card-body" style="text-align:center; padding:32px 20px;">
-    <p style="font-size:40px; margin-bottom:12px;">💐</p>
-    <h2 style="font-size:22px;">5월, 바른생협으로<br>마음을 전하세요</h2>
-    <p style="font-size:15px; font-weight:700; color:var(--green); margin-top:12px;">
-      소중한 분께 건강한 선물<br>동탄 지역 조합원님을 위한 특별 혜택
-    </p>
-    <div class="highlight" style="margin-top:16px;">
-      <p style="margin:0; font-size:14px; font-weight:700; text-align:center; color:var(--green-dark);">🎁 가정의 달 특별 선물</p>
+<!-- ━━━━ PART 1: 알림톡 ━━━━ -->
+<div class="section-title">📱 <em>알림톡</em> 발송 화면</div>
+
+<div class="phone-frame">
+  <div class="phone-notch"></div>
+  <div class="phone-status">
+    <span>10:00</span>
+    <span>🔋 85%</span>
+  </div>
+  <div class="kakao-header">
+    <span class="back">‹</span>
+    <span class="title">춘천두레생협</span>
+  </div>
+  <div class="chat-area">
+    <div class="msg-sender">
+      춘천두레생협 <span class="msg-badge">알림톡</span>
     </div>
-    <a href="https://ecoop.or.kr" target="_blank" class="cta-btn">온라인몰 바로가기<span>ecoop.or.kr</span></a>
+    <div class="message-bubble">
+      <div class="msg-title">🥚 4주차 선물 안내</div>
+      <div class="msg-body">
+조합원님, 이번 주는
+아침 식탁이 든든해져요!
+
+🥚 이번 주 선물
+<span class="highlight">원삼유정란 10구</span>
+건강한 닭이 낳은 건강한 알!
+계란말이, 계란찜, 프라이까지
+다양하게 활용하세요.
+
+✅ 기간: <span class="green">4/20(월) ~ 4/24(금)</span>
+✅ 조건: ecoop.or.kr에서 <span class="green">5만원 이상</span> 주문
+✅ 방법: 배송 시 <span class="green">자동 동봉</span>
+
+<span class="warn">⏰ 선물이 다음 주면 마지막이에요!
+놓치지 마세요.</span>
+
+<span class="info">📞 주문이 어려우시면: 1661-5110</span>
+      </div>
+      <hr class="msg-divider">
+      <a href="#cardnews" class="msg-button">🛒 주문하기 · ecoop.or.kr</a>
+      <a href="#cardnews" class="msg-button outline">📰 카드뉴스 보기</a>
+      <div class="msg-time">오전 10:00</div>
+    </div>
   </div>
 </div>
 
-<!-- 카드 2: 어버이날 선물세트 추천 -->
-<div class="card">
-  <div class="card-num">2 / 5</div>
-  <div class="card-body">
-    <h2>🌹 어버이날 선물세트 추천</h2>
-    <p>부모님께 건강한 마음을 전하세요.</p>
-    <div class="gift-boxes">
-      <div class="gift-box-item">
-        <div class="gbi-icon">🍯</div>
-        <div class="gbi-title">건강세트</div>
-        <div class="gbi-desc">꿀, 견과류,<br>건강즙 세트</div>
-      </div>
-      <div class="gift-box-item">
-        <div class="gbi-icon">🥩</div>
-        <div class="gbi-title">한우세트</div>
-        <div class="gbi-desc">프리미엄<br>한우 선물세트</div>
-      </div>
-      <div class="gift-box-item">
-        <div class="gbi-icon">🎋</div>
-        <div class="gbi-title">전통세트</div>
-        <div class="gbi-desc">전통차,<br>한과 세트</div>
-      </div>
-    </div>
-    <div class="highlight">
-      <p style="margin:0; font-size:13px; text-align:center;"><strong>ecoop.or.kr에서 선물세트를 만나보세요!</strong></p>
-    </div>
-    <a href="https://ecoop.or.kr" target="_blank" class="cta-btn">선물세트 보러가기<span>ecoop.or.kr</span></a>
-  </div>
-</div>
+<!-- Flow Arrow -->
+<div class="flow-arrow">▼ 버튼 클릭 시</div>
 
-<!-- 카드 3: 스승의날 & 가족 선물 -->
-<div class="card">
-  <div class="card-num">3 / 5</div>
-  <div class="card-body">
-    <h2>👨‍👩‍👧‍👦 스승의날 & 가족 선물 추천</h2>
-    <p>소중한 분께 마음을 전하세요.</p>
-    <div class="gift-boxes">
-      <div class="gift-box-item">
-        <div class="gbi-icon">🌸</div>
-        <div class="gbi-title">스승의날</div>
-        <div class="gbi-desc">감사 카네이션<br>& 차 세트</div>
-      </div>
-      <div class="gift-box-item">
-        <div class="gbi-icon">🧒</div>
-        <div class="gbi-title">어린이날</div>
-        <div class="gbi-desc">건강 간식<br>모음 세트</div>
-      </div>
-      <div class="gift-box-item">
-        <div class="gbi-icon">👨‍👩‍👧</div>
-        <div class="gbi-title">가족</div>
-        <div class="gbi-desc">온 가족<br>식사 세트</div>
-      </div>
-    </div>
-    <a href="https://ecoop.or.kr" target="_blank" class="cta-btn">선물 고르러 가기<span>ecoop.or.kr</span></a>
-  </div>
-</div>
+<!-- ━━━━ PART 2: 카드뉴스 ━━━━ -->
+<div id="cardnews" class="cardnews-container">
+  <div class="section-title">📰 <em>카드뉴스</em> (5장) — 좌우 스크롤</div>
+  <p class="scroll-hint">← 좌우로 스크롤하세요 →</p>
 
-<!-- 카드 4: 선물 포장 & 전국 배송 -->
-<div class="card">
-  <div class="card-num">4 / 5</div>
-  <div class="card-body">
-    <h2>🎀 선물 포장 & 전국 배송</h2>
-    <p>정성을 담아 전국 어디든 보내드립니다.</p>
-    <div class="benefit-item"><div class="benefit-icon">🎀</div><div class="benefit-info"><div class="name">정성스러운 선물 포장</div><div class="desc">받는 분이 감동할 포장 서비스</div></div></div>
-    <div class="benefit-item"><div class="benefit-icon">🚚</div><div class="benefit-info"><div class="name">전국 어디든 배송 가능</div><div class="desc">멀리 계신 부모님께도 안심 배송</div></div></div>
-    <div class="benefit-item"><div class="benefit-icon">💌</div><div class="benefit-info"><div class="name">메시지 카드 동봉</div><div class="desc">마음을 담은 메시지를 함께 전달</div></div></div>
-    <div class="highlight">
-      <p style="margin:0; font-size:13px; text-align:center;"><strong>💡 어버이날(5/8) 전 미리 주문하세요!</strong></p>
-    </div>
-    <a href="https://ecoop.or.kr" target="_blank" class="cta-btn">지금 주문하기<span>ecoop.or.kr</span></a>
-  </div>
-</div>
+  <div class="cardnews-grid">
 
-<!-- 카드 5: 증정 이벤트 + CTA -->
-<div class="card">
-  <div class="card-num">5 / 5</div>
-  <div class="card-body" style="text-align:center; padding:32px 20px;">
-    <p style="font-size:48px; margin-bottom:12px;">🐠</p>
-    <h2 style="font-size:22px;">우리쌀 붕어빵 (10개)<br>증정 이벤트!</h2>
-    <p style="font-size:14px; margin:8px 0;">가정의 달 간식으로 딱!<br>온 가족이 함께 즐겨요</p>
-    <div class="coupon-box">
-      <p style="font-size:13px; margin-bottom:4px;">지금 주문하시면 드리는 선물!</p>
-      <div class="coupon-amount">무료 증정!</div>
-      <div class="coupon-condition">정가 4,818원 → 무료</div>
-      <div style="font-size:12px; margin-top:8px; opacity:0.9;">* ecoop.or.kr 주문 시 증정</div>
+    <!-- Card 1: 표지 -->
+    <div class="card card-1">
+      <div class="card-number">1 / 5</div>
+      <div class="gift-icon">🥚</div>
+      <div class="card-headline">
+        이번 주 선물은<br>원삼유정란!
+      </div>
+      <div class="card-sub">건강한 닭이 낳은 건강한 알 · 10구</div>
+      <div class="dure-logo">춘천두레생협 4주차 증정</div>
     </div>
 
-    <div style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border-radius: 16px; padding: 24px; margin: 16px 0;">
-      <p style="font-size:14px; color:#555; margin-bottom:12px;">바른생협 온라인몰</p>
-      <p style="font-size:28px; font-weight:900; color:var(--green-dark); margin:0;">ecoop.or.kr</p>
+    <!-- Card 2: 원삼유정란 소개 -->
+    <div class="card card-2">
+      <div class="card-number">2 / 5</div>
+      <div class="card-2-top">
+        <div class="egg-feature">
+          <span class="ico">🐔</span>
+          <span class="lbl">동물복지</span>
+        </div>
+        <div class="egg-feature">
+          <span class="ico">🌾</span>
+          <span class="lbl">Non-GMO 사료</span>
+        </div>
+        <div class="egg-feature">
+          <span class="ico">🥚</span>
+          <span class="lbl">유정란 10구</span>
+        </div>
+      </div>
+      <div class="card-2-bottom">
+        <h3>원삼유정란이 특별한 이유</h3>
+        <p>
+          자연방사 환경에서 건강하게 자란 닭이 낳은 유정란.<br>
+          Non-GMO 사료만 먹이고, 항생제 없이 키웠습니다.
+          신선하고 고소한 맛이 다릅니다!
+        </p>
+        <span class="tag">#유정란</span>
+        <span class="tag">#동물복지</span>
+        <span class="tag">#NonGMO</span>
+      </div>
     </div>
 
-    <div class="phone-box">
-      <div class="icon">📞</div>
-      <div class="title">온라인 주문이 어려우시면</div>
-      <div class="number">☎ 1661-5110</div>
-      <div class="desc">주문부터 배송까지 상세히 안내드립니다</div>
+    <!-- Card 3: 증정 조건 -->
+    <div class="card card-3">
+      <div class="card-number">3 / 5</div>
+      <div class="ribbon">🎉 4주차 증정 이벤트</div>
+      <h3>5만원 이상 주문하면<br>원삼유정란 드려요!</h3>
+      <div class="event-box">
+        <div class="ev-icon">🥚</div>
+        <div class="ev-name">원삼유정란 10구</div>
+        <div class="ev-desc">건강한 닭이 낳은 건강한 알</div>
+      </div>
+      <div class="event-conditions">
+        <div class="ev-cond"><span class="c-icon">📅</span> 기간: 4/20(월) ~ 4/24(금) 주문분</div>
+        <div class="ev-cond"><span class="c-icon">💰</span> 조건: ecoop.or.kr 5만원 이상 주문</div>
+        <div class="ev-cond"><span class="c-icon">📦</span> 방법: 배송 시 자동 동봉</div>
+        <div class="ev-cond"><span class="c-icon">📞</span> 전화주문 가능: 1661-5110</div>
+      </div>
     </div>
 
-    <a href="https://ecoop.or.kr" target="_blank" class="cta-btn" style="margin-top:16px;">지금 주문하기<span>ecoop.or.kr</span></a>
-    <p style="font-size:13px; color:#999; margin-top:12px;">바른생협 | ecoop.or.kr</p>
+    <!-- Card 4: 활용법 -->
+    <div class="card card-4">
+      <div class="card-number">4 / 5</div>
+      <h3>🍳 유정란 활용법</h3>
+      <div class="recipe-grid">
+        <div class="recipe-item">
+          <div class="r-icon">🍳</div>
+          <div class="r-name">계란 프라이</div>
+          <div class="r-desc">고소한 아침 한끼</div>
+        </div>
+        <div class="recipe-item">
+          <div class="r-icon">🥘</div>
+          <div class="r-name">계란찜</div>
+          <div class="r-desc">부드러운 반찬</div>
+        </div>
+        <div class="recipe-item">
+          <div class="r-icon">🌯</div>
+          <div class="r-name">계란말이</div>
+          <div class="r-desc">아이 간식으로 딱</div>
+        </div>
+        <div class="recipe-item">
+          <div class="r-icon">🍜</div>
+          <div class="r-name">라면 토핑</div>
+          <div class="r-desc">완성도를 높여요</div>
+        </div>
+      </div>
+      <div class="tip">
+        💡 유정란은 일반 달걀보다 고소하고 풍미가 깊어요!
+      </div>
+    </div>
+
+    <!-- Card 5: 긴급 CTA -->
+    <div class="card card-5">
+      <div class="card-number">5 / 5</div>
+      <div class="urgency-badge">⏰ 다음 주가 마지막!</div>
+      <h3>지금 주문하고<br>유정란 받으세요!</h3>
+      <p>
+        4/20(월) ~ 4/24(금) 주문분에 한해<br>
+        원삼유정란 10구를 자동 동봉해 드립니다.<br>
+        놓치지 마세요!
+      </p>
+      <a href="#" class="cta-btn">주문하기 → ecoop.or.kr</a>
+      <div class="sub-links">
+        춘천두레생협 | 4주차 온라인 홍보 | 📞 1661-5110
+      </div>
+    </div>
+
   </div>
 </div>
 
