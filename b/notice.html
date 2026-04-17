@@ -6,247 +6,379 @@
 <title>동탄점 오프라인 매장 운영 종료 안내 — 바른두레생협</title>
 <meta property="og:title" content="동탄점 오프라인 매장 운영 종료 안내">
 <meta property="og:description" content="2026년 5월 15일 동탄점 오프라인 매장 운영을 종료하고 '더 편리한 온라인생협'으로 찾아갑니다.">
-<meta name="theme-color" content="#2d7d46">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#5a8263">
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700;900&family=Gaegu:wght@700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --green-dark: #1b5e20;
-    --green: #2d7d46;
-    --green-mid: #5a8a6b;
-    --green-light: #e8f1ea;
-    --green-bg: #f1f7f2;
-    --yellow: #f9c74f;
-    --text: #2b3a2f;
-    --text-sub: #57685c;
-    --card-shadow: 0 6px 24px rgba(27,94,32,0.08);
+    --green-dark: #2b5538;
+    --green: #5a8263;
+    --green-mid: #7fa68a;
+    --green-light: #b8d0be;
+    --green-bg: #a8c5ad;
+    --paper: #f3efe3;
+    --paper-soft: #faf6ea;
+    --yellow: #e8c547;
+    --yellow-soft: #f4d76a;
+    --text: #2d3a30;
+    --text-sub: #5a6a5f;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: #c8d9ca; }
   body {
     font-family: 'Noto Sans KR', sans-serif;
-    background: var(--green-bg);
     color: var(--text);
     max-width: 480px;
     margin: 0 auto;
-    padding: 0 0 40px;
     line-height: 1.7;
     -webkit-text-size-adjust: 100%;
+    position: relative;
   }
-  .hero {
-    background: linear-gradient(160deg, #c9e0cf 0%, #e8f1ea 55%, #f4f9ee 100%);
-    padding: 48px 24px 36px;
-    text-align: center;
+  .frame {
+    background: linear-gradient(170deg, #c8d9ca 0%, #b8ccbc 40%, #d8e3d0 100%);
+    padding: 28px 18px 40px;
     position: relative;
     overflow: hidden;
+    min-height: 100vh;
   }
-  .hero::before, .hero::after {
-    content: '';
+  /* Botanical corner decorations */
+  .leaf-corner {
     position: absolute;
-    width: 120px; height: 120px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    opacity: 0.7;
     pointer-events: none;
+    z-index: 1;
   }
-  .hero::before {
-    left: -30px; top: -20px;
-    background-image: radial-gradient(ellipse at center, #a8c9ae 0%, transparent 60%);
-  }
-  .hero::after {
-    right: -30px; bottom: -20px;
-    background-image: radial-gradient(ellipse at center, #c7d98f 0%, transparent 60%);
-  }
-  .hero h1 {
-    font-size: 24px;
-    font-weight: 900;
-    color: var(--green-dark);
-    margin-bottom: 14px;
-    line-height: 1.35;
+  .leaf-tl { top: -10px; left: -20px; width: 180px; transform: rotate(-10deg); }
+  .leaf-bl { bottom: -20px; left: -30px; width: 200px; transform: rotate(15deg) scaleY(-1); }
+  .leaf-br { bottom: -30px; right: -30px; width: 220px; transform: rotate(-20deg) scaleX(-1); }
+  .leaf-tr { top: 10px; right: -20px; width: 120px; transform: rotate(180deg); opacity: 0.75; }
+
+  .paper {
+    background: var(--paper);
+    border-radius: 6px;
+    padding: 38px 26px 32px;
     position: relative;
+    z-index: 2;
+    box-shadow: 0 8px 32px rgba(43,85,56,0.18), 0 2px 6px rgba(43,85,56,0.1);
   }
-  .hero .tagline {
-    display: inline-block;
+
+  .title-wrap { text-align: center; margin-bottom: 26px; position: relative; }
+  .title {
+    font-family: 'Gaegu', 'Noto Sans KR', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--green-dark);
+    line-height: 1.3;
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+    padding: 0 10px;
+  }
+  .tagline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     background: var(--green);
     color: #fff;
-    font-size: 13px;
+    font-size: 13.5px;
     font-weight: 500;
-    padding: 8px 18px;
+    padding: 9px 20px;
     border-radius: 999px;
     letter-spacing: 0.2px;
-    position: relative;
   }
-  .hero .tagline::before, .hero .tagline::after {
-    content: '✦';
-    color: var(--yellow);
-    margin: 0 6px;
+  .tagline .dec {
+    color: var(--yellow-soft);
     font-size: 11px;
   }
 
-  .card {
-    background: #fff;
-    margin: 20px 16px 0;
-    border-radius: 18px;
-    padding: 24px 22px;
-    box-shadow: var(--card-shadow);
-  }
-  .card p {
-    font-size: 15px;
+  .body-section { padding: 0 4px; margin-top: 22px; }
+  .body-section p {
+    font-size: 14.5px;
     color: var(--text);
+    line-height: 1.85;
     margin-bottom: 14px;
   }
-  .card p:last-child { margin-bottom: 0; }
-  .card p strong { color: var(--green-dark); font-weight: 700; }
+  .body-section p:last-child { margin-bottom: 0; }
+  .body-section strong { color: var(--green-dark); font-weight: 700; }
   .highlight-date {
     color: var(--green-dark);
     font-weight: 700;
-    background: linear-gradient(180deg, transparent 60%, #fff3a8 60%);
-    padding: 0 2px;
   }
 
+  .olive-deco {
+    display: block;
+    margin: 18px auto 6px;
+    width: 60px;
+    opacity: 0.6;
+  }
+
+  .info-box {
+    background: var(--paper-soft);
+    border-radius: 10px;
+    padding: 20px 18px;
+    margin: 24px 0 8px;
+    border-left: 4px solid var(--green);
+  }
   .section-title {
     display: inline-block;
     background: var(--green-dark);
     color: #fff;
     font-size: 14px;
     font-weight: 700;
-    padding: 7px 16px;
-    border-radius: 8px;
-    margin-bottom: 18px;
+    padding: 6px 16px;
+    border-radius: 6px;
+    margin-bottom: 14px;
+    letter-spacing: 0.3px;
   }
-
   .info-list { list-style: none; padding: 0; margin: 0; }
   .info-list li {
     position: relative;
-    padding: 14px 0 14px 26px;
-    border-bottom: 1px dashed #d9e6dd;
-    font-size: 14.5px;
-    line-height: 1.7;
+    padding: 8px 0 8px 18px;
+    font-size: 14px;
+    line-height: 1.75;
     color: var(--text);
   }
-  .info-list li:last-child { border-bottom: none; padding-bottom: 0; }
   .info-list li::before {
     content: '';
     position: absolute;
-    left: 2px; top: 22px;
-    width: 10px; height: 10px;
-    background: var(--green);
+    left: 0; top: 16px;
+    width: 7px; height: 7px;
+    background: var(--green-dark);
     border-radius: 50%;
   }
   .info-list li b {
-    display: block;
     color: var(--green-dark);
     font-weight: 700;
-    margin-bottom: 4px;
-    font-size: 15px;
+    font-size: 14.5px;
   }
   .info-list li .sub-item {
     display: block;
-    margin-top: 6px;
+    margin-top: 2px;
     color: var(--text-sub);
-    font-size: 14px;
+    font-size: 13.5px;
+    padding-left: 2px;
   }
 
-  .closing {
-    background: linear-gradient(160deg, #f4f9ee 0%, #e8f1ea 100%);
-    border-radius: 18px;
-    padding: 24px 22px;
-    margin: 20px 16px 0;
+  .contact-box {
+    background: linear-gradient(135deg, #f4ecd0 0%, #f9e6a8 100%);
+    border: 1.5px dashed var(--green);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin: 18px 0 6px;
     text-align: center;
   }
-  .closing p {
-    font-size: 15px;
-    color: var(--text);
-    line-height: 1.8;
-    margin-bottom: 12px;
+  .contact-label {
+    font-size: 13px;
+    color: var(--green-dark);
+    font-weight: 700;
+    margin-bottom: 6px;
   }
-  .closing .thanks {
+  .contact-phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--green-dark);
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+  }
+  .contact-phone::before {
+    content: '📞';
     font-size: 18px;
+  }
+  .contact-hint {
+    display: block;
+    font-size: 11.5px;
+    color: var(--text-sub);
+    margin-top: 4px;
+  }
+
+  .closing-section { margin-top: 22px; padding: 0 4px; }
+  .closing-section p {
+    font-size: 14.5px;
+    color: var(--text);
+    line-height: 1.85;
+    margin-bottom: 14px;
+  }
+  .thanks {
+    font-size: 16px;
     font-weight: 700;
     color: var(--green-dark);
-    margin: 18px 0 0;
+    margin-top: 20px;
   }
 
   .signature {
     text-align: center;
-    margin: 28px 16px 0;
-    padding-top: 20px;
-    border-top: 1px solid #d9e6dd;
+    margin-top: 32px;
+    padding-top: 18px;
+    border-top: 1px solid #d4c9a8;
     font-size: 13px;
-    color: var(--text-sub);
+    color: var(--green-dark);
+    font-weight: 500;
     letter-spacing: 0.5px;
   }
-  .signature span { color: var(--green-dark); font-weight: 500; }
 
+  .cta-wrap { padding: 0 4px; margin-top: 20px; }
   .cta-btn {
     display: block;
     text-decoration: none;
     background: linear-gradient(135deg, var(--green-dark), var(--green));
-    border-radius: 14px;
-    padding: 16px;
+    border-radius: 12px;
+    padding: 15px;
     text-align: center;
     color: #fff;
     font-size: 15px;
     font-weight: 700;
-    margin: 22px 16px 0;
-    box-shadow: 0 4px 14px rgba(45,125,70,0.28);
+    box-shadow: 0 4px 12px rgba(43,85,56,0.25);
   }
   .cta-btn span {
     font-size: 12px;
     font-weight: 400;
     opacity: 0.9;
     display: block;
-    margin-top: 4px;
+    margin-top: 2px;
   }
 </style>
 </head>
 <body>
 
-<div class="hero">
-  <h1>동탄점 오프라인 매장<br>운영 종료 안내</h1>
-  <div class="tagline">'더 편리한 온라인생협'으로 찾아갑니다</div>
-</div>
+<div class="frame">
 
-<div class="card">
-  <p>안녕하세요, 조합원님.<br>언제나 <strong>바른두레소비자생활협동조합</strong>의 가치를 함께 실현해 주셔서 깊은 감사를 드립니다.</p>
+  <!-- Top-left eucalyptus + flowers -->
+  <svg class="leaf-corner leaf-tl" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <g opacity="0.9">
+      <!-- Stem 1 -->
+      <path d="M20,40 Q60,80 110,110 T170,160" stroke="#6a8d6e" stroke-width="2" fill="none"/>
+      <!-- Eucalyptus leaves -->
+      <ellipse cx="35" cy="55" rx="14" ry="9" fill="#8caf8d" transform="rotate(-30 35 55)"/>
+      <ellipse cx="55" cy="70" rx="16" ry="10" fill="#a5c2a2" transform="rotate(-20 55 70)"/>
+      <ellipse cx="75" cy="90" rx="15" ry="10" fill="#94b693" transform="rotate(-10 75 90)"/>
+      <ellipse cx="95" cy="105" rx="17" ry="11" fill="#7ea381" transform="rotate(10 95 105)"/>
+      <ellipse cx="120" cy="125" rx="15" ry="9" fill="#a5c2a2" transform="rotate(20 120 125)"/>
+      <ellipse cx="145" cy="145" rx="14" ry="9" fill="#8caf8d" transform="rotate(30 145 145)"/>
+      <!-- Second branch -->
+      <path d="M50,20 Q80,50 120,60" stroke="#6a8d6e" stroke-width="1.5" fill="none"/>
+      <ellipse cx="70" cy="30" rx="10" ry="6" fill="#b5cfb2" transform="rotate(20 70 30)"/>
+      <ellipse cx="95" cy="45" rx="11" ry="7" fill="#9ebc9c" transform="rotate(10 95 45)"/>
+      <!-- Small yellow flowers -->
+      <g transform="translate(115,60)">
+        <circle cx="0" cy="-5" r="3" fill="#f4d76a"/>
+        <circle cx="4" cy="0" r="3" fill="#f4d76a"/>
+        <circle cx="-4" cy="0" r="3" fill="#f4d76a"/>
+        <circle cx="2" cy="4" r="3" fill="#f4d76a"/>
+        <circle cx="-2" cy="4" r="3" fill="#f4d76a"/>
+        <circle cx="0" cy="0" r="2" fill="#d4a428"/>
+      </g>
+      <g transform="translate(135,90)">
+        <circle cx="0" cy="-4" r="2.5" fill="#eac445"/>
+        <circle cx="3.5" cy="0" r="2.5" fill="#eac445"/>
+        <circle cx="-3.5" cy="0" r="2.5" fill="#eac445"/>
+        <circle cx="1.5" cy="3.5" r="2.5" fill="#eac445"/>
+        <circle cx="-1.5" cy="3.5" r="2.5" fill="#eac445"/>
+      </g>
+    </g>
+  </svg>
 
-  <p>바른두레생협은 급변하는 유통 환경에 발맞추어 더욱 내실 있는 경영과 서비스 질 향상을 위해 고심해 왔습니다.</p>
+  <!-- Bottom-left botanical -->
+  <svg class="leaf-corner leaf-bl" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <g opacity="0.85">
+      <path d="M10,50 Q50,90 100,120 T180,170" stroke="#6a8d6e" stroke-width="2" fill="none"/>
+      <ellipse cx="30" cy="65" rx="15" ry="9" fill="#8caf8d" transform="rotate(-30 30 65)"/>
+      <ellipse cx="55" cy="85" rx="17" ry="10" fill="#a5c2a2" transform="rotate(-15 55 85)"/>
+      <ellipse cx="80" cy="105" rx="16" ry="10" fill="#94b693" transform="rotate(5 80 105)"/>
+      <ellipse cx="110" cy="125" rx="18" ry="11" fill="#7ea381" transform="rotate(15 110 125)"/>
+      <ellipse cx="140" cy="145" rx="15" ry="9" fill="#a5c2a2" transform="rotate(25 140 145)"/>
+      <!-- Yellow flower cluster -->
+      <g transform="translate(50,40)">
+        <circle cx="0" cy="-5" r="3.5" fill="#f4d76a"/>
+        <circle cx="4.5" cy="0" r="3.5" fill="#f4d76a"/>
+        <circle cx="-4.5" cy="0" r="3.5" fill="#f4d76a"/>
+        <circle cx="2.5" cy="4.5" r="3.5" fill="#f4d76a"/>
+        <circle cx="-2.5" cy="4.5" r="3.5" fill="#f4d76a"/>
+        <circle cx="0" cy="0" r="2" fill="#d4a428"/>
+      </g>
+    </g>
+  </svg>
 
-  <p>이에 따라 오는 <span class="highlight-date">2026년 5월 15일</span>을 기점으로 동탄점의 오프라인 매장 운영을 종료하고, 동탄지역 전체를 <strong>'온라인 중심 체계'</strong>로 전환하는 결정을 내리게 되었습니다.</p>
+  <!-- Bottom-right eucalyptus -->
+  <svg class="leaf-corner leaf-br" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <g opacity="0.9">
+      <path d="M20,60 Q60,100 110,130 T180,180" stroke="#6a8d6e" stroke-width="2" fill="none"/>
+      <ellipse cx="40" cy="75" rx="14" ry="9" fill="#8caf8d" transform="rotate(-25 40 75)"/>
+      <ellipse cx="65" cy="95" rx="16" ry="10" fill="#a5c2a2" transform="rotate(-10 65 95)"/>
+      <ellipse cx="90" cy="115" rx="17" ry="11" fill="#7ea381" transform="rotate(10 90 115)"/>
+      <ellipse cx="120" cy="135" rx="15" ry="10" fill="#94b693" transform="rotate(20 120 135)"/>
+      <ellipse cx="150" cy="155" rx="14" ry="9" fill="#a5c2a2" transform="rotate(30 150 155)"/>
+      <path d="M80,30 Q110,50 140,70" stroke="#6a8d6e" stroke-width="1.5" fill="none"/>
+      <ellipse cx="95" cy="38" rx="10" ry="6" fill="#b5cfb2" transform="rotate(15 95 38)"/>
+      <ellipse cx="120" cy="55" rx="11" ry="7" fill="#9ebc9c" transform="rotate(25 120 55)"/>
+      <!-- Yellow flowers -->
+      <g transform="translate(60,50)">
+        <circle cx="0" cy="-4" r="3" fill="#f4d76a"/>
+        <circle cx="4" cy="0" r="3" fill="#f4d76a"/>
+        <circle cx="-4" cy="0" r="3" fill="#f4d76a"/>
+        <circle cx="2" cy="4" r="3" fill="#f4d76a"/>
+        <circle cx="-2" cy="4" r="3" fill="#f4d76a"/>
+        <circle cx="0" cy="0" r="1.5" fill="#d4a428"/>
+      </g>
+    </g>
+  </svg>
 
-  <p>이번 전환은 단순한 매장 폐점이 아닌, 운영 효율화를 통해 절감된 비용을 <strong>상품의 질과 배송 서비스의 편의성</strong>으로 돌려드리기 위한 전략적 혁신입니다.</p>
-</div>
+  <div class="paper">
 
-<div class="card">
-  <div class="section-title">안내 및 변경 사항</div>
-  <ul class="info-list">
-    <li>
-      <b>매장 마지막 영업일</b>
-      2026년 5월 15일(금)
-    </li>
-    <li>
-      <b>온라인 조합원 자동 전환</b>
-      별도의 탈퇴 의사를 밝히지 않으시는 경우, 현재의 조합원 자격은 <strong>'온라인 조합원'</strong>으로 자동 전환됩니다. 기존과 동일한 혜택으로 온라인 쇼핑몰을 통해 더욱 편리하게 장을 보실 수 있습니다.
-    </li>
-    <li>
-      <b>출자금 환급 및 탈퇴 안내</b>
-      온라인 서비스 이용을 원치 않으시고 탈퇴를 희망하시는 조합원님께는 그동안 납부하신 <strong>출자금을 전액 환급</strong>해 드립니다.
-      <span class="sub-item">· 신청 방법 : 매장 방문 접수</span>
-    </li>
-  </ul>
-</div>
+    <div class="title-wrap">
+      <div class="title">동탄점 오프라인 매장<br>운영 종료 안내</div>
+      <div class="tagline">
+        <span class="dec">✦</span>
+        <span>'더 편리한 온라인생협'으로 찾아갑니다</span>
+        <span class="dec">✦</span>
+      </div>
+    </div>
 
-<div class="closing">
-  <p>바른두레생협은 공간의 한계를 넘어,<br>조합원님의 일상 속으로 더 깊숙이,<br>더 건강하게 찾아갈 것을 약속드립니다.</p>
-  <p>동탄지역의 새로운 도전에<br>변함없는 애정과 응원을 부탁드립니다.</p>
-  <p class="thanks">감사합니다.</p>
-</div>
+    <div class="body-section">
+      <p>안녕하세요, 조합원님. 언제나 바른두레소비자생활협동조합의 가치를 함께 실현해 주셔서 깊은 감사를 드립니다.</p>
 
-<a href="https://ecoop.or.kr" target="_blank" rel="noopener" class="cta-btn">
-  온라인생협 바로가기
-  <span>ecoop.or.kr</span>
-</a>
+      <p>바른두레생협은 급변하는 유통 환경에 발맞추어 더욱 내실 있는 경영과 서비스 질 향상을 위해 고심해 왔습니다. 이에 따라 오는 <span class="highlight-date">2026년 5월 15일</span>을 기점으로 동탄점의 오프라인 매장 운영을 종료하고, 동탄지역 전체를 <strong>'온라인 중심 체계'</strong>로 전환하는 결정을 내리게 되었습니다.</p>
 
-<div class="signature">
-  - <span>바른두레소비자생활협동조합</span> 드림 -
+      <p>이번 전환은 단순한 매장 폐점이 아닌, 운영 효율화를 통해 절감된 비용을 상품의 질과 배송 서비스의 편의성으로 돌려드리기 위한 전략적 혁신입니다.</p>
+    </div>
+
+    <div class="info-box">
+      <div class="section-title">안내 및 변경 사항</div>
+      <ul class="info-list">
+        <li>
+          <b>매장 마지막 영업일</b> : 2026년 5월 15일(금)
+        </li>
+        <li>
+          <b>온라인 조합원 자동 전환</b> : 별도의 탈퇴 의사를 밝히지 않으시는 경우, 현재의 조합원 자격은 '온라인 조합원'으로 자동 전환됩니다. 기존과 동일한 혜택으로 온라인 쇼핑몰을 통해 더욱 편리하게 장을 보실 수 있습니다.
+        </li>
+        <li>
+          <b>출자금 환급 및 탈퇴 안내</b> : 온라인 서비스 이용을 원치 않으시고 탈퇴를 희망하시는 조합원님께는 그동안 납부하신 출자금을 전액 환급해 드립니다.
+          <span class="sub-item">- 신청 방법 : 매장 방문 접수</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="contact-box">
+      <div class="contact-label">문의 및 탈퇴 안내 · 사무국</div>
+      <a href="tel:031-444-6665" class="contact-phone">031-444-6665</a>
+      <span class="contact-hint">번호를 누르면 바로 전화 연결됩니다</span>
+    </div>
+
+    <div class="closing-section">
+      <p>바른두레생협은 공간의 한계를 넘어, 조합원님의 일상 속으로 더 깊숙이, 더 건강하게 찾아갈 것을 약속드립니다. 동탄지역의 새로운 도전에 변함없는 애정과 응원을 부탁드립니다.</p>
+      <p class="thanks">감사합니다.</p>
+    </div>
+
+    <div class="cta-wrap">
+      <a href="https://ecoop.or.kr" target="_blank" rel="noopener" class="cta-btn">
+        온라인생협 바로가기
+        <span>ecoop.or.kr</span>
+      </a>
+    </div>
+
+    <div class="signature">- 바른두레소비자생활협동조합 드림 -</div>
+
+  </div>
 </div>
 
 </body>
