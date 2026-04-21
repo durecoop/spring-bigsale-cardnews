@@ -2,264 +2,470 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>온라인 첫 주문 특별 혜택 — 평택두레생협</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="theme-color" content="#1b5e20">
+<title>1주차 카드뉴스 — 폐점 안내 + 온라인몰 소개</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <style>
-  :root { --green: #2d7d46; --green-light: #e8f5e9; --green-dark: #1b5e20; --orange: #e65100; --orange-light: #fff3e0; --gold: #f9a825; --bg: #fafafa; --card-shadow: 0 4px 20px rgba(0,0,0,0.10); }
+  :root {
+    --green: #2d7d46; --green-light: #e8f5e9; --green-dark: #1b5e20;
+    --orange: #e65100; --orange-light: #fff3e0;
+    --gold: #f9a825; --bg: #fafafa;
+    --card-shadow: 0 4px 20px rgba(0,0,0,0.10);
+    /* 바른생협 톤 */
+    --bg-baren: #c8d9ca;
+    --paper: #faf6ea;
+    --paper-card: #fff;
+    --accent-bg: #f3efe0;
+    --yellow: #e8c547;
+    --yellow-soft: #f7de8a;
+    --text-baren: #2a3a30;
+    --text-body: #3d4c43;
+    --border-soft: #e4e0d0;
+    --green-baren-dark: #2b5538;
+    --green-baren: #5a8263;
+  }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Noto Sans KR', sans-serif; background: var(--bg); color: #333; max-width: 480px; margin: 0 auto; padding-bottom: 40px; }
-  .page-header { background: linear-gradient(135deg, #1b5e20 0%, #2d7d46 40%, #43a047 100%); padding: 28px 20px 20px; text-align: center; color: #fff; }
-  .page-header h1 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
-  .page-header .sub { font-size: 13px; opacity: 0.85; }
-  .card { margin: 16px; border-radius: 16px; overflow: hidden; box-shadow: var(--card-shadow); background: #fff; }
-  .card-num { display: inline-block; background: var(--green); color: #fff; padding: 4px 14px; border-radius: 0 0 12px 0; font-size: 12px; font-weight: 700; }
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  img { max-width: 100%; height: auto; }
+  body {
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg); color: #333;
+    max-width: 480px; margin: 0 auto; padding-bottom: 40px;
+    word-break: keep-all; overflow-wrap: break-word;
+    line-height: 1.6;
+  }
+  .page-header {
+    background: linear-gradient(135deg, #1b5e20 0%, #2d7d46 40%, #43a047 100%);
+    padding: 28px 20px 20px; text-align: center; color: #fff;
+  }
+  .page-header h1 { font-size: 20px; font-weight: 900; margin-bottom: 6px; letter-spacing: -0.3px; }
+  .page-header .sub { font-size: 13px; opacity: 0.9; }
+  .week-badge {
+    display: inline-block; background: var(--gold); color: #333;
+    padding: 4px 16px; border-radius: 20px; font-size: 13px; font-weight: 700; margin-bottom: 8px;
+  }
+
+  .card {
+    margin: 16px; border-radius: 16px; overflow: hidden;
+    box-shadow: var(--card-shadow); background: #fff;
+  }
+  .card-num {
+    display: inline-block; background: var(--green); color: #fff;
+    padding: 4px 14px; border-radius: 0 0 12px 0; font-size: 12px; font-weight: 700;
+  }
   .card-body { padding: 24px 20px; }
   .card-body h2 { font-size: 20px; font-weight: 900; color: var(--green-dark); margin-bottom: 12px; line-height: 1.4; }
+  .card-body h3 { font-size: 16px; font-weight: 700; margin: 16px 0 8px; color: #333; }
   .card-body p { font-size: 14px; line-height: 1.7; margin-bottom: 8px; color: #555; }
   .card-body ul { padding-left: 18px; margin-bottom: 12px; }
   .card-body li { font-size: 14px; line-height: 1.6; margin-bottom: 4px; color: #555; }
+
   .highlight { background: var(--green-light); border-radius: 12px; padding: 16px; margin: 12px 0; }
   .highlight.orange { background: var(--orange-light); }
-  .coupon-box { background: linear-gradient(135deg, #f9a825, #ff8f00); border-radius: 16px; padding: 24px; text-align: center; margin: 16px 0; color: #fff; position: relative; overflow: hidden; }
-  .coupon-box::before, .coupon-box::after { content: ''; position: absolute; width: 24px; height: 24px; background: #fff; border-radius: 50%; }
+  .highlight strong { color: var(--green-dark); }
+  .highlight.orange strong { color: var(--orange); }
+
+  .coupon-box {
+    background: linear-gradient(135deg, #f9a825, #ff8f00);
+    border-radius: 16px; padding: 24px; text-align: center; margin: 16px 0;
+    color: #fff; position: relative; overflow: hidden;
+  }
+  .coupon-box::before, .coupon-box::after {
+    content: ''; position: absolute; width: 24px; height: 24px;
+    background: #fff; border-radius: 50%;
+  }
   .coupon-box::before { left: -12px; top: 50%; transform: translateY(-50%); }
   .coupon-box::after { right: -12px; top: 50%; transform: translateY(-50%); }
   .coupon-amount { font-size: 36px; font-weight: 900; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
   .coupon-condition { font-size: 14px; margin-top: 4px; opacity: 0.95; }
-  .benefit-item { display: flex; align-items: center; gap: 12px; padding: 14px; margin: 8px 0; border-radius: 12px; background: #f9f9f9; border: 1px solid #eee; }
-  .benefit-icon { font-size: 28px; flex-shrink: 0; }
-  .benefit-info .name { font-size: 14px; font-weight: 700; color: #333; }
-  .benefit-info .desc { font-size: 12px; color: #888; margin-top: 2px; }
-  .phone-box { background: linear-gradient(135deg, #fff3e0, #ffe0b2); border: 2px solid var(--orange); border-radius: 16px; padding: 20px; text-align: center; margin: 16px 0; }
+
+  .phone-box {
+    background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+    border: 2px solid var(--orange); border-radius: 16px;
+    padding: 20px; text-align: center; margin: 16px 0;
+  }
   .phone-box .icon { font-size: 32px; margin-bottom: 8px; }
   .phone-box .title { font-size: 15px; font-weight: 700; color: var(--orange); margin-bottom: 4px; }
   .phone-box .desc { font-size: 13px; color: #666; margin-bottom: 8px; }
   .phone-box .number { font-size: 22px; font-weight: 900; color: var(--orange); }
-  .cta-box { background: linear-gradient(135deg, #1b5e20, #2d7d46); border-radius: 16px; padding: 24px; text-align: center; margin: 16px 0; color: #fff; }
-  .cta-box .url { font-size: 24px; font-weight: 900; color: #fdd835; margin: 8px 0; }
-  .cta-box .qr-placeholder { display: inline-block; width: 120px; height: 120px; background: #fff; border-radius: 12px; margin: 12px 0; line-height: 120px; color: #333; font-size: 13px; font-weight: 700; }
 
-  .prod-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }
-  .prod-card { border: 1px solid #eee; border-radius: 14px; overflow: hidden; background: #fff; transition: box-shadow 0.2s; }
-  .prod-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
-  .prod-img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; background: #f5f5f5; }
-  .prod-info { padding: 10px 12px; }
-  .prod-name { font-size: 13px; font-weight: 700; color: #333; line-height: 1.3; margin-bottom: 4px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-  .prod-price { font-size: 14px; font-weight: 900; color: var(--green-dark); }
-  .prod-price .org { font-size: 11px; color: #aaa; text-decoration: line-through; font-weight: 400; margin-right: 4px; }
-  .prod-badge { display: inline-block; background: #c62828; color: #fff; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 4px; margin-bottom: 4px; }
-  .cta-btn { display: block; text-decoration: none; background: linear-gradient(135deg, #1b5e20, #2d7d46); border-radius: 14px; padding: 16px; text-align: center; color: #fff; font-size: 15px; font-weight: 700; margin-top: 16px; box-shadow: 0 4px 12px rgba(45,125,70,0.3); }
-  .cta-btn span { font-size: 12px; font-weight: 400; opacity: 0.85; display: block; margin-top: 4px; }
+  .cta-box {
+    background: linear-gradient(135deg, #1b5e20, #2d7d46);
+    border-radius: 16px; padding: 24px; text-align: center; margin: 16px 0; color: #fff;
+  }
+  .cta-box .url { font-size: 24px; font-weight: 900; color: #fdd835; margin: 8px 0; }
+  .cta-box .qr-placeholder {
+    display: inline-block; width: 120px; height: 120px; background: #fff;
+    border-radius: 12px; margin: 12px 0; line-height: 120px;
+    color: #333; font-size: 13px; font-weight: 700;
+  }
+  .divider { height: 1px; background: #e0e0e0; margin: 16px 0; }
+
+  /* ===== 바른생협 스타일 카드 ===== */
+  .card.baren { background: linear-gradient(170deg, #cadbcc 0%, #b8ccbc 40%, #d8e3d0 100%); }
+  .card.baren .card-num { background: var(--green-baren-dark); }
+  .baren-hero { text-align:center; padding: 28px 20px 20px; }
+  .baren-hero h2 {
+    font-size: 24px; font-weight: 900; color: var(--green-baren-dark);
+    line-height: 1.4; letter-spacing: -0.5px; margin-bottom: 16px;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+  }
+  .baren-tagline {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--green-baren-dark); color: #fff;
+    font-size: 13.5px; font-weight: 500;
+    padding: 10px 18px; border-radius: 999px;
+    box-shadow: 0 4px 12px rgba(43,85,56,0.2);
+  }
+  .baren-tagline .dec { color: var(--yellow-soft); font-size: 11px; }
+  .baren-paper {
+    background: var(--paper-card); border-radius: 14px;
+    padding: 6px; margin: 18px; position: relative; z-index: 2;
+    box-shadow: 0 8px 24px rgba(43,85,56,0.12);
+  }
+  .baren-paper-inner {
+    background: var(--paper); border-radius: 10px; padding: 24px 20px;
+    word-break: keep-all; overflow-wrap: break-word;
+  }
+  .baren-paper .greeting {
+    font-size: 16px; font-weight: 500; color: var(--green-baren-dark);
+    margin-bottom: 14px; line-height: 1.7;
+  }
+  .baren-paper .body-p {
+    font-size: 15px; color: var(--text-body);
+    line-height: 1.85; margin-bottom: 14px;
+  }
+  .baren-paper .body-p:last-child { margin-bottom: 0; }
+  .baren-paper .body-p strong { color: var(--green-baren-dark); font-weight: 700; }
+  .baren-key-callout {
+    background: linear-gradient(135deg, #fff8d6 0%, #ffedb8 100%);
+    border-radius: 12px; padding: 16px 18px; margin: 18px 0;
+    text-align: center; border: 1.5px solid var(--yellow);
+  }
+  .baren-key-callout .label {
+    font-size: 12.5px; font-weight: 700;
+    color: var(--green-baren-dark); letter-spacing: 0.5px; margin-bottom: 4px;
+  }
+  .baren-key-callout .date-big {
+    font-size: 20px; font-weight: 900; color: var(--green-baren-dark); line-height: 1.3;
+  }
+  .baren-key-callout .date-sub {
+    font-size: 13px; color: var(--text-body); margin-top: 4px;
+  }
+  .baren-signature {
+    text-align: center; margin-top: 20px; padding-top: 16px;
+    font-size: 13px; color: var(--green-baren-dark);
+    font-weight: 500; letter-spacing: 1px;
+    border-top: 1px dashed var(--border-soft);
+  }
+
+  /* ===== 할인 생활재 추천 그리드 ===== */
+  .pick-intro {
+    background: linear-gradient(135deg, #fff8d6 0%, #ffedb8 100%);
+    border-radius: 12px; padding: 14px 16px; margin: 12px 0 16px;
+    text-align: center; border: 1.5px solid var(--yellow);
+  }
+  .pick-intro .label {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.5px;
+    color: var(--green-dark); margin-bottom: 4px;
+  }
+  .pick-intro .title {
+    font-size: 17px; font-weight: 900; color: var(--green-dark); line-height: 1.4;
+  }
+  .pick-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0;
+  }
+  .pick-item {
+    background: #fff; border: 1px solid #ececec; border-radius: 12px;
+    overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    display: flex; flex-direction: column;
+  }
+  .pick-thumb {
+    position: relative; width: 100%; aspect-ratio: 1 / 1;
+    background: #f5f5f5; overflow: hidden;
+  }
+  .pick-thumb img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .pick-thumb .dc-badge {
+    position: absolute; top: 8px; left: 8px;
+    background: #e53935; color: #fff;
+    font-size: 13px; font-weight: 900;
+    padding: 4px 9px; border-radius: 8px;
+    letter-spacing: 0.3px; line-height: 1.2;
+    box-shadow: 0 2px 6px rgba(229,57,53,0.35);
+  }
+  .pick-info {
+    padding: 10px 10px 12px; flex: 1;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .pick-info .pname {
+    font-size: 13px; font-weight: 700; color: #333;
+    line-height: 1.4; margin-bottom: 6px;
+    word-break: keep-all; overflow-wrap: break-word;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+    overflow: hidden; min-height: 36px;
+  }
+  .pick-info .pprice {
+    display: flex; align-items: baseline; gap: 2px;
+    font-size: 16px; font-weight: 900; color: #e53935;
+  }
+  .pick-info .pprice .won { font-size: 12px; font-weight: 700; }
+  .pick-note {
+    font-size: 12px; color: #888; text-align: center;
+    margin-top: 4px; line-height: 1.6;
+  }
+
+  /* ===== 장점 아이콘 그리드 ===== */
+  .benefit-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0 8px;
+  }
+  .benefit-item {
+    background: var(--green-light); border-radius: 14px;
+    padding: 18px 12px; text-align: center;
+  }
+  .benefit-item .icon { font-size: 32px; line-height: 1; margin-bottom: 8px; }
+  .benefit-item .label {
+    font-size: 14px; font-weight: 900; color: var(--green-dark); line-height: 1.3;
+  }
+  .benefit-item .sub {
+    font-size: 11.5px; color: #666; margin-top: 2px;
+  }
+
+  /* ===== 모바일 추가 최적화 ===== */
+  @media (max-width: 380px) {
+    body { font-size: 14px; }
+    .card-body { padding: 20px 16px; }
+    .card-body h2 { font-size: 18px; }
+    .baren-hero h2 { font-size: 21px; }
+    .baren-tagline { font-size: 12.5px; padding: 9px 14px; }
+    .baren-paper-inner { padding: 20px 16px; }
+    .baren-key-callout .date-big { font-size: 18px; }
+    .pick-grid { gap: 8px; }
+    .pick-info { padding: 8px; }
+    .pick-info .pname { font-size: 12px; min-height: 32px; }
+    .pick-info .pprice { font-size: 14.5px; }
+    .pick-thumb .dc-badge { font-size: 12px; padding: 3px 7px; }
+    .coupon-amount { font-size: 30px; }
+    .cta-box .url { font-size: 20px; }
+    .phone-box .number { font-size: 19px; }
+  }
 </style>
 </head>
 <body>
 
 <div class="page-header">
-  <h1>평택 조합원님께 드리는 특별 혜택!</h1>
-  <div class="sub">평택두레생협 온라인몰 ecoop.or.kr</div>
+  <div class="week-badge">1주차 · 4.22 ~ 4.29</div>
+  <h1>용죽점 매장 운영 종료 안내</h1>
+  <div class="sub">이제 온라인몰에서 만나요 · ecoop.or.kr</div>
 </div>
 
-<!-- 카드 1 -->
-<div class="card">
+<!-- ===== 카드 1: 바른생협 스타일 표지 — 정중한 안내 ===== -->
+<div class="card baren">
   <div class="card-num">1 / 6</div>
-  <div class="card-body" style="text-align:center; padding:32px 20px;">
-    <p style="font-size:40px; margin-bottom:12px;">🎁</p>
-    <h2 style="font-size:22px;">평택 조합원님께만<br>드리는 특별 혜택!</h2>
-    <p style="font-size:16px; font-weight:700; color:var(--green); margin-top:12px;">
-      온라인몰 ecoop.or.kr에서<br>편리하게 주문하세요!
-    </p>
-    <div class="coupon-box" style="margin-top:20px;">
-      <p style="font-size:13px; margin-bottom:4px;">평택 조합원 전용</p>
-      <div class="coupon-amount">5,000원 쿠폰</div>
-      <div class="coupon-condition">4만원 이상 구매 시 사용 가능</div>
-      <div style="font-size:12px; margin-top:8px; opacity:0.9;">⏰ 사용기간: 4/17(목) ~ 4/23(수)</div>
+
+  <div class="baren-hero">
+    <h2>용죽점 오프라인 매장<br>운영 종료 안내</h2>
+    <div class="baren-tagline">
+      <span class="dec">✦</span>
+      <span>'더 편리한 온라인생협'으로 찾아갑니다</span>
+      <span class="dec">✦</span>
     </div>
-    <a href="https://ecoop.or.kr/DureShop/recommend.do" target="_blank" class="cta-btn">온라인몰 바로가기<span>ecoop.or.kr</span></a>
+  </div>
+
+  <div class="baren-paper">
+    <div class="baren-paper-inner">
+      <p class="greeting">안녕하세요, 조합원님.</p>
+
+      <p class="body-p">
+        그동안 <strong>용죽점</strong>을 아껴주셔서 진심으로 감사드립니다.
+        <strong>오프라인 매장 운영을 종료</strong>하고, 평택지역 전체를 <strong>온라인 중심</strong>으로 전환합니다.
+      </p>
+
+      <div class="baren-key-callout">
+        <div class="label">매장 마지막 영업일</div>
+        <div class="date-big">4월 30일 (목)</div>
+        <div class="date-sub">이후 온라인몰에서 만나요</div>
+      </div>
+
+      <div class="baren-signature">- 평택두레소비자생활협동조합 드림 -</div>
+    </div>
   </div>
 </div>
 
-<!-- 카드 2: 장점 -->
+<!-- ===== 카드 2: 매장 → 온라인 전환 ===== -->
 <div class="card">
   <div class="card-num">2 / 6</div>
-  <div class="card-body">
-    <h2>온라인몰, 이렇게 편리해요!</h2>
-    <p>두레생협 생활재를 집에서 편하게 만나보세요.</p>
-    <div class="benefit-item"><div class="benefit-icon">🕐</div><div class="benefit-info"><div class="name">24시간 주문 가능</div><div class="desc">밤 10시에도, 주말에도 편하게 주문!</div></div></div>
-    <div class="benefit-item"><div class="benefit-icon">🚚</div><div class="benefit-info"><div class="name">집 앞까지 배송</div><div class="desc">쌀, 세제... 무거운 짐도 집 앞으로!</div></div></div>
-    <div class="benefit-item"><div class="benefit-icon">📦</div><div class="benefit-info"><div class="name">더 다양한 생활재</div><div class="desc">매장보다 더 많은 품목을 만나보세요</div></div></div>
-    <div class="benefit-item"><div class="benefit-icon">🔄</div><div class="benefit-info"><div class="name">간편 재주문</div><div class="desc">한 번 주문하면 다음은 클릭 한 번!</div></div></div>
-    <div class="benefit-item"><div class="benefit-icon">📞</div><div class="benefit-info"><div class="name">전화 안내 지원</div><div class="desc">어려우시면 ☎ 1661-5110으로!</div></div></div>
-    <a href="https://ecoop.or.kr/DureShop/recommend.do" target="_blank" class="cta-btn">온라인몰 바로가기<span>ecoop.or.kr</span></a>
+  <div class="card-body" style="text-align:center; padding:40px 20px;">
+    <p style="font-size:56px; margin-bottom:16px; line-height:1;">🏪 → 🛒</p>
+    <h2 style="font-size:24px; margin-bottom:8px;">매장은 닫지만<br>인연은 계속됩니다</h2>
+    <p style="font-size:16px; font-weight:700; color:var(--green-dark); margin-top:20px;">
+      이제 온라인에서 만나요
+    </p>
+    <div class="highlight" style="margin-top:20px; padding:20px;">
+      <p style="font-size:13px; margin:0 0 4px; color:#666;">두레생협 온라인몰</p>
+      <p style="font-size:26px; font-weight:900; margin:0; color:var(--green-dark); letter-spacing:0.5px;">ecoop.or.kr</p>
+    </div>
   </div>
 </div>
 
-<!-- 카드 3: 쿠폰 -->
+<!-- ===== 카드 3: 온라인몰 장점 (아이콘 그리드) ===== -->
 <div class="card">
   <div class="card-num">3 / 6</div>
-  <div class="card-body">
-    <h2>이번 주 특별 혜택!</h2>
-    <p>ecoop.or.kr에서 온라인 주문을 시작해 보세요!</p>
-    <div class="coupon-box">
-      <p style="font-size:13px; margin-bottom:4px;">평택 조합원 전용</p>
-      <div class="coupon-amount">5,000원 할인</div>
-      <div class="coupon-condition">4만원 이상 구매 시 즉시 할인!</div>
-      <div style="font-size:12px; margin-top:8px; opacity:0.9;">⏰ 4/17(목) ~ 4/23(수) 기간 한정!</div>
+  <div class="card-body" style="text-align:center;">
+    <h2>온라인이 더 편해요</h2>
+
+    <div class="benefit-grid">
+      <div class="benefit-item">
+        <div class="icon">⏰</div>
+        <div class="label">24시간 주문</div>
+        <div class="sub">언제든 편하게</div>
+      </div>
+      <div class="benefit-item">
+        <div class="icon">🚚</div>
+        <div class="label">집앞 배송</div>
+        <div class="sub">무거워도 걱정 X</div>
+      </div>
+      <div class="benefit-item">
+        <div class="icon">🛍️</div>
+        <div class="label">다양한 품목</div>
+        <div class="sub">매장보다 더 많이</div>
+      </div>
+      <div class="benefit-item">
+        <div class="icon">🔁</div>
+        <div class="label">간편 재주문</div>
+        <div class="sub">지난 주문 그대로</div>
+      </div>
     </div>
-    <div class="highlight">
-      <p style="margin:0;"><strong>🔰 처음이세요? 이렇게 하시면 돼요!</strong></p>
-      <ol style="padding-left:18px; margin-top:8px;">
-        <li style="font-size:14px; margin-bottom:8px;"><strong>인터넷 주소창</strong>에 <strong style="color:var(--green-dark);">ecoop.or.kr</strong> 입력<br><span style="font-size:12px; color:#888;">네이버·다음에서 "두레생협 온라인몰" 검색도 OK!</span></li>
-        <li style="font-size:14px; margin-bottom:8px;">화면 오른쪽 위 <strong>"로그인"</strong> 클릭<br><span style="font-size:12px; color:#888;">처음이시면 "회원가입" → 조합원 번호로 가입해주세요</span></li>
-        <li style="font-size:14px; margin-bottom:8px;">원하는 생활재를 골라 <strong>"장바구니"</strong>에 담기<br><span style="font-size:12px; color:#888;">4만원 이상 담으시면 쿠폰 사용 가능!</span></li>
-        <li style="font-size:14px; margin-bottom:8px;">장바구니에서 <strong>"쿠폰 적용"</strong> 체크 후 결제<br><span style="font-size:12px; color:#888;">5,000원이 자동으로 할인됩니다!</span></li>
-      </ol>
-    </div>
-    <p style="text-align:center; font-size:14px; font-weight:700; color:var(--green-dark); margin-top:12px;">쉽고 간단하게, 지금 시작해 보세요!</p>
-    <a href="https://ecoop.or.kr/DureShop/recommend.do" target="_blank" class="cta-btn">온라인몰 바로가기<span>ecoop.or.kr</span></a>
   </div>
 </div>
 
-<!-- 카드 4: 전화 -->
+<!-- ===== 카드 4: 쿠폰 ===== -->
 <div class="card">
   <div class="card-num">4 / 6</div>
   <div class="card-body" style="text-align:center;">
-    <h2>온라인 주문이<br>어려우신가요?</h2>
-    <p style="margin:12px 0;">걱정 마세요!<br>전화 한 통이면 됩니다.</p>
-    <div class="phone-box">
-      <div class="icon">📞</div>
-      <div class="title">두레생협 고객센터</div>
-      <div class="desc">온라인 주문이 어려우시면<br>전화주시면 상세하게 안내해 드립니다!</div>
-      <div class="number">☎ 1661-5110</div>
+    <h2>첫 구매 감사 혜택</h2>
+
+    <div class="coupon-box">
+      <p style="font-size:13px; margin-bottom:4px; opacity:0.95;">온라인몰 첫 구매 쿠폰</p>
+      <div class="coupon-amount">5,000원</div>
+      <div class="coupon-condition">4만원 이상 구매 시</div>
     </div>
-    <div class="highlight orange" style="text-align:left;">
-      <p style="margin:0; font-size:14px;"><strong style="color:var(--orange);">이런 분들은 전화주세요!</strong></p>
-      <ul style="margin-top:8px;">
-        <li>온라인 회원가입이 어려우신 분</li>
-        <li>생활재 검색/주문 방법을 모르시는 분</li>
-        <li>결제 방법이 궁금하신 분</li>
-        <li>배송 관련 문의가 있으신 분</li>
-      </ul>
-      <p style="margin:8px 0 0; font-size:13px; color:#e65100;"><strong>주문부터 배송까지, 처음부터 끝까지<br>친절하게 안내드립니다!</strong></p>
+
+    <div class="highlight" style="text-align:center;">
+      <p style="margin:0; font-size:15px;">
+        <strong>사용 기간</strong><br>
+        <span style="font-size:18px; font-weight:900; color:var(--green-dark);">4.22 (화) ~ 4.29 (화)</span>
+      </p>
     </div>
-    <a href="https://ecoop.or.kr/DureShop/recommend.do" target="_blank" class="cta-btn">온라인몰 바로가기<span>ecoop.or.kr</span></a>
   </div>
 </div>
 
-<!-- 카드 5: 추천 생활재 -->
+<!-- ===== 카드 5: 전화 안내 ===== -->
 <div class="card">
   <div class="card-num">5 / 6</div>
-  <div class="card-body">
-    <h2 style="text-align:center;">지금 뭘 담을지 고민이라면?<br>추천 생활재를 확인하세요!</h2>
-    <p style="text-align:center; margin-bottom:4px;">조합원님이 좋아할 생활재를 골라봤어요!</p>
+  <div class="card-body" style="text-align:center; padding:36px 20px;">
+    <h2>주문이 어려우시면<br>전화 한 통!</h2>
 
-    <div class="prod-grid">
-      <a href="https://ecoop.or.kr/DureShop/recommend.do" target="_blank" style="text-decoration:none; color:inherit;" class="prod-card">
-        <img class="prod-img" src="https://dureimg.ecoop.or.kr:9091/Delsys/DLOG/Goods/GoodsMaster/GoodsImage/28485C.png" alt="순우유">
-        <div class="prod-info">
-          <div class="prod-badge">추천</div>
-          <div class="prod-name">순우유</div>
-          <div class="prod-price"><span class="org">4,400원</span>4,000원</div>
-        </div>
-      </a>
-      <a href="https://ecoop.or.kr/DureShop/recommend.do" target="_blank" style="text-decoration:none; color:inherit;" class="prod-card">
-        <img class="prod-img" src="https://dureimg.ecoop.or.kr:9091/Delsys/DLOG/Goods/GoodsMaster/GoodsImage/54730C.jpg" alt="통닭다리 누룽지삼계탕">
-        <div class="prod-info">
-          <div class="prod-badge">추천</div>
-          <div class="prod-name">통닭다리 누룽지삼계탕</div>
-          <div class="prod-price"><span class="org">8,300원</span>7,500원</div>
-        </div>
-      </a>
-      <a href="https://ecoop.or.kr/DureShop/recommend.do" target="_blank" style="text-decoration:none; color:inherit;" class="prod-card">
-        <img class="prod-img" src="https://dureimg.ecoop.or.kr:9091/Delsys/DLOG/Goods/GoodsMaster/GoodsImage/58721C.jpg" alt="후브락스 사과(1.2kg)">
-        <div class="prod-info">
-          <div class="prod-badge">제철</div>
-          <div class="prod-name">후브락스 사과 (1.2kg)</div>
-          <div class="prod-price">11,600원</div>
-        </div>
-      </a>
-      <a href="https://ecoop.or.kr/DureShop/recommend.do" target="_blank" style="text-decoration:none; color:inherit;" class="prod-card">
-        <img class="prod-img" src="https://dureimg.ecoop.or.kr:9091/Delsys/DLOG/Goods/GoodsMaster/GoodsImage/54286C.jpg" alt="쑥버무리(250g)">
-        <div class="prod-info">
-          <div class="prod-badge">간식</div>
-          <div class="prod-name">쑥버무리 (250g)</div>
-          <div class="prod-price">4,600원</div>
-        </div>
-      </a>
-      <a href="https://ecoop.or.kr/DureShop/recommend.do" target="_blank" style="text-decoration:none; color:inherit;" class="prod-card">
-        <img class="prod-img" src="https://dureimg.ecoop.or.kr:9091/Delsys/DLOG/Goods/GoodsMaster/GoodsImage/59429C.jpg" alt="돌산갓김치(1kg)">
-        <div class="prod-info">
-          <div class="prod-badge">반찬</div>
-          <div class="prod-name">돌산갓김치 (1kg)</div>
-          <div class="prod-price"><span class="org">10,000원</span>9,000원</div>
-        </div>
-      </a>
-      <a href="https://ecoop.or.kr/DureShop/recommend.do" target="_blank" style="text-decoration:none; color:inherit;" class="prod-card">
-        <img class="prod-img" src="https://dureimg.ecoop.or.kr:9091/Delsys/DLOG/Goods/GoodsMaster/GoodsImage/323C.png" alt="햇장봉재래김">
-        <div class="prod-info">
-          <div class="prod-badge">할인</div>
-          <div class="prod-name">햇장봉재래김</div>
-          <div class="prod-price"><span class="org">11,200원</span>7,800원</div>
-        </div>
-      </a>
+    <a href="tel:1661-5110" style="text-decoration:none;">
+      <div class="phone-box" style="margin-top:20px;">
+        <div class="icon" style="font-size:36px;">📞</div>
+        <div class="title" style="font-size:13px; margin-bottom:6px;">조합원상담실</div>
+        <div class="number" style="font-size:30px; letter-spacing:1px;">1661-5110</div>
+        <div class="desc" style="margin-top:8px;">회원가입부터 결제까지<br>친절히 안내드려요</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- ===== 카드 6: 마무리 — QR + 링크 ===== -->
+<div class="card">
+  <div class="card-num">6 / 6</div>
+  <div class="card-body" style="text-align:center;">
+    <h2>지금 더 저렴하게!</h2>
+
+    <div class="pick-intro" style="margin-top:16px;">
+      <div class="label">★ 이번 주 BEST 할인 ★</div>
+      <div class="title">최대 <span style="color:#e53935;">35% OFF</span></div>
     </div>
 
-    <a href="https://ecoop.or.kr/DureShop/recommend.do" target="_blank" style="display:block; text-decoration:none; margin-top:8px;">
-      <div style="background: linear-gradient(135deg, #f9a825, #ff8f00); border-radius: 16px; padding: 18px; text-align: center; color: #fff; box-shadow: 0 4px 12px rgba(249,168,37,0.4);">
-        <p style="font-size:16px; font-weight:900; margin:0;">👉 추천 생활재 더 보기</p>
-        <p style="font-size:12px; margin:4px 0 0; opacity:0.9;">150가지+ 추천 생활재가 기다려요!</p>
+    <div class="pick-grid">
+      <div class="pick-item">
+        <div class="pick-thumb">
+          <span class="dc-badge">35%</span>
+          <img src="https://dureimg.ecoop.or.kr:9091/Delsys/DLOG/Goods/GoodsMaster/GoodsImage/48969C.jpg" alt="유기농 멀티비타민" loading="lazy">
+        </div>
+        <div class="pick-info">
+          <div class="pname">유기농 멀티비타민</div>
+          <div class="pprice">16,800<span class="won">원</span></div>
+        </div>
+      </div>
+      <div class="pick-item">
+        <div class="pick-thumb">
+          <span class="dc-badge">35%</span>
+          <img src="https://dureimg.ecoop.or.kr:9091/Delsys/DLOG/Goods/GoodsMaster/GoodsImage/41515C.png" alt="프로바이오틱스" loading="lazy">
+        </div>
+        <div class="pick-info">
+          <div class="pname">프로바이오틱스</div>
+          <div class="pprice">13,300<span class="won">원</span></div>
+        </div>
+      </div>
+      <div class="pick-item">
+        <div class="pick-thumb">
+          <span class="dc-badge">25%</span>
+          <img src="https://dureimg.ecoop.or.kr:9091/Delsys/DLOG/Goods/GoodsMaster/GoodsImage/32424C.png" alt="포기김치 2kg" loading="lazy">
+        </div>
+        <div class="pick-info">
+          <div class="pname">포기김치 (2kg)</div>
+          <div class="pprice">12,400<span class="won">원</span></div>
+        </div>
+      </div>
+      <div class="pick-item">
+        <div class="pick-thumb">
+          <span class="dc-badge">25%</span>
+          <img src="https://dureimg.ecoop.or.kr:9091/Delsys/DLOG/Goods/GoodsMaster/GoodsImage/40549C.jpg" alt="훈제오리" loading="lazy">
+        </div>
+        <div class="pick-info">
+          <div class="pname">훈제오리</div>
+          <div class="pprice">10,000<span class="won">원</span></div>
+        </div>
+      </div>
+      <div class="pick-item">
+        <div class="pick-thumb">
+          <span class="dc-badge">20%</span>
+          <img src="https://dureimg.ecoop.or.kr:9091/Delsys/DLOG/Goods/GoodsMaster/GoodsImage/20316C.png" alt="사골곰탕" loading="lazy">
+        </div>
+        <div class="pick-info">
+          <div class="pname">사골곰탕</div>
+          <div class="pprice">4,900<span class="won">원</span></div>
+        </div>
+      </div>
+      <div class="pick-item">
+        <div class="pick-thumb">
+          <span class="dc-badge">20%</span>
+          <img src="https://dureimg.ecoop.or.kr:9091/Delsys/DLOG/Goods/GoodsMaster/GoodsImage/54638C.jpg" alt="한우보양탕" loading="lazy">
+        </div>
+        <div class="pick-info">
+          <div class="pname">한우보양탕</div>
+          <div class="pprice">10,400<span class="won">원</span></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="pick-note">※ 할인가는 변동될 수 있습니다</p>
+
+    <a href="https://ecoop.or.kr" target="_blank" rel="noopener" style="text-decoration:none;">
+      <div class="cta-box" style="margin-top:18px;">
+        <p style="font-size:13px; margin-bottom:4px; opacity:0.9;">두레생협 온라인몰</p>
+        <div class="url">ecoop.or.kr</div>
+        <p style="font-size:13px; opacity:0.9; margin-top:4px;">▶ 지금 바로 접속</p>
       </div>
     </a>
 
-    <div class="highlight" style="margin-top:12px;">
-      <p style="margin:0; font-size:13px; text-align:center;"><strong>4만원 이상 구매하시면 5,000원 쿠폰 적용!</strong><br>⏰ 4/17(목)~4/23(수) 기간 한정! 추천 생활재로 장바구니를 채워보세요!</p>
-    </div>
-  </div>
-</div>
-
-<!-- 카드 6: 엔딩 -->
-<div class="card">
-  <div class="card-num">6 / 6</div>
-  <div class="card-body" style="text-align:center; padding:32px 20px;">
-    <p style="font-size:48px; margin-bottom:16px;">🌿</p>
-    <h2 style="font-size:22px; color:var(--green-dark);">건강한 생활재,<br>이제 집에서 편하게!</h2>
-
-    <div style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border-radius: 16px; padding: 24px; margin: 20px 0;">
-      <p style="font-size:14px; color:#555; margin-bottom:12px;">두레생협 온라인몰</p>
-      <p style="font-size:28px; font-weight:900; color:var(--green-dark); margin:0;">ecoop.or.kr</p>
-      <p style="font-size:13px; color:#666; margin-top:8px;">4/17~4/23 기간 한정! 5,000원 쿠폰 받으세요!</p>
-    </div>
-
-    <div style="display:flex; gap:8px; margin:16px 0;">
-      <div style="flex:1; background:#f5f5f5; border-radius:12px; padding:14px 8px; text-align:center;">
-        <p style="font-size:20px; margin-bottom:4px;">🕐</p>
-        <p style="font-size:11px; font-weight:700; color:#333;">24시간<br>주문</p>
-      </div>
-      <div style="flex:1; background:#f5f5f5; border-radius:12px; padding:14px 8px; text-align:center;">
-        <p style="font-size:20px; margin-bottom:4px;">🚚</p>
-        <p style="font-size:11px; font-weight:700; color:#333;">집 앞<br>배송</p>
-      </div>
-      <div style="flex:1; background:#f5f5f5; border-radius:12px; padding:14px 8px; text-align:center;">
-        <p style="font-size:20px; margin-bottom:4px;">🎁</p>
-        <p style="font-size:11px; font-weight:700; color:#333;">5천원<br>쿠폰</p>
-      </div>
-      <div style="flex:1; background:#f5f5f5; border-radius:12px; padding:14px 8px; text-align:center;">
-        <p style="font-size:20px; margin-bottom:4px;">📞</p>
-        <p style="font-size:11px; font-weight:700; color:#333;">전화<br>안내</p>
-      </div>
-    </div>
-
-    <div class="phone-box" style="margin-top:16px;">
-      <div class="title">온라인 이용이 어려우시면</div>
-      <div class="number">☎ 1661-5110</div>
-      <div class="desc">주문부터 배송까지 상세히 안내드립니다</div>
-    </div>
-
-    <p style="font-size:18px; font-weight:900; color:var(--green); margin-top:20px;">
-      평택두레생협이 조합원님의<br>건강한 식탁을 응원합니다! 💚
+    <p style="font-size:12px; color:#999; margin-top:16px;">
+      평택두레소비자생활협동조합
     </p>
-    <a href="https://ecoop.or.kr/DureShop/recommend.do" target="_blank" class="cta-btn" style="margin-top:20px;">온라인몰 바로가기<span>ecoop.or.kr</span></a>
-    <p style="font-size:13px; color:#999; margin-top:12px;">평택두레생협 | ecoop.or.kr</p>
   </div>
 </div>
 
