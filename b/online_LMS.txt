@@ -21,7 +21,7 @@
    ※ 5/1(금) 노동절 배송 X
 
 ▷ 카드뉴스 · 바로주문
-https://durecoop.github.io/b/online.html
+https://durecoop.github.io/b/b/online.html
 
 ▷ 주문 문의 1661-5110
 
@@ -37,7 +37,7 @@ https://durecoop.github.io/b/online.html
 원삼유정란 10구 증정!
 (배송일 기준 4/27~4/30 · 5/1 노동절 제외)
 
-▷ https://durecoop.github.io/b/online.html
+▷ https://durecoop.github.io/b/b/online.html
 ▷ 문의 1661-5110
 
 무료거부 080-700-5110
@@ -64,7 +64,7 @@ https://durecoop.github.io/b/online.html
 
 [버튼1]
 라벨: 카드뉴스 보기 · 주문하기
-URL:  https://durecoop.github.io/b/online.html
+URL:  https://durecoop.github.io/b/b/online.html
 
 [버튼2]
 라벨: 조합원상담실 전화
