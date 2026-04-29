@@ -3,29 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#1a3a25">
+<meta name="theme-color" content="#142c1c">
 <title>올리브유로 잇는 평화와 연대의 20년 · 두레생협 × 팔레스타인</title>
 <meta name="description" content="2006년부터 이어 온 두레생협과 팔레스타인 농민의 민중교역 20년 — 올리브유 한 병에 담긴 평화의 이야기">
+<meta property="og:title" content="올리브유로 잇는 평화와 연대의 20년">
+<meta property="og:description" content="두레생협 × 팔레스타인 민중교역 20년의 기록">
+<meta property="og:type" content="article">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&family=Noto+Serif+KR:wght@400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&family=Noto+Serif+KR:wght@400;500;600;700&display=swap');
 
   :root {
-    --ink:        #1d1f1a;
-    --ink-soft:   #4a4d44;
-    --ink-mute:   #7a7d72;
-    --paper:      #f6f2e9;
-    --paper-soft: #ede8da;
-    --cream:      #fbf8f1;
+    --ink:        #1c1e19;
+    --ink-soft:   #4d5046;
+    --ink-mute:   #858878;
+    --paper:      #f5f1e6;
+    --paper-soft: #ebe6d6;
+    --cream:      #fbf8ef;
     --olive:      #6b7d3a;
     --olive-deep: #4a5824;
     --forest:     #1a3a25;
-    --forest-deep:#0f2517;
-    --clay:       #c97a2b;
+    --forest-deep:#0e2114;
+    --clay:       #b86d23;
     --clay-soft:  #f3e3c8;
     --blood:      #8a2a30;
-    --blood-soft: #f1d6d8;
-    --line:       #d8d2bf;
-    --gold:       #d4a93b;
+    --line:       #ddd6c0;
+    --line-soft:  #e8e1ca;
+    --gold:       #c9a23a;
   }
   * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
   html { scroll-behavior:smooth; }
@@ -33,20 +36,24 @@
     font-family:'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
     background:var(--paper);
     color:var(--ink);
-    line-height:1.85;
-    font-size:16px;
+    line-height:1.75;
+    font-size:14px;
     font-weight:400;
     overflow-x:hidden;
-    text-rendering:optimizeLegibility;
     -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    letter-spacing:-0.005em;
+    /* Subtle paper grain */
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(45,40,20,0.025) 1px, transparent 0);
+    background-size:24px 24px;
   }
   ::selection { background:var(--olive); color:var(--cream); }
 
-  /* Reading progress bar */
+  /* Reading progress */
   .progress {
     position:fixed; top:0; left:0; right:0;
-    height:3px; z-index:200;
-    background:transparent;
+    height:2px; z-index:200; background:transparent;
   }
   .progress__bar {
     height:100%; width:0%;
@@ -54,21 +61,21 @@
     transition:width 0.1s linear;
   }
 
-  /* Floating index button */
+  /* TOC button */
   .toc-btn {
-    position:fixed; bottom:22px; right:18px;
-    width:50px; height:50px; border-radius:50%;
+    position:fixed; bottom:18px; right:14px;
+    width:42px; height:42px; border-radius:50%;
     background:var(--forest); color:var(--cream);
     border:none; z-index:150;
-    box-shadow:0 6px 20px rgba(15,37,23,0.35);
+    box-shadow:0 4px 14px rgba(15,37,23,0.3);
     display:flex; align-items:center; justify-content:center;
-    font-size:20px; cursor:pointer;
-    transition:transform 0.25s ease;
+    cursor:pointer; transition:transform 0.2s;
   }
   .toc-btn:active { transform:scale(0.92); }
+  .toc-btn svg { width:18px; height:18px; }
   .toc-overlay {
     position:fixed; inset:0;
-    background:rgba(15,37,23,0.55);
+    background:rgba(15,37,23,0.5);
     backdrop-filter:blur(4px);
     -webkit-backdrop-filter:blur(4px);
     z-index:160; opacity:0; pointer-events:none;
@@ -78,435 +85,472 @@
   .toc-panel {
     position:fixed; bottom:0; left:0; right:0;
     background:var(--cream); z-index:170;
-    border-radius:24px 24px 0 0;
-    padding:24px 22px 36px;
+    border-radius:20px 20px 0 0;
+    padding:22px 22px 32px;
     transform:translateY(100%);
     transition:transform 0.35s cubic-bezier(.2,.8,.2,1);
-    max-height:80vh; overflow-y:auto;
-    box-shadow:0 -8px 40px rgba(0,0,0,0.2);
+    max-height:78vh; overflow-y:auto;
+    box-shadow:0 -8px 32px rgba(0,0,0,0.18);
   }
   .toc-overlay.open .toc-panel { transform:translateY(0); }
   .toc-panel h3 {
     font-family:'Noto Serif KR', serif;
-    font-size:14px; color:var(--ink-mute);
-    letter-spacing:0.1em; font-weight:500;
-    margin-bottom:14px; text-transform:uppercase;
+    font-size:11px; color:var(--ink-mute);
+    letter-spacing:0.2em; font-weight:500;
+    margin-bottom:10px;
   }
   .toc-panel a {
-    display:block; padding:14px 4px;
+    display:block; padding:12px 4px;
     color:var(--ink); text-decoration:none;
-    font-size:16px; font-weight:500;
-    border-bottom:1px solid var(--line);
+    font-size:14px; font-weight:500;
+    border-bottom:1px solid var(--line-soft);
   }
   .toc-panel a:last-child { border-bottom:none; }
   .toc-panel a span {
-    display:block; font-size:12px; color:var(--ink-mute);
-    margin-top:2px; font-weight:400;
+    display:block; font-size:11px; color:var(--ink-mute);
+    margin-top:2px; font-weight:400; letter-spacing:0;
   }
 
-  /* Hero */
+  /* HERO */
   .hero {
     position:relative;
     min-height:100vh;
     background:
-      radial-gradient(circle at 20% 80%, rgba(212,169,59,0.18) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(107,125,58,0.25) 0%, transparent 50%),
-      linear-gradient(160deg, var(--forest-deep) 0%, var(--forest) 50%, var(--olive-deep) 100%);
+      radial-gradient(circle at 18% 88%, rgba(201,162,58,0.18) 0%, transparent 45%),
+      radial-gradient(circle at 82% 18%, rgba(107,125,58,0.22) 0%, transparent 50%),
+      linear-gradient(165deg, var(--forest-deep) 0%, var(--forest) 55%, #2a4423 100%);
     color:var(--cream);
-    padding:80px 24px 100px;
+    padding:64px 22px 80px;
     display:flex; flex-direction:column; justify-content:space-between;
     overflow:hidden;
   }
   .hero::before {
-    content:''; position:absolute;
-    top:-30%; right:-30%;
-    width:80%; aspect-ratio:1;
-    background:radial-gradient(circle, rgba(212,169,59,0.12) 0%, transparent 65%);
+    content:''; position:absolute; inset:0;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(255,255,255,0.018) 1px, transparent 0);
+    background-size:18px 18px;
     pointer-events:none;
   }
-  /* SVG olive branch ornament */
   .hero-ornament {
-    position:absolute; bottom:-20px; left:-30px;
-    width:280px; opacity:0.13;
+    position:absolute; bottom:-30px; left:-50px;
+    width:240px; opacity:0.09;
     pointer-events:none;
   }
+  .hero-ornament-2 {
+    position:absolute; top:-20px; right:-40px;
+    width:180px; opacity:0.07;
+    pointer-events:none; transform:scaleX(-1);
+  }
+  .hero-content { position:relative; z-index:2; }
   .hero-eyebrow {
     font-family:'Noto Serif KR', serif;
-    font-size:12px; letter-spacing:0.3em;
-    color:var(--gold); text-transform:uppercase;
-    font-weight:500; margin-bottom:32px;
-    display:flex; align-items:center; gap:12px;
+    font-size:10px; letter-spacing:0.4em;
+    color:var(--gold); font-weight:500;
+    margin-bottom:28px;
+    display:flex; align-items:center; gap:10px;
   }
   .hero-eyebrow::before, .hero-eyebrow::after {
-    content:''; flex:1; max-width:30px;
-    height:1px; background:var(--gold); opacity:0.5;
+    content:''; flex:1; max-width:24px;
+    height:1px; background:var(--gold); opacity:0.45;
   }
   .hero-num {
     font-family:'Noto Serif KR', serif;
-    font-size:120px; font-weight:700;
-    line-height:0.9; letter-spacing:-0.04em;
-    color:var(--cream);
-    margin-bottom:8px;
-    background:linear-gradient(135deg, #fbf8f1 0%, #d4a93b 100%);
+    font-size:88px; font-weight:600;
+    line-height:0.92; letter-spacing:-0.04em;
+    background:linear-gradient(135deg, #fbf8ef 0%, #c9a23a 100%);
     -webkit-background-clip:text;
     background-clip:text;
     -webkit-text-fill-color:transparent;
+    display:inline-block;
   }
   .hero-num small {
-    font-size:32px; font-weight:500;
+    font-size:22px; font-weight:400;
     -webkit-text-fill-color:var(--cream);
-    margin-left:8px;
+    background:none;
+    margin-left:6px; letter-spacing:0;
   }
   .hero h1 {
     font-family:'Noto Serif KR', serif;
-    font-size:32px; font-weight:600;
-    line-height:1.4; letter-spacing:-0.02em;
-    margin:24px 0 20px;
+    font-size:24px; font-weight:600;
+    line-height:1.45; letter-spacing:-0.02em;
+    margin:18px 0 14px;
     color:var(--cream);
   }
   .hero h1 em {
     font-style:normal;
     color:var(--gold);
-    border-bottom:2px solid var(--gold);
-    padding-bottom:2px;
+    position:relative;
+  }
+  .hero h1 em::after {
+    content:''; position:absolute;
+    left:0; right:0; bottom:-2px;
+    height:1px; background:var(--gold);
+    opacity:0.6;
   }
   .hero-sub {
-    font-size:15px; line-height:1.8;
-    color:rgba(251,248,241,0.78);
-    max-width:480px;
+    font-size:13px; line-height:1.85;
+    color:rgba(251,248,239,0.72);
+    max-width:440px;
+    font-weight:300;
   }
   .hero-quote {
-    margin-top:48px;
-    padding:20px 22px;
-    border-left:3px solid var(--gold);
+    margin-top:36px;
+    padding:18px 20px;
+    border-left:2px solid var(--gold);
     background:rgba(0,0,0,0.18);
     backdrop-filter:blur(8px);
     -webkit-backdrop-filter:blur(8px);
-    border-radius:4px;
+    border-radius:3px;
     font-family:'Noto Serif KR', serif;
     font-style:italic;
-    font-size:14.5px;
+    font-size:13px;
     line-height:1.85;
-    color:rgba(251,248,241,0.92);
+    color:rgba(251,248,239,0.92);
+    font-weight:400;
   }
   .hero-meta {
-    margin-top:40px;
-    display:flex; flex-direction:column; gap:8px;
-    font-size:12px; letter-spacing:0.05em;
-    color:rgba(251,248,241,0.6);
+    margin-top:32px;
+    display:flex; flex-direction:column; gap:5px;
+    font-size:10.5px; letter-spacing:0.08em;
+    color:rgba(251,248,239,0.5);
+    font-weight:400;
   }
   .hero-meta span::before {
-    content:'—'; margin-right:8px;
-    color:var(--gold);
+    content:'·'; margin-right:8px; color:var(--gold);
   }
   .hero-scroll {
-    position:absolute; bottom:24px; left:50%;
-    transform:translateX(-50%);
-    color:rgba(251,248,241,0.6);
-    font-size:11px; letter-spacing:0.3em;
-    text-align:center;
+    position:absolute; bottom:18px; left:50%;
+    transform:translateX(-50%); z-index:2;
+    color:rgba(251,248,239,0.5);
+    font-size:9px; letter-spacing:0.4em;
+    text-align:center; font-weight:500;
     animation:bounce 2.4s ease infinite;
   }
   .hero-scroll::after {
     content:''; display:block;
-    width:1px; height:32px;
-    margin:8px auto 0;
+    width:1px; height:26px;
+    margin:6px auto 0;
     background:linear-gradient(to bottom, var(--gold), transparent);
   }
   @keyframes bounce {
-    0%,100% { transform:translate(-50%,0); }
-    50% { transform:translate(-50%,8px); }
+    0%,100% { transform:translate(-50%,0); opacity:0.5; }
+    50% { transform:translate(-50%,6px); opacity:0.9; }
   }
 
-  /* Stats strip */
+  /* STATS */
   .stats {
     background:var(--cream);
-    padding:48px 24px;
-    border-bottom:1px solid var(--line);
+    padding:40px 22px;
+    border-bottom:1px solid var(--line-soft);
+    position:relative;
+  }
+  .stats::before {
+    content:''; position:absolute;
+    top:-1px; left:50%; transform:translateX(-50%);
+    width:48px; height:2px; background:var(--gold);
   }
   .stats-inner {
     max-width:600px; margin:0 auto;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:24px 16px;
+    display:grid; grid-template-columns:1fr 1fr;
+    gap:22px 14px;
   }
   .stat {
-    text-align:left;
-    padding-bottom:18px;
-    border-bottom:1px solid var(--line);
+    padding-bottom:14px;
+    border-bottom:1px solid var(--line-soft);
   }
   .stat:nth-child(3), .stat:nth-child(4) {
     border-bottom:none; padding-bottom:0;
   }
   .stat__num {
     font-family:'Noto Serif KR', serif;
-    font-size:34px; font-weight:700;
+    font-size:26px; font-weight:600;
     line-height:1; color:var(--forest);
     letter-spacing:-0.02em;
+  }
+  .stat__num small {
+    font-size:0.5em; font-weight:500; margin-left:1px;
+    color:var(--ink-mute);
   }
   .stat--olive .stat__num { color:var(--olive-deep); }
   .stat--clay .stat__num { color:var(--clay); }
   .stat--blood .stat__num { color:var(--blood); }
   .stat__label {
-    font-size:11px; color:var(--ink-mute);
-    letter-spacing:0.1em; text-transform:uppercase;
-    margin:8px 0 4px; font-weight:500;
+    font-size:10px; color:var(--ink-mute);
+    letter-spacing:0.15em; text-transform:uppercase;
+    margin:8px 0 3px; font-weight:600;
   }
   .stat__desc {
-    font-size:12.5px; color:var(--ink-soft);
-    line-height:1.5;
+    font-size:11.5px; color:var(--ink-soft);
+    line-height:1.55; font-weight:400;
   }
 
-  /* Article shell */
+  /* Chapter divider ornament */
+  .ornament {
+    display:flex; align-items:center; justify-content:center;
+    margin:0 auto; padding:24px 0 8px;
+    max-width:120px;
+  }
+  .ornament svg { width:100%; height:auto; opacity:0.5; }
+
+  /* ARTICLE */
   .article {
-    max-width:640px; margin:0 auto;
-    padding:0 24px;
+    max-width:580px; margin:0 auto;
+    padding:0 22px;
   }
   .chapter {
-    padding:72px 0 24px;
-    scroll-margin-top:20px;
+    padding:48px 0 16px;
+    scroll-margin-top:16px;
   }
   .chapter__num {
     font-family:'Noto Serif KR', serif;
-    font-size:13px; letter-spacing:0.3em;
-    color:var(--clay); font-weight:500;
-    margin-bottom:14px; text-transform:uppercase;
+    font-size:10.5px; letter-spacing:0.3em;
+    color:var(--clay); font-weight:600;
+    margin-bottom:12px;
+    text-transform:uppercase;
   }
   .chapter__title {
     font-family:'Noto Serif KR', serif;
-    font-size:28px; font-weight:700;
-    line-height:1.4; letter-spacing:-0.02em;
-    color:var(--ink); margin-bottom:16px;
+    font-size:22px; font-weight:600;
+    line-height:1.42; letter-spacing:-0.02em;
+    color:var(--ink); margin-bottom:14px;
+  }
+  .chapter__title small {
+    display:block; font-size:0.6em;
+    color:var(--ink-mute); font-weight:500;
+    margin-top:6px;
   }
   .chapter__lede {
-    font-size:16px; line-height:1.85;
-    color:var(--ink-soft); margin-bottom:28px;
-    padding-bottom:24px;
-    border-bottom:1px solid var(--line);
+    font-size:13.5px; line-height:1.85;
+    color:var(--ink-soft); margin-bottom:24px;
+    padding-bottom:20px;
+    border-bottom:1px solid var(--line-soft);
+    font-weight:400;
   }
 
   .lead {
     font-family:'Noto Serif KR', serif;
-    font-size:19px; line-height:1.85;
+    font-size:15.5px; line-height:1.85;
     color:var(--ink); font-weight:500;
-    margin:24px 0 28px;
-    padding:24px 0;
-    border-top:2px solid var(--olive-deep);
+    margin:20px 0 24px;
+    padding:18px 0;
+    border-top:1.5px solid var(--olive-deep);
     border-bottom:1px solid var(--line);
     letter-spacing:-0.01em;
   }
-  .lead::first-letter {
-    font-size:2.4em; font-weight:700;
-    float:left; line-height:0.9;
-    margin:6px 8px 0 0;
-    color:var(--olive-deep);
-    font-family:'Noto Serif KR', serif;
-  }
 
-  p { margin-bottom:18px; }
+  p { margin-bottom:14px; font-size:13.5px; line-height:1.85; }
   p strong { color:var(--ink); font-weight:600; }
 
-  /* Reason cards */
-  .reasons { display:grid; gap:16px; margin:8px 0 24px; }
+  /* Reasons (chapter 1) */
+  .reasons { display:grid; gap:12px; margin:6px 0 20px; }
   .reason {
     background:var(--cream);
-    border-radius:14px; padding:22px;
-    border-left:4px solid var(--olive);
-    box-shadow:0 1px 0 rgba(0,0,0,0.02);
+    border-radius:10px; padding:18px 18px 16px;
+    border-left:3px solid var(--olive);
+    transition:transform 0.2s ease;
   }
   .reason:nth-child(2) { border-color:var(--clay); }
   .reason:nth-child(3) { border-color:var(--gold); }
   .reason:nth-child(4) { border-color:var(--forest); }
   .reason__num {
     font-family:'Noto Serif KR', serif;
-    font-size:13px; color:var(--ink-mute);
-    letter-spacing:0.15em; font-weight:500;
-    margin-bottom:6px;
+    font-size:10px; color:var(--ink-mute);
+    letter-spacing:0.2em; font-weight:600;
+    margin-bottom:4px;
   }
   .reason h4 {
     font-family:'Noto Serif KR', serif;
-    font-size:17px; font-weight:600;
+    font-size:14.5px; font-weight:600;
     color:var(--forest); line-height:1.5;
-    margin-bottom:10px;
+    margin-bottom:8px;
+    letter-spacing:-0.01em;
   }
   .reason p {
-    font-size:14.5px; line-height:1.8;
+    font-size:12.5px; line-height:1.8;
     color:var(--ink-soft); margin:0;
   }
-  .reason p + p { margin-top:8px; }
 
   /* Timeline */
   .timeline {
     position:relative;
-    padding-left:24px;
+    padding-left:20px;
     margin:8px 0;
   }
   .timeline::before {
     content:''; position:absolute;
-    left:6px; top:8px; bottom:8px;
-    width:2px;
+    left:5px; top:6px; bottom:6px;
+    width:1px;
     background:linear-gradient(to bottom,
-      var(--olive) 0%,
-      var(--gold) 50%,
-      var(--clay) 100%);
+      var(--olive) 0%, var(--gold) 50%, var(--clay) 100%);
   }
   .tl-item {
     position:relative;
-    padding-bottom:32px;
+    padding-bottom:22px;
   }
   .tl-item:last-child { padding-bottom:0; }
   .tl-item::before {
     content:''; position:absolute;
-    left:-23px; top:8px;
-    width:11px; height:11px;
+    left:-19px; top:6px;
+    width:9px; height:9px;
     border-radius:50%;
-    background:var(--cream);
-    border:2px solid var(--olive-deep);
-    box-shadow:0 0 0 4px var(--paper);
+    background:var(--paper);
+    border:1.5px solid var(--olive-deep);
+    box-shadow:0 0 0 3px var(--paper);
   }
   .tl-item--key::before {
     background:var(--gold);
     border-color:var(--clay);
+    width:11px; height:11px;
+    left:-20px; top:5px;
   }
   .tl-year {
     font-family:'Noto Serif KR', serif;
-    font-size:13px; font-weight:600;
+    font-size:11.5px; font-weight:600;
     color:var(--clay);
     letter-spacing:0.05em;
-    margin-bottom:4px;
+    margin-bottom:3px;
   }
   .tl-title {
-    font-size:15.5px; font-weight:600;
+    font-size:13.5px; font-weight:600;
     color:var(--ink); line-height:1.5;
-    margin-bottom:6px;
+    margin-bottom:4px;
+    letter-spacing:-0.005em;
   }
   .tl-body {
-    font-size:13.5px; line-height:1.75;
+    font-size:12px; line-height:1.75;
     color:var(--ink-soft);
   }
 
-  /* Quote callout */
+  /* Pull quote */
   .pullquote {
-    margin:36px -8px;
-    padding:32px 28px;
+    margin:28px -4px;
+    padding:26px 24px 22px;
     background:linear-gradient(135deg, var(--cream) 0%, var(--paper-soft) 100%);
-    border-radius:16px;
+    border-radius:12px;
     position:relative;
     text-align:center;
+    border:1px solid var(--line-soft);
   }
   .pullquote::before {
-    content:'"';
-    position:absolute; top:-18px; left:24px;
+    content:'"'; position:absolute;
+    top:-16px; left:18px;
     font-family:Georgia, serif;
-    font-size:80px; line-height:1;
+    font-size:64px; line-height:1;
     color:var(--olive); opacity:0.35;
   }
   .pullquote p {
     font-family:'Noto Serif KR', serif;
-    font-size:18px; line-height:1.7;
+    font-size:14.5px; line-height:1.75;
     color:var(--ink); font-weight:500;
     margin:0; letter-spacing:-0.01em;
   }
   .pullquote cite {
-    display:block; margin-top:14px;
-    font-size:12px; color:var(--ink-mute);
-    letter-spacing:0.1em; font-style:normal;
+    display:block; margin-top:12px;
+    font-size:10.5px; color:var(--ink-mute);
+    letter-spacing:0.15em; font-style:normal;
+    font-weight:500;
   }
   .pullquote cite::before { content:'— '; }
 
-  /* Spec / table cards */
-  .spec {
-    background:var(--cream);
-    border-radius:14px;
-    padding:6px 22px;
-    margin:8px 0 28px;
-  }
-  .spec-row {
-    padding:18px 0;
-    border-bottom:1px solid var(--line);
-  }
-  .spec-row:last-child { border-bottom:none; }
-  .spec-row__label {
-    font-size:12px; color:var(--clay);
-    font-weight:600; letter-spacing:0.05em;
-    text-transform:uppercase;
-    margin-bottom:6px;
-  }
-  .spec-row__value {
-    font-size:14.5px; color:var(--ink);
-    line-height:1.7;
-  }
-
-  /* Mini stat row */
+  /* Mini stats */
   .ministats {
     display:grid; grid-template-columns:repeat(3,1fr);
-    gap:8px; margin:24px 0;
+    gap:8px; margin:20px 0;
   }
   .ministat {
     background:var(--cream);
-    border-radius:12px;
-    padding:18px 12px;
+    border-radius:10px;
+    padding:16px 8px;
     text-align:center;
+    border:1px solid var(--line-soft);
   }
   .ministat__num {
     font-family:'Noto Serif KR', serif;
-    font-size:22px; font-weight:700;
-    color:var(--forest); line-height:1.1;
+    font-size:18px; font-weight:600;
+    color:var(--forest); line-height:1.05;
+    letter-spacing:-0.02em;
   }
   .ministat--clay .ministat__num { color:var(--clay); }
   .ministat--olive .ministat__num { color:var(--olive-deep); }
   .ministat__label {
-    font-size:11px; color:var(--ink-mute);
-    margin-top:6px; line-height:1.4;
+    font-size:10px; color:var(--ink-mute);
+    margin-top:6px; line-height:1.45; font-weight:500;
   }
 
   /* Sub heading */
   .h-sub {
     font-family:'Noto Serif KR', serif;
-    font-size:18px; font-weight:600;
+    font-size:15px; font-weight:600;
     color:var(--forest); letter-spacing:-0.01em;
-    margin:32px 0 14px;
-    padding-left:14px;
-    border-left:3px solid var(--olive);
+    margin:26px 0 12px;
+    padding-left:12px;
+    border-left:2px solid var(--olive);
     line-height:1.5;
   }
 
-  /* Bullet style */
-  .bullets {
-    list-style:none; padding:0;
-    margin:0 0 18px;
-  }
+  /* Bullets */
+  .bullets { list-style:none; padding:0; margin:0 0 14px; }
   .bullets li {
     position:relative;
-    padding:6px 0 6px 22px;
-    font-size:14.5px; line-height:1.8;
+    padding:5px 0 5px 18px;
+    font-size:12.5px; line-height:1.8;
     color:var(--ink-soft);
   }
   .bullets li::before {
     content:''; position:absolute;
-    left:4px; top:18px;
+    left:2px; top:14px;
     width:8px; height:1px;
     background:var(--olive);
   }
-  .bullets li strong { color:var(--ink); }
+  .bullets li strong { color:var(--ink); font-weight:600; }
 
-  /* Barrier — heaviest visual weight */
+  /* Spec card */
+  .spec {
+    background:var(--cream);
+    border-radius:10px;
+    padding:4px 18px;
+    margin:8px 0 24px;
+    border:1px solid var(--line-soft);
+  }
+  .spec-row { padding:14px 0; border-bottom:1px solid var(--line-soft); }
+  .spec-row:last-child { border-bottom:none; }
+  .spec-row__label {
+    font-size:10.5px; color:var(--clay);
+    font-weight:600; letter-spacing:0.05em;
+    text-transform:uppercase;
+    margin-bottom:5px;
+  }
+  .spec-row__value {
+    font-size:12.5px; color:var(--ink);
+    line-height:1.7;
+  }
+
+  /* BARRIER (dark section) */
   .barrier-wrap {
     background:var(--forest-deep);
-    margin:48px -24px 0;
+    margin:48px -22px 0;
     padding:0;
     color:var(--cream);
-    border-top:1px solid rgba(212,169,59,0.2);
+    border-top:1px solid rgba(201,162,58,0.18);
+    position:relative;
+  }
+  .barrier-wrap::before {
+    content:''; position:absolute; inset:0;
+    background-image:radial-gradient(circle at 1px 1px, rgba(255,255,255,0.022) 1px, transparent 0);
+    background-size:18px 18px;
+    pointer-events:none;
   }
   .barrier-wrap .article-inner {
-    max-width:640px; margin:0 auto;
-    padding:72px 24px 32px;
+    position:relative; z-index:1;
+    max-width:580px; margin:0 auto;
+    padding:56px 22px 28px;
   }
   .barrier-wrap .chapter__num { color:var(--gold); }
   .barrier-wrap .chapter__title { color:var(--cream); }
+  .barrier-wrap .chapter__title small { color:rgba(251,248,239,0.5); }
   .barrier-wrap .chapter__lede {
-    color:rgba(251,248,241,0.75);
-    border-bottom-color:rgba(251,248,241,0.15);
+    color:rgba(251,248,239,0.7);
+    border-bottom-color:rgba(251,248,239,0.12);
   }
   .barrier-wrap .h-sub {
     color:var(--gold);
@@ -514,184 +558,208 @@
   }
 
   .barrier {
-    margin:24px 0;
-    padding:26px 22px;
-    background:rgba(251,248,241,0.04);
-    border:1px solid rgba(251,248,241,0.1);
-    border-left:4px solid var(--blood);
-    border-radius:8px;
+    margin:20px 0;
+    padding:22px 20px;
+    background:rgba(251,248,239,0.04);
+    border:1px solid rgba(251,248,239,0.08);
+    border-left:3px solid var(--blood);
+    border-radius:6px;
   }
   .barrier__head {
-    display:flex; align-items:center; gap:14px;
-    margin-bottom:14px;
+    display:flex; align-items:flex-start; gap:12px;
+    margin-bottom:12px;
   }
   .barrier__num {
-    width:36px; height:36px;
+    width:30px; height:30px;
     border-radius:50%;
     background:var(--blood);
     color:var(--cream);
     font-family:'Noto Serif KR', serif;
-    font-weight:700; font-size:16px;
+    font-weight:700; font-size:13px;
     display:flex; align-items:center; justify-content:center;
-    flex-shrink:0;
+    flex-shrink:0; margin-top:2px;
   }
   .barrier__title {
     font-family:'Noto Serif KR', serif;
-    font-size:17px; font-weight:600;
-    color:var(--cream); line-height:1.4;
+    font-size:14.5px; font-weight:600;
+    color:var(--cream); line-height:1.45;
+    letter-spacing:-0.01em;
+    flex:1;
+  }
+  .barrier__title small {
+    display:block; font-weight:400;
+    font-size:11px; opacity:0.65;
+    margin-top:3px; font-family:'Noto Sans KR', sans-serif;
+    letter-spacing:0.02em;
   }
   .barrier__lede {
-    font-size:14.5px; line-height:1.8;
-    color:rgba(251,248,241,0.85);
-    margin-bottom:16px;
+    font-size:12.5px; line-height:1.85;
+    color:rgba(251,248,239,0.85);
+    margin-bottom:14px;
   }
   .barrier__lede strong { color:var(--gold); }
   .barrier__detail {
-    background:rgba(0,0,0,0.25);
-    border-radius:6px;
-    padding:14px 16px;
-    margin-top:14px;
+    background:rgba(0,0,0,0.28);
+    border-radius:5px;
+    padding:12px 14px;
   }
   .barrier__detail .bullets li {
-    color:rgba(251,248,241,0.78);
-    font-size:13.5px;
-    padding-left:18px;
+    color:rgba(251,248,239,0.78);
+    font-size:11.5px;
+    padding-left:14px;
+    line-height:1.75;
   }
   .barrier__detail .bullets li::before {
     background:var(--blood);
-    width:6px; top:16px;
+    width:6px; top:14px;
   }
   .barrier__detail .bullets li strong { color:var(--gold); }
 
+  .region-tag {
+    font-size:10px; color:var(--gold);
+    font-weight:600; letter-spacing:0.15em;
+    margin:0 0 4px;
+    text-transform:uppercase;
+  }
+  .region-tag + .region-tag { margin-top:12px; }
+
   .barrier-spec {
-    background:rgba(0,0,0,0.25);
-    border-radius:10px;
-    padding:8px 18px;
-    margin:18px 0;
+    background:rgba(0,0,0,0.28);
+    border-radius:8px;
+    padding:4px 16px;
+    margin:14px 0;
   }
   .barrier-spec .spec-row {
-    border-bottom-color:rgba(251,248,241,0.1);
-    padding:14px 0;
+    border-bottom-color:rgba(251,248,239,0.08);
+    padding:12px 0;
   }
-  .barrier-spec .spec-row__label {
-    color:var(--gold);
-  }
+  .barrier-spec .spec-row__label { color:var(--gold); font-size:10px; }
   .barrier-spec .spec-row__value {
-    color:rgba(251,248,241,0.85);
-    font-size:14px;
+    color:rgba(251,248,239,0.85);
+    font-size:12px; line-height:1.7;
   }
   .barrier-spec .spec-row__value strong { color:var(--cream); }
 
   .footnote {
-    font-size:12.5px; line-height:1.7;
-    color:rgba(251,248,241,0.55);
-    margin-top:8px; padding-left:14px;
-    border-left:1px solid rgba(251,248,241,0.2);
+    font-size:11px; line-height:1.7;
+    color:rgba(251,248,239,0.5);
+    margin-top:8px; padding-left:12px;
+    border-left:1px solid rgba(251,248,239,0.18);
   }
 
-  /* Mission grid */
-  .missions {
-    display:grid; gap:14px;
-    margin:8px 0 28px;
-  }
+  /* Missions */
+  .missions { display:grid; gap:12px; margin:6px 0 24px; }
   .mission {
     background:var(--cream);
-    border-radius:14px;
-    padding:20px 22px;
+    border-radius:10px;
+    padding:16px 18px;
+    border-left:3px solid var(--blood);
+    border:1px solid var(--line-soft);
     border-left:3px solid var(--blood);
   }
   .mission--support {
     border-left-color:var(--olive-deep);
-    background:linear-gradient(135deg, var(--cream) 0%, #e9efd8 100%);
+    background:linear-gradient(135deg, var(--cream) 0%, #ebf0d5 100%);
+  }
+  .mission__head {
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:6px;
   }
   .mission__icon {
-    display:inline-block;
-    font-size:22px; margin-bottom:8px;
+    width:30px; height:30px; flex-shrink:0;
+    background:rgba(138,42,48,0.08);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    color:var(--blood);
   }
+  .mission--support .mission__icon {
+    background:rgba(74,88,36,0.1);
+    color:var(--olive-deep);
+  }
+  .mission__icon svg { width:14px; height:14px; }
   .mission h5 {
     font-family:'Noto Serif KR', serif;
-    font-size:15.5px; font-weight:600;
+    font-size:13.5px; font-weight:600;
     color:var(--blood); line-height:1.4;
-    margin-bottom:8px;
+    flex:1; letter-spacing:-0.005em;
   }
   .mission--support h5 { color:var(--olive-deep); }
   .mission p {
-    font-size:13.5px; line-height:1.75;
+    font-size:11.5px; line-height:1.75;
     color:var(--ink-soft); margin:0;
   }
 
-  /* Closing CTA */
+  /* Closing */
   .closing {
     background:linear-gradient(180deg, var(--paper) 0%, var(--cream) 100%);
-    padding:80px 24px 60px;
+    padding:64px 22px 48px;
     text-align:center;
   }
-  .closing-inner {
-    max-width:520px; margin:0 auto;
-  }
+  .closing-inner { max-width:480px; margin:0 auto; }
   .closing__symbol {
-    font-size:36px; margin-bottom:18px;
-    opacity:0.6;
+    width:36px; height:36px;
+    margin:0 auto 14px;
+    color:var(--olive); opacity:0.7;
   }
+  .closing__symbol svg { width:100%; height:100%; }
   .closing__head {
     font-family:'Noto Serif KR', serif;
-    font-size:13px; letter-spacing:0.3em;
-    color:var(--clay); font-weight:500;
+    font-size:10.5px; letter-spacing:0.4em;
+    color:var(--clay); font-weight:600;
     text-transform:uppercase;
-    margin-bottom:18px;
+    margin-bottom:14px;
   }
   .closing h2 {
     font-family:'Noto Serif KR', serif;
-    font-size:26px; line-height:1.5;
-    font-weight:700; color:var(--ink);
+    font-size:20px; line-height:1.55;
+    font-weight:600; color:var(--ink);
     letter-spacing:-0.02em;
-    margin-bottom:24px;
+    margin-bottom:18px;
   }
   .closing p {
-    font-size:15px; line-height:1.85;
+    font-size:13px; line-height:1.85;
     color:var(--ink-soft);
   }
   .closing-divider {
-    width:60px; height:1px;
+    width:48px; height:1px;
     background:var(--olive);
-    margin:32px auto;
+    margin:26px auto;
   }
   .footer-credit {
-    font-size:11px; color:var(--ink-mute);
-    line-height:1.8; letter-spacing:0.05em;
+    font-size:10.5px; color:var(--ink-mute);
+    line-height:1.85; letter-spacing:0.05em;
   }
   .footer-credit strong { color:var(--ink-soft); }
 
-  /* Animations */
+  /* Reveal */
   .reveal {
-    opacity:0; transform:translateY(20px);
+    opacity:0; transform:translateY(16px);
     transition:opacity 0.7s ease, transform 0.7s cubic-bezier(.2,.7,.2,1);
   }
-  .reveal.is-visible {
-    opacity:1; transform:translateY(0);
-  }
+  .reveal.is-visible { opacity:1; transform:translateY(0); }
   @media (prefers-reduced-motion: reduce) {
     .reveal { opacity:1; transform:none; transition:none; }
     .hero-scroll { animation:none; }
     html { scroll-behavior:auto; }
   }
 
-  /* Tablet+ refinements */
+  /* Tablet+ */
   @media (min-width:720px) {
-    body { font-size:17px; }
-    .hero { padding:100px 40px 120px; }
-    .hero-num { font-size:160px; }
-    .hero h1 { font-size:40px; }
-    .article { padding:0 40px; }
-    .chapter__title { font-size:34px; }
-    .chapter { padding:100px 0 32px; }
-    .barrier-wrap { margin:64px -40px 0; }
-    .barrier-wrap .article-inner { padding:100px 40px 48px; }
-    .stats-inner { grid-template-columns:repeat(4,1fr); gap:16px; }
+    body { font-size:15px; }
+    .hero { padding:88px 36px 96px; }
+    .hero-num { font-size:128px; }
+    .hero h1 { font-size:30px; }
+    .hero-sub { font-size:14px; }
+    .hero-quote { font-size:14px; }
+    .article { padding:0 36px; max-width:620px; }
+    .chapter__title { font-size:26px; }
+    .chapter { padding:72px 0 24px; }
+    .barrier-wrap { margin:56px -36px 0; }
+    .barrier-wrap .article-inner { padding:80px 36px 40px; }
+    .stats-inner { grid-template-columns:repeat(4,1fr); gap:14px; }
     .stat { border-bottom:none !important; padding-bottom:0; }
-    .ministats { gap:14px; }
-    .ministat__num { font-size:26px; }
-    .closing h2 { font-size:32px; }
+    .stat__num { font-size:30px; }
+    .closing h2 { font-size:24px; }
   }
 </style>
 </head>
@@ -699,10 +767,16 @@
 
 <div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
 
-<button class="toc-btn" id="tocBtn" aria-label="목차 열기">☰</button>
+<button class="toc-btn" id="tocBtn" aria-label="목차 열기">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+    <line x1="4" y1="7" x2="20" y2="7"/>
+    <line x1="4" y1="12" x2="20" y2="12"/>
+    <line x1="4" y1="17" x2="20" y2="17"/>
+  </svg>
+</button>
 <div class="toc-overlay" id="tocOverlay">
   <div class="toc-panel">
-    <h3>목차 · CONTENTS</h3>
+    <h3>CONTENTS · 목차</h3>
     <a href="#ch1">Ⅰ. 왜 시작했나 <span>민중교역 추진 배경 4가지</span></a>
     <a href="#ch2">Ⅱ. 20년의 발자취 <span>2005–2025 주요 교류 기록</span></a>
     <a href="#ch3">Ⅲ. 한 병의 이야기 <span>두레 올리브유의 모든 것</span></a>
@@ -714,26 +788,32 @@
 <!-- HERO -->
 <header class="hero">
   <svg class="hero-ornament" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <path d="M30 180 Q60 120 100 100 Q140 80 170 30" stroke="#fbf8f1" stroke-width="2" fill="none"/>
-    <ellipse cx="60" cy="155" rx="14" ry="6" fill="#fbf8f1" transform="rotate(-30 60 155)"/>
-    <ellipse cx="85" cy="125" rx="14" ry="6" fill="#fbf8f1" transform="rotate(-25 85 125)"/>
-    <ellipse cx="115" cy="100" rx="14" ry="6" fill="#fbf8f1" transform="rotate(-20 115 100)"/>
-    <ellipse cx="145" cy="75" rx="14" ry="6" fill="#fbf8f1" transform="rotate(-15 145 75)"/>
-    <ellipse cx="170" cy="50" rx="14" ry="6" fill="#fbf8f1" transform="rotate(-10 170 50)"/>
+    <path d="M30 180 Q60 120 100 100 Q140 80 170 30" stroke="#fbf8ef" stroke-width="1.5" fill="none"/>
+    <ellipse cx="60" cy="155" rx="13" ry="5.5" fill="#fbf8ef" transform="rotate(-30 60 155)"/>
+    <ellipse cx="85" cy="125" rx="13" ry="5.5" fill="#fbf8ef" transform="rotate(-25 85 125)"/>
+    <ellipse cx="115" cy="100" rx="13" ry="5.5" fill="#fbf8ef" transform="rotate(-20 115 100)"/>
+    <ellipse cx="145" cy="75" rx="13" ry="5.5" fill="#fbf8ef" transform="rotate(-15 145 75)"/>
+    <ellipse cx="170" cy="50" rx="13" ry="5.5" fill="#fbf8ef" transform="rotate(-10 170 50)"/>
+  </svg>
+  <svg class="hero-ornament-2" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M30 180 Q60 120 100 100 Q140 80 170 30" stroke="#c9a23a" stroke-width="1.5" fill="none"/>
+    <ellipse cx="85" cy="125" rx="13" ry="5.5" fill="#c9a23a" transform="rotate(-25 85 125)"/>
+    <ellipse cx="115" cy="100" rx="13" ry="5.5" fill="#c9a23a" transform="rotate(-20 115 100)"/>
+    <ellipse cx="145" cy="75" rx="13" ry="5.5" fill="#c9a23a" transform="rotate(-15 145 75)"/>
   </svg>
 
-  <div>
+  <div class="hero-content">
     <div class="hero-eyebrow">DURE × PALESTINE · 2006–2026</div>
     <div class="hero-num">20<small>년</small></div>
     <h1>올리브유로 잇는<br><em>평화와 연대</em>의 시간</h1>
-    <p class="hero-sub">2006년 7월, 두레생협은 분쟁과 봉쇄로 고립된 팔레스타인 농민과 손을 잡았습니다. 올리브유 한 병에 담긴 20년의 이야기.</p>
+    <p class="hero-sub">2006년 7월, 두레생협은 분쟁과 봉쇄로 고립된 팔레스타인 농민과 손을 잡았습니다. 한 병의 올리브유에 담긴 20년의 이야기.</p>
 
     <div class="hero-quote">
       "우리가 먹는 팔레스타인 올리브유는 수많은 장벽을 넘어 온 기적입니다. 농사를 짓는다는 것은 땅을 포기하지 않겠다는 선언입니다."
     </div>
 
     <div class="hero-meta">
-      <span>자료 출처 · 두레교육활동센터</span>
+      <span>자료 출처 두레교육활동센터</span>
       <span>2026 두레생협 민중교역·공정무역 주간 행사</span>
       <span>한 병당 100원의 교류기금이 함께 갑니다</span>
     </div>
@@ -746,30 +826,32 @@
 <section class="stats">
   <div class="stats-inner">
     <div class="stat reveal">
-      <div class="stat__num">2006<span style="font-size:0.55em">년</span></div>
+      <div class="stat__num">2006<small>년</small></div>
       <div class="stat__label">교류 시작</div>
       <div class="stat__desc">올리브유로 시작된 평화의 약속</div>
     </div>
     <div class="stat stat--olive reveal">
-      <div class="stat__num">1,000<span style="font-size:0.55em">만 그루</span></div>
+      <div class="stat__num">1,000<small>만 그루</small></div>
       <div class="stat__label">올리브 나무</div>
       <div class="stat__desc">서안·가자지구 농업 GDP의 25%</div>
     </div>
     <div class="stat stat--clay reveal">
-      <div class="stat__num">0.5<span style="font-size:0.55em">%</span></div>
-      <div class="stat__label">산도 (엑스트라버진)</div>
+      <div class="stat__num">≤0.5<small>%</small></div>
+      <div class="stat__label">산도 EVOO</div>
       <div class="stat__desc">국제기준 0.8% 이하 — 최상급</div>
     </div>
     <div class="stat stat--blood reveal">
-      <div class="stat__num">712<span style="font-size:0.55em">km</span></div>
+      <div class="stat__num">712<small>km</small></div>
       <div class="stat__label">분리장벽</div>
       <div class="stat__desc">검문소 900곳+ · 수원 80% 독점</div>
     </div>
   </div>
 </section>
 
-<!-- CHAPTER 1 -->
+<!-- CHAPTERS -->
 <main class="article">
+
+  <!-- CH1 -->
   <article class="chapter" id="ch1">
     <div class="chapter__num reveal">CHAPTER Ⅰ · 왜 시작했나</div>
     <h2 class="chapter__title reveal">팔레스타인과 손을 잡은<br>네 가지 이유</h2>
@@ -789,7 +871,7 @@
       <div class="reason reveal">
         <div class="reason__num">REASON 03</div>
         <h4>'생명과 평화' 가치 확산 및 문화 보존</h4>
-        <p>평화의 상징 올리브유를 매개로 한국 조합원에게 분쟁 지역 평화 정착의 필요성을 전파합니다. 6,000년 전통의 올리브 재배 방식과 저온 압착 등 현지의 역사·문화적 가치를 존중하고 보존하는 동반자가 됩니다.</p>
+        <p>평화의 상징 올리브유를 매개로 한국 조합원에게 분쟁 지역 평화 정착의 필요성을 전파합니다. 6,000년 전통의 올리브 재배 방식과 저온 압착 등 현지의 역사·문화적 가치를 존중하는 동반자가 됩니다.</p>
       </div>
       <div class="reason reveal">
         <div class="reason__num">REASON 04</div>
@@ -799,17 +881,27 @@
     </div>
   </article>
 
-  <!-- CHAPTER 2 -->
+  <!-- Ornament divider -->
+  <div class="ornament">
+    <svg viewBox="0 0 120 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <line x1="0" y1="8" x2="48" y2="8" stroke="#b86d23" stroke-width="0.6"/>
+      <circle cx="60" cy="8" r="3" fill="none" stroke="#b86d23" stroke-width="0.8"/>
+      <circle cx="60" cy="8" r="1" fill="#b86d23"/>
+      <line x1="72" y1="8" x2="120" y2="8" stroke="#b86d23" stroke-width="0.6"/>
+    </svg>
+  </div>
+
+  <!-- CH2 -->
   <article class="chapter" id="ch2">
     <div class="chapter__num reveal">CHAPTER Ⅱ · 20년의 발자취</div>
-    <h2 class="chapter__title reveal">2005부터 2025까지,<br>우리가 함께 걸어온 길</h2>
+    <h2 class="chapter__title reveal">2005부터 2025까지,<br>함께 걸어온 길</h2>
     <p class="chapter__lede reveal">한 번의 거래가 아닌, 매년 이어진 약속. 점검과 방문, 모금과 초청, 그리고 농사를 지속한다는 가장 강력한 비폭력 저항.</p>
 
     <div class="timeline reveal">
       <div class="tl-item tl-item--key">
         <div class="tl-year">2005</div>
         <div class="tl-title">팔레스타인 생산지 점검</div>
-        <div class="tl-body">올리브유 공급을 위한 현지 점검 (11/16~25). 장소 UAWC, PARC, 라말라 / 김기섭 상무이사, ATJ 등 참석.</div>
+        <div class="tl-body">올리브유 공급을 위한 현지 점검 (11/16~25). UAWC, PARC, 라말라 / 김기섭 상무이사, ATJ 등 참석.</div>
       </div>
       <div class="tl-item tl-item--key">
         <div class="tl-year">2006</div>
@@ -849,7 +941,7 @@
       <div class="tl-item tl-item--key">
         <div class="tl-year">2019</div>
         <div class="tl-title">"농사를 짓는 것이 곧 비폭력 저항"</div>
-        <div class="tl-body">민중교역주간 5/7~15 칼레드 히드미(MGO 대표) 초청. "농사를 지속하는 행위 자체가 이스라엘 압박에 맞선 가장 강력한 비폭력 저항" 이라고 역설.</div>
+        <div class="tl-body">민중교역주간 5/7~15 칼레드 히드미(MGO 대표) 초청. "농사를 지속하는 행위 자체가 이스라엘 압박에 맞선 가장 강력한 비폭력 저항."</div>
       </div>
       <div class="tl-item">
         <div class="tl-year">2021</div>
@@ -864,7 +956,7 @@
       <div class="tl-item tl-item--key">
         <div class="tl-year">2024</div>
         <div class="tl-title">민중교역 20주년 · 1004기금</div>
-        <div class="tl-body">2/19~3/3 올리브유 구매 시 3,000원 매칭 기부, 3월에 1,200만원 기금 전달. 7/25 「환대와 상상 패널 토크쇼」에 나리만 루미(팔레스타인 활동가).</div>
+        <div class="tl-body">2/19~3/3 올리브유 구매 시 3,000원 매칭 기부, 3월에 1,200만원 기금 전달. 7/25 「환대와 상상 패널 토크쇼」에 나리만 루미.</div>
       </div>
       <div class="tl-item tl-item--key">
         <div class="tl-year">2025</div>
@@ -874,7 +966,16 @@
     </div>
   </article>
 
-  <!-- CHAPTER 3 -->
+  <div class="ornament">
+    <svg viewBox="0 0 120 16" fill="none" aria-hidden="true">
+      <line x1="0" y1="8" x2="48" y2="8" stroke="#6b7d3a" stroke-width="0.6"/>
+      <circle cx="60" cy="8" r="3" fill="none" stroke="#6b7d3a" stroke-width="0.8"/>
+      <circle cx="60" cy="8" r="1" fill="#6b7d3a"/>
+      <line x1="72" y1="8" x2="120" y2="8" stroke="#6b7d3a" stroke-width="0.6"/>
+    </svg>
+  </div>
+
+  <!-- CH3 -->
   <article class="chapter" id="ch3">
     <div class="chapter__num reveal">CHAPTER Ⅲ · 한 병의 이야기</div>
     <h2 class="chapter__title reveal">두레 올리브유,<br>그 한 병에 담긴 모든 것</h2>
@@ -887,7 +988,7 @@
       </div>
       <div class="ministat ministat--olive">
         <div class="ministat__num">≤0.5%</div>
-        <div class="ministat__label">두레 산도<br>(국제 0.8%)</div>
+        <div class="ministat__label">두레 산도<br>국제 0.8%</div>
       </div>
       <div class="ministat ministat--clay">
         <div class="ministat__num">≤20℃</div>
@@ -895,13 +996,13 @@
       </div>
     </div>
 
-    <div class="lead reveal">민중교역 생활재 2호. 영토 점령과 고립화 정책 속에서도 농민의 자립과 중동·세계 평화 실현에 보탬이 되는 — 평화의 염원을 담은 팔레스타인 올리브유입니다. 농민이 일일이 손으로 수확한 최상품, 첫 번째 압착유인 엑스트라버진 등급.</div>
+    <div class="lead reveal">민중교역 생활재 2호. 영토 점령과 고립화 정책 속에서도 농민의 자립과 중동·세계 평화 실현에 보탬이 되는, 평화의 염원을 담은 팔레스타인 올리브유. 농민이 일일이 손으로 수확한 최상품, 첫 번째 압착유인 엑스트라버진 등급입니다.</div>
 
     <h3 class="h-sub reveal">생산·수출 자회사 MGO</h3>
     <p class="reveal">두레생협 파트너단체의 자회사 <strong>MGO(Mount of Green Olive)</strong>는 팔레스타인 농민이 만든 농산품·생활재를 전 세계 민중교역 파트너에게 수출합니다.</p>
     <ul class="bullets reveal">
-      <li><strong>한국이 단일국가 기준 최대 수입국</strong> — 피티쿱이 전체 물량의 약 15~20%를 수입합니다 (권역별로는 EU가 최대 시장).</li>
-      <li>서안지구·가자지구 전체에 약 <strong>1,000만 그루</strong>의 올리브 나무 — 농업 생산의 약 25%를 차지합니다.</li>
+      <li><strong>한국이 단일국가 기준 최대 수입국</strong> — 피티쿱이 전체 물량의 약 15~20%를 수입 (권역별로는 EU가 최대 시장).</li>
+      <li>서안지구·가자지구 전체에 약 <strong>1,000만 그루</strong>의 올리브 나무 — 농업 생산의 약 25%.</li>
     </ul>
 
     <h3 class="h-sub reveal">세계가 인정한 최상급 EVOO</h3>
@@ -912,11 +1013,11 @@
       <li>2026년 현재까지 NYIOOC 등의 수상이 이어지는 원동력.</li>
     </ul>
 
-    <h3 class="h-sub reveal">독보적 풍미의 비결: '루미' 품종</h3>
+    <h3 class="h-sub reveal">독보적 풍미의 비결, 루미 품종</h3>
     <ul class="bullets reveal">
       <li>수천 년 역사의 <strong>'루미(Souri)'·'나발리(Nabali)'</strong> 전통 품종.</li>
       <li>강렬한 과실향과 알싸한 끝맛(폴리페놀 성분)이 특징.</li>
-      <li>UAWC 협력으로 ISO·HACCP 등 국제 인증 획득, 현대적 품질 관리 시스템.</li>
+      <li>UAWC 협력으로 ISO·HACCP 등 국제 인증, 현대적 품질 관리.</li>
       <li>블라인드 테이스팅(향·맛·균형감만 평가)으로 공정성 확보.</li>
     </ul>
 
@@ -924,31 +1025,31 @@
     <div class="spec reveal">
       <div class="spec-row">
         <div class="spec-row__label">01 · 수확 시기</div>
-        <div class="spec-row__value">10월~11월의 두 달. 손으로 직접 따거나, 작황에 따라 긴 장대로 털어냅니다. 유기농 구분을 위해 반드시 검은 통에 담아 운반합니다.</div>
+        <div class="spec-row__value">10~11월의 두 달. 손으로 직접 따거나 작황에 따라 긴 장대로 털어냅니다. 유기농 구분을 위해 반드시 검은 통에 담아 운반.</div>
       </div>
       <div class="spec-row">
         <div class="spec-row__label">02 · 착유</div>
-        <div class="spec-row__value">당일 수확분을 오후 4시 이전 입고 → 세척 → 열매·씨 함께 으깨기 → 압착·원심분리 → 여과. 전 공정 20℃ 이하 저온 유지.</div>
+        <div class="spec-row__value">당일 수확분을 오후 4시 이전 입고 → 세척 → 열매·씨 함께 으깨기 → 압착·원심분리 → 여과. 전 공정 20℃ 이하.</div>
       </div>
       <div class="spec-row">
         <div class="spec-row__label">03 · 보관·관리</div>
-        <div class="spec-row__value">찌꺼기 분리 후 산소 차단막 스테인리스 탱크에 보관. 생산자 조직·이름·지역·입고 날짜·산도 표기로 이력 관리.</div>
+        <div class="spec-row__value">찌꺼기 분리 후 산소 차단막 스테인리스 탱크 보관. 생산자·이름·지역·입고일·산도 표기로 이력 관리.</div>
       </div>
       <div class="spec-row">
         <div class="spec-row__label">04 · 충진·수출</div>
-        <div class="spec-row__value">농림부 연구소 검사로 산도·과산화물가 확인 (IOC 기준 0.8% 이하 / 평균 0.5% 내외) → 70μm 판형 필터 여과 → 병입.</div>
+        <div class="spec-row__value">농림부 연구소 검사 (IOC 기준 0.8% 이하 / 평균 0.5% 내외) → 70μm 판형 필터 여과 → 병입.</div>
       </div>
     </div>
 
     <div class="pullquote reveal">
-      <p>올리브유는 팔레스타인 농업 GDP의 약 25%를 차지하며, 약 10만 명 이상의 가정에 생계를 제공합니다. 가계의 85% 이상이 일상적으로 사용하는 — 삶과 정체성 그 자체.</p>
+      <p>올리브유는 팔레스타인 농업 GDP의 약 25%를 차지하며, 약 10만 명 이상의 가정에 생계를 제공합니다. 가계의 85% 이상이 일상적으로 사용하는, 삶과 정체성 그 자체.</p>
       <cite>두레교육활동센터 자료</cite>
     </div>
   </article>
 
 </main>
 
-<!-- CHAPTER 4 — Dark / heavy section -->
+<!-- CH4 (Dark) -->
 <section class="barrier-wrap" id="ch4">
   <div class="article-inner">
     <div class="chapter__num reveal">CHAPTER Ⅳ · 4개의 장벽</div>
@@ -958,20 +1059,20 @@
     <div class="barrier reveal">
       <div class="barrier__head">
         <div class="barrier__num">1</div>
-        <div class="barrier__title">물리적 고립<br><small style="font-weight:400; opacity:0.7; font-size:13px;">분리장벽과 일상의 이동 통제</small></div>
+        <div class="barrier__title">물리적 고립<small>분리장벽과 일상의 이동 통제</small></div>
       </div>
       <p class="barrier__lede">이스라엘의 분리장벽 탓에 농민들은 <strong>'그린카드(통행 허가증)'</strong>를 발급받지 못하면 자신의 올리브 농장조차 들어갈 수 없습니다. 검문소에서 시간을 끄는 동안 수확물이 시들고, 유기농 비료를 구하는 일조차 포기해야 합니다.</p>
       <div class="barrier__detail">
         <ul class="bullets">
           <li><strong>분리장벽 규모</strong> — 총 계획 약 <strong>712km</strong>, 65% 이상 완공. 8m 콘크리트 + 가시철망·전자감시·참호.</li>
-          <li><strong>국제적 판단</strong> — 2004년 ICJ 국제법 위반 판결, UN총회 철거 결의안 채택. 현재는 '아파르트헤이트'의 핵심 기제로 규정.</li>
-          <li><strong>검문소</strong> — 서안지구 내 비공식 임시 포함 <strong>900곳 이상</strong>. 직선 10분 거리를 수십 km 우회(2~3시간). 안면 인식·생체 정보 시스템 도입.</li>
-          <li><strong>이동 차단 장치</strong> — 상설/부분 검문소, 흙더미, 콘크리트 블록, 참호. 2023년 10월 전쟁 후 수백 개 추가 설치.</li>
+          <li><strong>국제적 판단</strong> — 2004년 ICJ 국제법 위반 판결, UN총회 철거 결의안 채택. '아파르트헤이트'의 핵심 기제.</li>
+          <li><strong>검문소</strong> — 비공식 임시 포함 <strong>900곳 이상</strong>. 직선 10분 거리를 수십 km 우회. 안면 인식·생체 정보 시스템 도입.</li>
+          <li><strong>이동 차단 장치</strong> — 상설/부분 검문소, 흙더미, 콘크리트 블록, 참호. 2023년 10월 전쟁 후 수백 개 추가.</li>
         </ul>
       </div>
     </div>
 
-    <h3 class="h-sub reveal">서안지구·가자지구 (2024년 기준)</h3>
+    <h3 class="h-sub reveal">서안지구·가자지구 (2024년)</h3>
     <div class="barrier-spec reveal">
       <div class="spec-row">
         <div class="spec-row__label">팔레스타인 인구</div>
@@ -979,11 +1080,11 @@
       </div>
       <div class="spec-row">
         <div class="spec-row__label">이스라엘 불법정착민</div>
-        <div class="spec-row__value"><strong>서안</strong> 약 70만 명+ (C구역에만 33만 명) / <strong>가자</strong> 2005년 정착촌 철수</div>
+        <div class="spec-row__value"><strong>서안</strong> 약 70만 명+ (C구역 33만 명) / <strong>가자</strong> 2005년 정착촌 철수</div>
       </div>
       <div class="spec-row">
         <div class="spec-row__label">면적</div>
-        <div class="spec-row__value"><strong>서안</strong> 약 5,800㎢ (제주도의 약 3배) / <strong>가자</strong> 약 365㎢ (서울의 약 60%)</div>
+        <div class="spec-row__value"><strong>서안</strong> 약 5,800㎢ (제주도 약 3배) / <strong>가자</strong> 약 365㎢ (서울 약 60%)</div>
       </div>
     </div>
 
@@ -991,7 +1092,7 @@
     <div class="barrier-spec reveal">
       <div class="spec-row">
         <div class="spec-row__label">A구역 · 18%</div>
-        <div class="spec-row__value">팔레스타인 자치정부(PA) 치안·행정 / 주요 8개 도시 및 주변지역</div>
+        <div class="spec-row__value">PA 치안·행정 / 주요 8개 도시 및 주변지역</div>
       </div>
       <div class="spec-row">
         <div class="spec-row__label">B구역 · 22%</div>
@@ -999,20 +1100,20 @@
       </div>
       <div class="spec-row">
         <div class="spec-row__label">C구역 · 60%</div>
-        <div class="spec-row__value">이스라엘 치안·행정. 정착촌·군사시설 집중. <strong>두레생협 올리브유 대부분이 이 지역에서 생산.</strong></div>
+        <div class="spec-row__value">이스라엘 치안·행정. 정착촌·군사시설 집중. <strong>두레 올리브유 대부분이 이 지역에서 생산.</strong></div>
       </div>
     </div>
-    <div class="footnote reveal">이스라엘은 C구역으로 A·B구역을 그물망처럼 둘러싸 팔레스타인 단일국가 건설을 물리적으로 저지합니다. 채석장·비옥한 농경지·사해 자원이 모두 C구역에 집중되어 있습니다.</div>
+    <div class="footnote reveal">이스라엘은 C구역으로 A·B구역을 그물망처럼 둘러싸 팔레스타인 단일국가 건설을 물리적으로 저지합니다. 채석장·비옥한 농경지·사해 자원이 모두 C구역에 집중.</div>
 
-    <div class="barrier reveal" style="margin-top:32px;">
+    <div class="barrier reveal" style="margin-top:28px;">
       <div class="barrier__head">
         <div class="barrier__num">2</div>
-        <div class="barrier__title">생산 기반 위협<br><small style="font-weight:400; opacity:0.7; font-size:13px;">불법정착민의 자원 파괴와 폭력</small></div>
+        <div class="barrier__title">생산 기반 위협<small>불법정착민의 자원 파괴와 폭력</small></div>
       </div>
       <p class="barrier__lede">올리브 수확철, 이스라엘 점령민들이 <strong>수백 년 된 올리브 나무</strong>를 베거나 밭에 불을 지르고, 애써 수확한 열매를 훔쳐 가며, 수확 중인 농민에게 폭력을 행사합니다.</p>
       <div class="barrier__detail">
         <ul class="bullets">
-          <li><strong>강제 이주 유도</strong> — 가혹 행위로 농민이 스스로 집·농지를 떠나도록 압박 (영토 장악 목적).</li>
+          <li><strong>강제 이주 유도</strong> — 가혹 행위로 농민이 스스로 집·농지를 떠나도록 압박.</li>
           <li><strong>방화·작물 훼손</strong> — 수십·수백 년 가꾼 농장과 평화의 상징 올리브 나무 파괴.</li>
           <li><strong>수확물 약탈</strong> — 생명의 위협을 무릅쓰고 수확한 열매를 노골적으로 약탈.</li>
           <li><strong>물리적 폭력</strong> — 팔레스타인 농민에게 무장 공격, 부상자 발생.</li>
@@ -1023,20 +1124,20 @@
     <div class="barrier reveal">
       <div class="barrier__head">
         <div class="barrier__num">3</div>
-        <div class="barrier__title">극심한 수자원 문제<br><small style="font-weight:400; opacity:0.7; font-size:13px;">수원 독점과 물 이용 제한</small></div>
+        <div class="barrier__title">극심한 수자원 문제<small>수원 독점과 물 이용 제한</small></div>
       </div>
       <p class="barrier__lede">이스라엘은 서안·가자지구 수원의 <strong>80%</strong>를 독점합니다. 농민은 마음대로 우물을 파거나 시설을 고칠 수 없으며, 100m 이상 굴착은 허가받기 어렵습니다.</p>
       <div class="barrier__detail">
-        <p style="font-size:12px; color:var(--gold); font-weight:600; letter-spacing:0.05em; margin-bottom:6px;">서안지구</p>
+        <p class="region-tag">서안지구</p>
         <ul class="bullets">
           <li>한 달 매일 물을 받는 가구는 평균 <strong>31%</strong>. 가구의 45%는 한 달 중 물 나오는 날이 10일 미만.</li>
           <li>수돗물 1톤 5세켈 vs 트럭 탱크 12세켈~ — <strong>수돗물보다 10~30배 비싼 물</strong>.</li>
           <li>여름엔 비싼 물조차 한 달 넘게 기다려야.</li>
         </ul>
-        <p style="font-size:12px; color:var(--gold); font-weight:600; letter-spacing:0.05em; margin:14px 0 6px;">가자지구</p>
+        <p class="region-tag">가자지구</p>
         <ul class="bullets">
           <li>주민 62%가 한 달 11~20일만 급수 / 공급되는 물의 대부분이 심각하게 오염.</li>
-          <li>장기 봉쇄·만성 정전 → 담수화·오폐수 처리장 가동 중단 → 처리되지 않은 오물이 바다·지하수로.</li>
+          <li>봉쇄·만성 정전 → 담수화·오폐수 처리장 가동 중단 → 처리되지 않은 오물이 바다·지하수로.</li>
           <li><strong>수돗물의 97%는 마실 수 없는 상태</strong>. 수인성 질병이 어린이 질병의 26% / 청색증 급증.</li>
         </ul>
       </div>
@@ -1045,7 +1146,7 @@
     <div class="barrier reveal">
       <div class="barrier__head">
         <div class="barrier__num">4</div>
-        <div class="barrier__title">부당한 수출입 통제<br><small style="font-weight:400; opacity:0.7; font-size:13px;">검열과 방해</small></div>
+        <div class="barrier__title">부당한 수출입 통제<small>검열과 방해</small></div>
       </div>
       <p class="barrier__lede">물류 이동·무역 과정에서 이스라엘 당국의 삼엄한 감시. 항구·공항까지 수일이 걸리고, 작은 물품·샘플조차 뚜렷한 설명 없이 압수되거나 강도 높은 조사를 받습니다.</p>
       <div class="barrier__detail">
@@ -1059,65 +1160,92 @@
   </div>
 </section>
 
-<!-- CHAPTER 5 -->
 <main class="article">
+  <div class="ornament">
+    <svg viewBox="0 0 120 16" fill="none" aria-hidden="true">
+      <line x1="0" y1="8" x2="48" y2="8" stroke="#b86d23" stroke-width="0.6"/>
+      <circle cx="60" cy="8" r="3" fill="none" stroke="#b86d23" stroke-width="0.8"/>
+      <circle cx="60" cy="8" r="1" fill="#b86d23"/>
+      <line x1="72" y1="8" x2="120" y2="8" stroke="#b86d23" stroke-width="0.6"/>
+    </svg>
+  </div>
+
+  <!-- CH5 -->
   <article class="chapter" id="ch5">
-    <div class="chapter__num reveal">CHAPTER Ⅴ · 보드게임으로 만나는 현실</div>
-    <h2 class="chapter__title reveal">올리브의 여정<br><small style="font-size:0.55em; color:var(--ink-mute); font-weight:500;">팔레스타인에서 두레까지</small></h2>
-    <p class="chapter__lede reveal">팔레스타인 생산자들이 올리브를 심고, 수확하고, 가공하여 한국 두레생협 조합원에게 닿기까지의 험난한 여정을 직접 체험합니다. 검문소 통제, 농장 파괴, 수확물 약탈을 넘어 — 그럼에도 이어지는 연대가 어떻게 '기적의 올리브유'를 만들어내는지 깨닫는 시간.</p>
+    <div class="chapter__num reveal">CHAPTER Ⅴ · 보드게임</div>
+    <h2 class="chapter__title reveal">올리브의 여정<small>팔레스타인에서 두레까지</small></h2>
+    <p class="chapter__lede reveal">팔레스타인 생산자가 올리브를 심고, 수확하고, 가공하여 한국 두레생협 조합원에게 닿기까지의 험난한 여정을 직접 체험합니다. 검문소 통제, 농장 파괴, 수확물 약탈을 넘어 — 그럼에도 이어지는 연대가 어떻게 '기적의 올리브유'를 만들어내는지.</p>
 
     <h3 class="h-sub reveal">9가지 미션 카드</h3>
 
     <div class="missions">
       <div class="mission reveal">
-        <span class="mission__icon">🚫</span>
-        <h5>통행증 발급 불허</h5>
-        <p>분리장벽 때문에 자신의 올리브 농장에 가기 위해 '그린카드'를 발급받아야 하지만, 정당한 이유 없이 거부되어 눈앞에 두고도 농작물을 수확하지 못합니다.</p>
+        <div class="mission__head">
+          <span class="mission__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+          <h5>통행증 발급 불허</h5>
+        </div>
+        <p>분리장벽 때문에 자신의 올리브 농장에 가기 위해 '그린카드'를 받아야 하지만, 정당한 이유 없이 거부되어 눈앞에 두고도 농작물을 수확하지 못함.</p>
       </div>
       <div class="mission reveal">
-        <span class="mission__icon">⛔</span>
-        <h5>검문소의 이유 없는 통제</h5>
-        <p>서안지구 곳곳 900개+ 검문소에서 군인이 이동을 엄격히 제한. 직선 10분 거리를 수십 km 우회하거나, 트럭을 장시간 붙잡아 두어 애써 수확한 농산물이 시들어 버립니다.</p>
+        <div class="mission__head">
+          <span class="mission__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="12" rx="1"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="3" y1="14" x2="21" y2="14"/></svg></span>
+          <h5>검문소의 이유 없는 통제</h5>
+        </div>
+        <p>서안지구 곳곳 900개+ 검문소에서 군인이 이동을 엄격히 제한. 직선 10분 거리를 수십 km 우회하거나, 트럭을 장시간 붙잡아 두어 수확물이 시들어 버림.</p>
       </div>
       <div class="mission reveal">
-        <span class="mission__icon">🏗</span>
-        <h5>분리장벽으로 인한 토지 몰수</h5>
-        <p>총 712km 분리장벽이 비옥한 농경지를 가로질러 사실상 영토를 강제 합병. 농민들은 조상 대대로 물려받은 땅을 하루아침에 잃습니다.</p>
+        <div class="mission__head">
+          <span class="mission__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 20h18M5 20V8l7-4 7 4v12M9 20v-6h6v6"/></svg></span>
+          <h5>분리장벽으로 인한 토지 몰수</h5>
+        </div>
+        <p>총 712km 분리장벽이 비옥한 농경지를 가로질러 사실상 영토를 강제 합병. 농민들은 조상 대대로 물려받은 땅을 하루아침에 잃음.</p>
       </div>
       <div class="mission reveal">
-        <span class="mission__icon">💧</span>
-        <h5>이스라엘의 물 통제</h5>
-        <p>서안·가자지구 수원의 80% 독점. 농민이 허가 없이 우물 파는 것 금지. 수돗물보다 10~30배 비싼 물을 트럭으로 사서 써야 합니다.</p>
+        <div class="mission__head">
+          <span class="mission__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l5 7a6 6 0 11-10 0z"/></svg></span>
+          <h5>이스라엘의 물 통제</h5>
+        </div>
+        <p>서안·가자지구 수원의 80% 독점. 농민이 허가 없이 우물 파는 것 금지. 수돗물보다 10~30배 비싼 물을 트럭으로 사서 써야 함.</p>
       </div>
       <div class="mission reveal">
-        <span class="mission__icon">🔥</span>
-        <h5>불법정착민의 올리브나무 파괴</h5>
-        <p>수백 년 된 올리브나무에 불을 지르거나 베어버립니다. 수확철 열매를 훔치거나 농민에게 총격을 가하는 등 물리적 탄압이 빈번합니다.</p>
+        <div class="mission__head">
+          <span class="mission__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3c1 4 4 5 4 9a4 4 0 11-8 0c0-2 1-3 2-4 0 2 1 3 2 3 0-3 0-5 0-8z"/></svg></span>
+          <h5>불법정착민의 올리브나무 파괴</h5>
+        </div>
+        <p>수백 년 된 올리브나무에 불을 지르거나 베어버림. 수확철 열매를 훔치거나 농민에게 총격을 가하는 등 물리적 탄압.</p>
       </div>
       <div class="mission reveal">
-        <span class="mission__icon">⚠</span>
-        <h5>군사구역 선포 및 해제</h5>
-        <p>서안지구 약 60%인 'C구역'을 치안·행정권 명목으로 통제. 특정 농지를 군사·보안 구역으로 선포·해제 반복하며 농민이 경작 포기·이주하도록 압박합니다.</p>
+        <div class="mission__head">
+          <span class="mission__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3L2 21h20L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17" r="0.6" fill="currentColor"/></svg></span>
+          <h5>군사구역 선포 및 해제</h5>
+        </div>
+        <p>서안지구 약 60%인 'C구역'을 통제. 특정 농지를 군사·보안 구역으로 선포·해제 반복하며 농민이 경작 포기·이주하도록 압박.</p>
       </div>
       <div class="mission reveal">
-        <span class="mission__icon">🚢</span>
-        <h5>선적 지연으로 물류 비용 증가</h5>
-        <p>이스라엘 당국 보안 검사로 항구·공항에서 며칠씩 선적 지연. 출항 일정 놓쳐 다음 배 대기, 추가 보관료 발생 등 물류비가 급증합니다.</p>
+        <div class="mission__head">
+          <span class="mission__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17h18l-2 4H5l-2-4zM5 17V7l4-3h6l4 3v10"/></svg></span>
+          <h5>선적 지연으로 물류 비용 증가</h5>
+        </div>
+        <p>이스라엘 당국 보안 검사로 항구·공항에서 며칠씩 선적 지연. 출항 일정 놓쳐 다음 배 대기, 추가 보관료 발생 등 물류비 급증.</p>
       </div>
       <div class="mission reveal">
-        <span class="mission__icon">📝</span>
-        <h5>까다로운 수출 허가</h5>
-        <p>'Palestine' 원산지 표기조차 제재. 샘플 조사 명목으로 상품 압수·강도 높은 조사. 불가피하게 'West Bank' 표기로만 수출 가능합니다.</p>
+        <div class="mission__head">
+          <span class="mission__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="3" width="14" height="18" rx="1"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg></span>
+          <h5>까다로운 수출 허가</h5>
+        </div>
+        <p>'Palestine' 원산지 표기조차 제재. 샘플 조사 명목으로 상품 압수·강도 높은 조사. 불가피하게 'West Bank' 표기로만 수출 가능.</p>
       </div>
       <div class="mission mission--support reveal">
-        <span class="mission__icon">🤝</span>
-        <h5>해외 단체들의 수확 지원 — 구원의 칸</h5>
-        <p>전 세계 시민사회·민중교역 파트너의 연대. 두레생협 등이 현지 방문 교류, 가공시설 확충 지원, 유기농업 전환 협력으로 농민의 경제적 자생력과 땅 지키기를 지원합니다.</p>
+        <div class="mission__head">
+          <span class="mission__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9-9C1 8 4 4 8 4c2 0 3 1 4 2 1-1 2-2 4-2 4 0 7 4 5 8-2 4.5-9 9-9 9z"/></svg></span>
+          <h5>해외 단체들의 수확 지원 — 구원의 칸</h5>
+        </div>
+        <p>전 세계 시민사회·민중교역 파트너의 연대. 두레생협 등이 현지 방문 교류, 가공시설 확충 지원, 유기농업 전환 협력으로 농민의 자생력과 땅 지키기를 지원.</p>
       </div>
     </div>
 
     <div class="pullquote reveal">
-      <p>"농사를 짓는다는 것은 땅을 지키겠다는 의지." — 무력 대응 수단의 부재 속에서도 '농사를 지속하는 행위' 자체가 이스라엘 압박에 맞선 가장 강력한 비폭력 저항입니다.</p>
+      <p>"농사를 짓는다는 것은 땅을 지키겠다는 의지." 무력 대응 수단의 부재 속에서도 '농사를 지속하는 행위' 자체가 가장 강력한 비폭력 저항입니다.</p>
       <cite>2019, 칼레드 히드미 MGO 대표</cite>
     </div>
   </article>
@@ -1126,7 +1254,14 @@
 <!-- CLOSING -->
 <section class="closing">
   <div class="closing-inner">
-    <div class="closing__symbol">🫒</div>
+    <div class="closing__symbol">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M8 32 Q16 22 22 18 Q28 14 34 8" stroke="currentColor" stroke-width="1.4" fill="none"/>
+        <ellipse cx="14" cy="28" rx="3.2" ry="1.5" fill="currentColor" transform="rotate(-30 14 28)"/>
+        <ellipse cx="20" cy="22" rx="3.2" ry="1.5" fill="currentColor" transform="rotate(-25 20 22)"/>
+        <ellipse cx="26" cy="16" rx="3.2" ry="1.5" fill="currentColor" transform="rotate(-20 26 16)"/>
+      </svg>
+    </div>
     <div class="closing__head reveal">PEACE · SOLIDARITY · 20 YEARS</div>
     <h2 class="reveal">한 병의 올리브유가<br>건너오는 그 길에<br>당신이 함께 있습니다.</h2>
     <p class="reveal">두레생협이 사는 팔레스타인 올리브유의 모든 병에는 100원의 교류기금이 함께 갑니다. 한 병의 소비는 한 그루의 올리브 나무를, 그리고 그 땅을 지키는 한 사람의 농부를 지킵니다.</p>
@@ -1139,18 +1274,15 @@
 </section>
 
 <script>
-  // Reading progress bar
   const bar = document.getElementById('progressBar');
   const updateBar = () => {
     const h = document.documentElement;
-    const scrolled = h.scrollTop;
     const total = h.scrollHeight - h.clientHeight;
-    bar.style.width = total > 0 ? (scrolled / total * 100) + '%' : '0%';
+    bar.style.width = total > 0 ? (h.scrollTop / total * 100) + '%' : '0%';
   };
   document.addEventListener('scroll', updateBar, { passive: true });
   updateBar();
 
-  // TOC
   const tocBtn = document.getElementById('tocBtn');
   const tocOverlay = document.getElementById('tocOverlay');
   tocBtn.addEventListener('click', () => tocOverlay.classList.add('open'));
@@ -1161,7 +1293,6 @@
     a.addEventListener('click', () => tocOverlay.classList.remove('open'));
   });
 
-  // Reveal on scroll
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -1176,6 +1307,5 @@
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
   }
 </script>
-
 </body>
 </html>
